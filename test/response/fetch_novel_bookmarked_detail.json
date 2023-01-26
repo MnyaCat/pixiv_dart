@@ -1,0 +1,42 @@
+{
+    "is_bookmarked": true,
+    "tags": [
+        {
+            "name": "小説",
+            "is_registered": true
+        },
+        {
+            "name": "百合",
+            "is_registered": true
+        },
+        {
+            "name": "オリジナル",
+            "is_registered": true
+        },
+        {
+            "name": "恋愛",
+            "is_registered": true
+        },
+        {
+            "name": "アイドル",
+            "is_registered": true
+        },
+        {
+            "name": "百合文芸4",
+            "is_registered": true
+        },
+        {
+            "name": "早瀬ユウカ",
+            "is_registered": false
+        },
+        {
+            "name": "ブルーアーカイブ",
+            "is_registered": false
+        },
+        {
+            "name": "ブルアカ",
+            "is_registered": false
+        }
+    ],
+    "restrict": "public"
+}

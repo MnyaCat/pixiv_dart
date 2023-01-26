@@ -1,0 +1,15 @@
+{
+    // https://gist.github.com/gaetschwartz/b5fed3ebf7594c54472c6ecf11eed2e1
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
+        ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+        "readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+        "*.dart": "$(capture).g.dart, $(capture).freezed.dart",
+    },
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json": "file:///c%3A/Users/user/Documents/dart-project/pixiv_dart/pixiv-api.yaml",
+        "swaggerviewer:openapi": "file:///c%3A/Users/user/Documents/dart-project/pixiv_dart/openapi.yaml"
+    },
+}

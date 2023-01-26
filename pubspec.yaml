@@ -1,0 +1,15 @@
+name: pixiv_dart
+description: pixiv API for dart.
+version: 0.1.0
+
+environment:
+  sdk: '>=2.17.6 <3.0.0'
+
+dev_dependencies:
+  build_runner: ^2.2.1
+  freezed: ^2.1.0+1
+  json_serializable: ^6.4.1
+  lints: ^2.0.0
+  pedantic_mono: ^1.19.2+1
+  test: ^1.16.0
+dependencies: {crypto: ^3.0.2, freezed_annotation: ^2.1.0, http: ^0.13.5, json_annotation: ^4.7.0}

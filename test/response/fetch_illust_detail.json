@@ -1,0 +1,94 @@
+{
+    "id": 98612479,
+    "title": "スキイチpixiv特別企画「トゥインクルレイン」",
+    "type": "illust",
+    "image_urls": {
+        "square_medium": "https://i.pximg.net/c/360x360_70/img-master/img/2022/06/14/15/49/29/98612479_p0_square1200.jpg",
+        "medium": "https://i.pximg.net/c/540x540_70/img-master/img/2022/06/14/15/49/29/98612479_p0_master1200.jpg",
+        "large": "https://i.pximg.net/c/600x1200_90/img-master/img/2022/06/14/15/49/29/98612479_p0_master1200.jpg"
+    },
+    "caption": "pixiv事務局です。<br /><br />梅雨の季節になりました。今回の特別企画では「雨」をテーマに作品を募集します。<br />色鮮やかな紫陽花、お気に入りの傘、オシャレでポップなレインコートなど、「雨」をテーマにした作品をお待ちしております。<br />オリジナル、ファンアート、ファンフィクション関係なくご参加いただけます。<br /><br />【開催期間】<br />2022年6月14日（火）～　2022年7月3日（日） 23:59まで<br /><br />【参加方法】<br />企画に応募したい作品に対し、参加タグを設定してpixivに投稿してください。<br />投稿済みの作品を応募する場合は、作品詳細画面から参加タグを設定してください。<br /><br />【参加タグ】<br />トゥインクルレイン<br />　<br />【投稿形式】<br />イラスト・マンガ・小説形式でご参加いただけます。<br /><br />・オリジナル・ファンアートは問いません。<br />・Web投稿画像サイズの指定はありません。<br />・応募作品の内容は、全年齢向けのものに限ります。<br />・1点以上複数作品の投稿可能です。同じ作品を複数投稿できません。<br /><br />【抽選】<br />参加者の中から抽選で15名<br />Amazonギフトコード10&#44;000円分<br /><br />【スキイチpixivとは】<br />クリエイターの&quot;スキ&quot;を発見できる様々なテーマで、月1回pixivで開催する作品投稿企画です。<br />参加作品はスキイチpixiv公式アカウント（twitter/suki1pixiv）で紹介されることがあります。<br /><br />スキイチpixiv公式Twitter<br /><strong><a href=\"https://twitter.com/suki1pixiv\" target=\"_blank\">twitter/suki1pixiv</a></strong><br /><br />【イラスト・マンガの特設ページ】<br /><a href=\"https://www.pixiv.net/contest/twinkle_rain\" target=\"_blank\">https://www.pixiv.net/contest/twinkle_rain</a><br /><br />【小説の特設ページ】<br /><a href=\"https://www.pixiv.net/novel/contest/twinkle_rain\" target=\"_blank\">https://www.pixiv.net/novel/contest/twinkle_rain</a><br /><br />みなさまの作品をお待ちしています！",
+    "restrict": 0,
+    "user": {
+        "id": 11,
+        "name": "pixiv事務局",
+        "account": "pixiv",
+        "profile_image_urls": {
+            "medium": "https://i.pximg.net/user-profile/img/2018/04/26/17/49/29/14143210_7f79090d53f5b1befad3ba07818d89dd_170.jpg"
+        },
+        "is_followed": false
+    },
+    "tags": [
+        {
+            "name": "オリジナル",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "スキイチpixiv",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "企画目録",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "雨",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "傘",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "梅雨",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "レインコート",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "梅花",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "トゥインクルレイン",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        },
+        {
+            "name": "荷花",
+            "translated_name": null,
+            "added_by_uploaded_user": null
+        }
+    ],
+    "tools": [],
+    "create_date": "2022-05-26T14:28:27+09:00",
+    "page_count": 1,
+    "width": 1280,
+    "height": 1940,
+    "sanity_level": 2,
+    "x_restrict": 0,
+    "series": null,
+    "meta_single_page": {
+        "original_image_url": "https://i.pximg.net/img-original/img/2022/06/14/15/49/29/98612479_p0.jpg"
+    },
+    "meta_pages": [],
+    "total_view": 116891,
+    "total_bookmarks": 1771,
+    "is_bookmarked": false,
+    "visible": true,
+    "is_muted": false,
+    "total_comments": 15,
+    "illust_ai_type": 0,
+    "illust_book_style": 0,
+    "comment_access_control": 0
+}

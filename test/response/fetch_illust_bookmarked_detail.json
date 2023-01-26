@@ -1,0 +1,58 @@
+{
+    "is_bookmarked": true,
+    "tags": [
+        {
+            "name": "刻晴",
+            "is_registered": true
+        },
+        {
+            "name": "刻晴(原神)",
+            "is_registered": true
+        },
+        {
+            "name": "原神",
+            "is_registered": true
+        },
+        {
+            "name": "原神10000users入り",
+            "is_registered": false
+        },
+        {
+            "name": "跳躍",
+            "is_registered": false
+        },
+        {
+            "name": "虹色",
+            "is_registered": false
+        },
+        {
+            "name": "水しぶき",
+            "is_registered": false
+        },
+        {
+            "name": "梅雨空ドレス",
+            "is_registered": false
+        },
+        {
+            "name": "女の子",
+            "is_registered": false
+        },
+        {
+            "name": "傘",
+            "is_registered": false
+        },
+        {
+            "name": "七色",
+            "is_registered": false
+        },
+        {
+            "name": "オリジナル",
+            "is_registered": false
+        },
+        {
+            "name": "9350",
+            "is_registered": false
+        }
+    ],
+    "restrict": "public"
+}

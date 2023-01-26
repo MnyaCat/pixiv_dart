@@ -1,0 +1,10 @@
+# https://pub.dev/packages/pedantic_mono
+include: package:pedantic_mono/analysis_options.yaml
+
+linter:
+  rules:
+    flutter_style_todos: false
+
+analyzer:
+  errors:
+    invalid_annotation_target: ignore
