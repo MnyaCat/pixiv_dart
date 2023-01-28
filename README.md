@@ -50,11 +50,18 @@ pixivへログインするためには、OAuth認証のアクセストークン�
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+import 'package:http/http.dart' show Client;
+import 'package:pixiv_dart/pixiv_dart.dart';
+
+void main() async {
+  final api =
+      await ApiClient.loginWithRefreshToken('your refresh token', Client());
+
+  // fetch illust detail
+  final illust = await api.fetchIllustDetail(92210213);
+  print('title: ${illust.title}');
+}
 ```
 
 ## LICENSE
