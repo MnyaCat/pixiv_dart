@@ -21,7 +21,7 @@ void main() async {
 
   // fetch user illust bookmarks(1-30)
   final bookmarks = await api.fetchUserIllustBookmarks(
-    int.parse(api.user.id),
+    api.user.id,
     Restrict.public,
   );
   print(

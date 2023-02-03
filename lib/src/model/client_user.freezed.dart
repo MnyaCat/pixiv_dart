@@ -222,7 +222,8 @@ ClientUser _$ClientUserFromJson(Map<String, dynamic> json) {
 mixin _$ClientUser {
   CllientUserProfileImageUrls get profileImageUrls =>
       throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  @IdConverter()
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get account => throw _privateConstructorUsedError;
   String get mailAddress => throw _privateConstructorUsedError;
@@ -245,7 +246,7 @@ abstract class $ClientUserCopyWith<$Res> {
   @useResult
   $Res call(
       {CllientUserProfileImageUrls profileImageUrls,
-      String id,
+      @IdConverter() int id,
       String name,
       String account,
       String mailAddress,
@@ -288,7 +289,7 @@ class _$ClientUserCopyWithImpl<$Res, $Val extends ClientUser>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -340,7 +341,7 @@ abstract class _$$_ClientUserCopyWith<$Res>
   @useResult
   $Res call(
       {CllientUserProfileImageUrls profileImageUrls,
-      String id,
+      @IdConverter() int id,
       String name,
       String account,
       String mailAddress,
@@ -382,7 +383,7 @@ class __$$_ClientUserCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -420,7 +421,7 @@ class __$$_ClientUserCopyWithImpl<$Res>
 class _$_ClientUser implements _ClientUser {
   _$_ClientUser(
       {required this.profileImageUrls,
-      required this.id,
+      @IdConverter() required this.id,
       required this.name,
       required this.account,
       required this.mailAddress,
@@ -435,7 +436,8 @@ class _$_ClientUser implements _ClientUser {
   @override
   final CllientUserProfileImageUrls profileImageUrls;
   @override
-  final String id;
+  @IdConverter()
+  final int id;
   @override
   final String name;
   @override
@@ -509,7 +511,7 @@ class _$_ClientUser implements _ClientUser {
 abstract class _ClientUser implements ClientUser {
   factory _ClientUser(
       {required final CllientUserProfileImageUrls profileImageUrls,
-      required final String id,
+      @IdConverter() required final int id,
       required final String name,
       required final String account,
       required final String mailAddress,
@@ -524,7 +526,8 @@ abstract class _ClientUser implements ClientUser {
   @override
   CllientUserProfileImageUrls get profileImageUrls;
   @override
-  String get id;
+  @IdConverter()
+  int get id;
   @override
   String get name;
   @override

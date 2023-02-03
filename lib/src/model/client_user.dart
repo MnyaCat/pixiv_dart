@@ -17,11 +17,21 @@ class CllientUserProfileImageUrls with _$CllientUserProfileImageUrls {
       _$CllientUserProfileImageUrlsFromJson(json);
 }
 
+class IdConverter implements JsonConverter<int, String> {
+  const IdConverter();
+
+  @override
+  int fromJson(String json) => int.parse(json);
+
+  @override
+  String toJson(int object) => object.toString();
+}
+
 @freezed
 class ClientUser with _$ClientUser {
   factory ClientUser({
     required CllientUserProfileImageUrls profileImageUrls,
-    required String id,
+    @IdConverter() required int id,
     required String name,
     required String account,
     required String mailAddress,

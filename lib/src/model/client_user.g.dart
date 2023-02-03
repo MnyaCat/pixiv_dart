@@ -27,7 +27,7 @@ Map<String, dynamic> _$$_CllientUserProfileImageUrlsToJson(
 _$_ClientUser _$$_ClientUserFromJson(Map json) => _$_ClientUser(
       profileImageUrls: CllientUserProfileImageUrls.fromJson(
           Map<String, dynamic>.from(json['profile_image_urls'] as Map)),
-      id: json['id'] as String,
+      id: const IdConverter().fromJson(json['id'] as String),
       name: json['name'] as String,
       account: json['account'] as String,
       mailAddress: json['mail_address'] as String,
@@ -40,7 +40,7 @@ _$_ClientUser _$$_ClientUserFromJson(Map json) => _$_ClientUser(
 Map<String, dynamic> _$$_ClientUserToJson(_$_ClientUser instance) =>
     <String, dynamic>{
       'profile_image_urls': instance.profileImageUrls.toJson(),
-      'id': instance.id,
+      'id': const IdConverter().toJson(instance.id),
       'name': instance.name,
       'account': instance.account,
       'mail_address': instance.mailAddress,
