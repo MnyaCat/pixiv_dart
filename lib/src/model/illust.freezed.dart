@@ -356,8 +356,8 @@ Illust _$IllustFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Illust {
   int get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError; // TODO: Enumを検討
-  String get type => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  IllustType get type => throw _privateConstructorUsedError;
   ImageUrls get imageUrls => throw _privateConstructorUsedError;
   String get caption => throw _privateConstructorUsedError;
   int get restrict => throw _privateConstructorUsedError;
@@ -401,7 +401,7 @@ abstract class $IllustCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      String type,
+      IllustType type,
       ImageUrls imageUrls,
       String caption,
       int restrict,
@@ -486,7 +486,7 @@ class _$IllustCopyWithImpl<$Res, $Val extends Illust>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as IllustType,
       imageUrls: null == imageUrls
           ? _value.imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
@@ -636,7 +636,7 @@ abstract class _$$_IllustCopyWith<$Res> implements $IllustCopyWith<$Res> {
   $Res call(
       {int id,
       String title,
-      String type,
+      IllustType type,
       ImageUrls imageUrls,
       String caption,
       int restrict,
@@ -722,7 +722,7 @@ class __$$_IllustCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as IllustType,
       imageUrls: null == imageUrls
           ? _value.imageUrls
           : imageUrls // ignore: cast_nullable_to_non_nullable
@@ -870,9 +870,8 @@ class _$_Illust implements _Illust {
   final int id;
   @override
   final String title;
-// TODO: Enumを検討
   @override
-  final String type;
+  final IllustType type;
   @override
   final ImageUrls imageUrls;
   @override
@@ -1050,7 +1049,7 @@ abstract class _Illust implements Illust {
   factory _Illust(
       {required final int id,
       required final String title,
-      required final String type,
+      required final IllustType type,
       required final ImageUrls imageUrls,
       required final String caption,
       required final int restrict,
@@ -1087,8 +1086,8 @@ abstract class _Illust implements Illust {
   int get id;
   @override
   String get title;
-  @override // TODO: Enumを検討
-  String get type;
+  @override
+  IllustType get type;
   @override
   ImageUrls get imageUrls;
   @override

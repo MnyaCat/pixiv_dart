@@ -14,6 +14,8 @@ String _camelCasetoSnakeCase(String string) {
       .toLowerCase();
 }
 
+enum IllustType { illust, manga, ugoira }
+
 enum AIType { undefined, humanCreated, aiGenerated }
 
 enum IllustRankingMode {

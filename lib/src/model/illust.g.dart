@@ -35,7 +35,7 @@ Map<String, dynamic> _$$_MetaSinglePageToJson(_$_MetaSinglePage instance) =>
 _$_Illust _$$_IllustFromJson(Map json) => _$_Illust(
       id: json['id'] as int,
       title: json['title'] as String,
-      type: json['type'] as String,
+      type: $enumDecode(_$IllustTypeEnumMap, json['type']),
       imageUrls: ImageUrls.fromJson(
           Map<String, dynamic>.from(json['image_urls'] as Map)),
       caption: json['caption'] as String,
@@ -74,7 +74,7 @@ _$_Illust _$$_IllustFromJson(Map json) => _$_Illust(
 Map<String, dynamic> _$$_IllustToJson(_$_Illust instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
-      'type': instance.type,
+      'type': _$IllustTypeEnumMap[instance.type]!,
       'image_urls': instance.imageUrls.toJson(),
       'caption': instance.caption,
       'restrict': instance.restrict,
@@ -101,3 +101,9 @@ Map<String, dynamic> _$$_IllustToJson(_$_Illust instance) => <String, dynamic>{
       'illust_book_style': instance.illustBookStyle,
       'comment_access_control': instance.commentAccessControl,
     };
+
+const _$IllustTypeEnumMap = {
+  IllustType.illust: 'illust',
+  IllustType.manga: 'manga',
+  IllustType.ugoira: 'ugoira',
+};

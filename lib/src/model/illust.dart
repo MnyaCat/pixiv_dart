@@ -91,8 +91,7 @@ class Illust with _$Illust {
   factory Illust({
     required int id,
     required String title,
-    // TODO: Enumを検討
-    required String type,
+    required IllustType type,
     required ImageUrls imageUrls,
     required String caption,
     required int restrict,
