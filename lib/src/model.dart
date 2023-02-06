@@ -11,6 +11,7 @@ export 'model/novel_bookmarks.dart';
 export 'model/profile_image_urls.dart';
 export 'model/series.dart';
 export 'model/tag.dart';
+export 'model/ugoira_metadata.dart';
 export 'model/user.dart';
 export 'model/user_account.dart';
 export 'model/user_detail.dart';
