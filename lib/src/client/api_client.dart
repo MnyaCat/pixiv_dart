@@ -229,7 +229,16 @@ class ApiClient extends BaseClient {
   // search
   // spotlight
   // trending-tags
+
   // ugoira
+  Future<UgoiraMetadata> fetchUgoiraMetadata(int illustId) async {
+    final body = <String, String>{'illust_id': illustId.toString()};
+    final url = Uri.https(apiHostname, '/v1/ugoira/metadata', body);
+    final response = await _get(url, headers: defaultHeader);
+    final jsonResponse = parse(response);
+    return UgoiraMetadata.fromJson(jsonResponse['ugoira_metadata'] as JsonMap);
+  }
+
   // user
 
   Future<UserDetail> fetchUserDetail(int userId) async {
