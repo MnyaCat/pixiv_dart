@@ -297,16 +297,16 @@ class ApiClient extends BaseClient {
   // webview
 
   // download
-  Future<void> downloadIllust(String url, {File? file}) async {
+  Future<File> downloadIllust(String url, {File? file}) async {
     final uri = Uri.parse(url);
     final response = await innerClient
         .get(uri, headers: {'Referer': 'https://$apiHostname'});
     if (file == null) {
       final fileName = uri.pathSegments.last;
       final file = File(fileName);
-      await file.writeAsBytes(response.bodyBytes);
+      return file.writeAsBytes(response.bodyBytes);
     } else {
-      await file.writeAsBytes(response.bodyBytes);
+      return file.writeAsBytes(response.bodyBytes);
     }
   }
 }
