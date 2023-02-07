@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
 
@@ -306,16 +306,10 @@ class ApiClient extends BaseClient {
   // webview
 
   // download
-  Future<File> downloadIllustData(String url, {File? file}) async {
+  Future<Uint8List> downloadIllustData(String url) async {
     final uri = Uri.parse(url);
     final response = await innerClient
         .get(uri, headers: {'Referer': 'https://$apiHostname'});
-    if (file == null) {
-      final fileName = uri.pathSegments.last;
-      final file = File(fileName);
-      return file.writeAsBytes(response.bodyBytes);
-    } else {
-      return file.writeAsBytes(response.bodyBytes);
-    }
+    return response.bodyBytes;
   }
 }
