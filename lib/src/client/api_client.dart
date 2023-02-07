@@ -306,7 +306,7 @@ class ApiClient extends BaseClient {
   // webview
 
   // download
-  Future<File> downloadIllust(String url, {File? file}) async {
+  Future<File> downloadIllustData(String url, {File? file}) async {
     final uri = Uri.parse(url);
     final response = await innerClient
         .get(uri, headers: {'Referer': 'https://$apiHostname'});
