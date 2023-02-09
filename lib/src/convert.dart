@@ -20,7 +20,7 @@ Future<Command> ugoiraToGifCommand(
     // デコードに問題があるとnullが返される
     command.decodeJpg(frameFile!.content as Uint8List);
     final image = await command.getImage();
-    image!.frameDuration = frame.delay ~/ 10;
+    image!.frameDuration = frame.delay;
     frames.add(image);
   }
 
