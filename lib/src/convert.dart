@@ -48,7 +48,8 @@ Future<Image?> ugoiraToGifImageThread(
   Uint8List ugoiraData,
   UgoiraMetadata metadata,
 ) async {
-  final command = await ugoiraToGifCommand(ugoiraData, metadata);
+  final command =
+      await ugoiraToGifCommand(ugoiraData, metadata, executeThread: true);
   return command.getImageThread();
 }
 
@@ -64,6 +65,7 @@ Future<Uint8List?> ugoiraToGifBytesThread(
   Uint8List ugoiraData,
   UgoiraMetadata metadata,
 ) async {
-  final command = await ugoiraToGifCommand(ugoiraData, metadata);
+  final command =
+      await ugoiraToGifCommand(ugoiraData, metadata, executeThread: true);
   return command.getBytesThread();
 }
