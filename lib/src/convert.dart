@@ -7,19 +7,26 @@ import 'model/ugoira_metadata.dart';
 
 Future<Command> ugoiraToGifCommand(
   Uint8List ugoiraData,
-  UgoiraMetadata metadata,
-) async {
+  UgoiraMetadata metadata, {
+  bool executeThread = false,
+}) async {
   final ugoira = ZipDecoder().decodeBytes(ugoiraData);
   final command = Command();
   final frames = <Image>[];
+  final Future<Image?> Function() getImage;
 
+  if (executeThread) {
+    getImage = command.getImageThread;
+  } else {
+    getImage = command.getImage;
+  }
   for (final frame in metadata.frames) {
     // // 見つからなかったらnullが返される
     final frameFile = ugoira.findFile(frame.file);
     // ArchiveFile.contentがdynamicなのでUint8Listに変換する
     // デコードに問題があるとnullが返される
     command.decodeJpg(frameFile!.content as Uint8List);
-    final image = await command.getImage();
+    final image = await getImage();
     image!.frameDuration = frame.delay;
     frames.add(image);
   }
