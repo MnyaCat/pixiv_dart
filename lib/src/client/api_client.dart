@@ -57,36 +57,12 @@ class ApiClient extends BaseClient {
     userAccount = await AuthClient().refreshAccount(userAccount.refreshToken);
   }
 
-  Future<Map<String, String>?> setNewTokenIfneed(
-    Map<String, String>? headers,
-  ) async {
+  Future<Map<String, String>> getRefreshedHeader() async {
     if (!userAccount.isActive()) {
       await refreshAccount();
-      if (headers != null) {
-        headers['Authorization'] = 'Bearer ${userAccount.accessToken}';
-      }
+      defaultHeader['Authorization'] = 'Bearer ${userAccount.accessToken}';
     }
-    return headers;
-  }
-
-  Future<http.Response> _get(Uri url, {Map<String, String>? headers}) async {
-    final editedHeaders = await setNewTokenIfneed(headers);
-    return innerClient.get(url, headers: editedHeaders);
-  }
-
-  Future<http.Response> _post(
-    Uri url, {
-    Map<String, String>? headers,
-    Object? body,
-    Encoding? encoding,
-  }) async {
-    final editedHeaders = await setNewTokenIfneed(headers);
-    return innerClient.post(
-      url,
-      headers: editedHeaders,
-      body: body,
-      encoding: encoding,
-    );
+    return defaultHeader;
   }
 
   @override
@@ -144,21 +120,24 @@ class ApiClient extends BaseClient {
         ),
       );
     }
-    final response = await _post(url, headers: defaultHeader, body: body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.post(url, headers: header, body: body);
     parse(response);
   }
 
   Future<void> deleteIllustBookmark(int illustId) async {
     final url = Uri.https(apiHostname, '/v1/illust/bookmark/delete');
     final body = <String, String>{'illust_id': illustId.toString()};
-    final response = await _post(url, headers: defaultHeader, body: body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.post(url, headers: header, body: body);
     parse(response);
   }
 
   Future<BookmarkDetail> fetchIllustBookmarkedDetail(int illustId) async {
     final body = <String, String>{'illust_id': illustId.toString()};
     final url = Uri.https(apiHostname, '/v2/illust/bookmark/detail', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return BookmarkDetail.fromJson(
       jsonResponse['bookmark_detail'] as JsonMap,
@@ -171,7 +150,8 @@ class ApiClient extends BaseClient {
       'illust_id': illustId.toString()
     };
     final url = Uri.https(apiHostname, '/v1/illust/detail', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return Illust.fromJson(jsonResponse['illust'] as JsonMap);
   }
@@ -197,21 +177,24 @@ class ApiClient extends BaseClient {
         ),
       );
     }
-    final response = await _post(url, headers: defaultHeader, body: body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.post(url, headers: header, body: body);
     parse(response);
   }
 
   Future<void> deleteNovelBookmark(int novelId) async {
     final url = Uri.https(apiHostname, 'v1/novel/bookmark/delete');
     final body = <String, String>{'novel_id': novelId.toString()};
-    final response = await _post(url, headers: defaultHeader, body: body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.post(url, headers: header, body: body);
     parse(response);
   }
 
   Future<BookmarkDetail> fetchNovelBookmarkedDetail(int novelId) async {
     final body = <String, String>{'novel_id': novelId.toString()};
     final url = Uri.https(apiHostname, '/v2/novel/bookmark/detail', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return BookmarkDetail.fromJson(
       jsonResponse['bookmark_detail'] as JsonMap,
@@ -221,7 +204,8 @@ class ApiClient extends BaseClient {
   Future<Novel> fetchNovelDetail(int novelId) async {
     final body = <String, String>{'novel_id': novelId.toString()};
     final url = Uri.https(apiHostname, '/v2/novel/detail', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return Novel.fromJson(jsonResponse['novel'] as JsonMap);
   }
@@ -234,9 +218,12 @@ class ApiClient extends BaseClient {
   Future<UgoiraMetadata> fetchUgoiraMetadata(int illustId) async {
     final body = <String, String>{'illust_id': illustId.toString()};
     final url = Uri.https(apiHostname, '/v1/ugoira/metadata', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
-    return UgoiraMetadata.fromJson(jsonResponse['ugoira_metadata'] as JsonMap);
+    return UgoiraMetadata.fromJson(
+      jsonResponse['ugoira_metadata'] as JsonMap,
+    );
   }
 
   // user
@@ -247,7 +234,8 @@ class ApiClient extends BaseClient {
       'user_id': userId.toString()
     };
     final url = Uri.https(apiHostname, '/v1/user/detail', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return UserDetail.fromJson(jsonResponse);
   }
@@ -263,7 +251,8 @@ class ApiClient extends BaseClient {
       if (maxBookmarkId != null) 'max_bookmark_id': maxBookmarkId.toString(),
     };
     final url = Uri.https(apiHostname, '/v1/user/bookmarks/illust', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return IllustBookmarks.fromJson(jsonResponse);
   }
@@ -272,7 +261,8 @@ class ApiClient extends BaseClient {
     String nextUrl,
   ) async {
     final url = Uri.parse(nextUrl);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return IllustBookmarks.fromJson(jsonResponse);
   }
@@ -288,7 +278,8 @@ class ApiClient extends BaseClient {
       if (maxBookmarkId != null) 'max_bookmark_id': maxBookmarkId.toString(),
     };
     final url = Uri.https(apiHostname, '/v1/user/bookmarks/novel', body);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return NovelBookmarks.fromJson(jsonResponse);
   }
@@ -297,7 +288,8 @@ class ApiClient extends BaseClient {
     String nextUrl,
   ) async {
     final url = Uri.parse(nextUrl);
-    final response = await _get(url, headers: defaultHeader);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
     return NovelBookmarks.fromJson(jsonResponse);
   }
