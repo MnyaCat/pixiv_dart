@@ -7,7 +7,7 @@ export 'model/illusts.dart';
 export 'model/image_urls.dart';
 export 'model/json_converters.dart';
 export 'model/novel.dart';
-export 'model/novel_bookmarks.dart';
+export 'model/novels.dart';
 export 'model/profile_image_urls.dart';
 export 'model/series.dart';
 export 'model/tag.dart';
