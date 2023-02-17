@@ -240,7 +240,7 @@ class ApiClient extends BaseClient {
     return UserDetail.fromJson(jsonResponse);
   }
 
-  Future<IllustBookmarks> fetchUserIllustBookmarks(
+  Future<Illusts> fetchUserIllustBookmarks(
     int userId,
     Restrict restrict, [
     int? maxBookmarkId,
@@ -254,17 +254,17 @@ class ApiClient extends BaseClient {
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
-    return IllustBookmarks.fromJson(jsonResponse);
+    return Illusts.fromJson(jsonResponse);
   }
 
-  Future<IllustBookmarks> fetchUserIllustBookmarksByNextUrl(
+  Future<Illusts> fetchUserIllustBookmarksByNextUrl(
     String nextUrl,
   ) async {
     final url = Uri.parse(nextUrl);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
-    return IllustBookmarks.fromJson(jsonResponse);
+    return Illusts.fromJson(jsonResponse);
   }
 
   Future<NovelBookmarks> fetchUserNovelBookmarks(

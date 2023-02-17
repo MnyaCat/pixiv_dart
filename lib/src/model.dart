@@ -3,7 +3,7 @@ export 'model/bookmark_detail.dart';
 export 'model/client_user.dart';
 export 'model/enums.dart';
 export 'model/illust.dart';
-export 'model/illust_bookmarks.dart';
+export 'model/illusts.dart';
 export 'model/image_urls.dart';
 export 'model/json_converters.dart';
 export 'model/novel.dart';
