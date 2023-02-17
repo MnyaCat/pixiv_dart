@@ -156,6 +156,17 @@ class ApiClient extends BaseClient {
     return Illust.fromJson(jsonResponse['illust'] as JsonMap);
   }
 
+  Future<Illusts> fetchLatestIllustByFollowing(
+    FollowingRestrict restrict,
+  ) async {
+    final body = <String, String>{'restrict': restrict.name};
+    final url = Uri.https(apiHostname, '/v2/illust/follow', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   // live
   // manga
   // novel
