@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 
 import '../constants.dart';
 import '../exceptions.dart';
+import '../extensions.dart';
 import '../model.dart';
 import 'auth_client.dart';
 import 'base_client.dart';
@@ -161,6 +162,24 @@ class ApiClient extends BaseClient {
   ) async {
     final body = <String, String>{'restrict': restrict.name};
     final url = Uri.https(apiHostname, '/v2/illust/follow', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
+  Future<Illusts> fetchIllustRanking({
+    IllustRankingMode? mode,
+    int? offset,
+    DateTime? date,
+  }) async {
+    final body = <String, String?>{
+      'mode': mode?.toSnakeCaseString(),
+      'offset': offset?.toString(),
+      'date': date?.toDateString()
+    }..removeWhere((key, value) => value == null);
+    print(body);
+    final url = Uri.https(apiHostname, '/v1/illust/ranking', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
