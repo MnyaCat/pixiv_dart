@@ -13,4 +13,6 @@ extension DateTimeExtension on DateTime {
     final isoString = toIso8601String().replaceAll('Z', '');
     return '${isoString.substring(0, isoString.indexOf('.'))}$timeZone';
   }
+
+  String toDateString() => '$year-${month.toString().padLeft(2, '0')}-$day';
 }
