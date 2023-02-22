@@ -211,6 +211,35 @@ class ApiClient extends BaseClient {
     return Illusts.fromJson(jsonResponse);
   }
 
+  Future<Illusts> fetchRelatedIllust(
+    int illustId, {
+    List<int>? seedIllustId,
+    List<int>? viewed,
+  }) async {
+    final body = <String, String>{'illust_id': illustId.toString()};
+    if (seedIllustId != null) {
+      body.addAll(
+        _listToQuery(
+          seedIllustId.map<String>((e) => e.toString()).toList(),
+          'seed_illust_id',
+        ),
+      );
+    }
+    if (viewed != null) {
+      body.addAll(
+        _listToQuery(
+          viewed.map<String>((e) => e.toString()).toList(),
+          'viewed',
+        ),
+      );
+    }
+    final url = Uri.https(apiHostname, 'v2/illust/related', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   // live
   // manga
   // novel
