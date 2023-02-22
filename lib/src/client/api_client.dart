@@ -168,6 +168,16 @@ class ApiClient extends BaseClient {
     return Illusts.fromJson(jsonResponse);
   }
 
+  Future<Illusts> fetchLatestIllustByMyPixiv({int? offset}) async {
+    final body = <String, String?>{'offset': offset?.toString()}
+      ..removeWhere((key, value) => value == null);
+    final url = Uri.https(apiHostname, 'v2/illust/mypixiv', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   Future<Illusts> fetchIllustRanking({
     IllustRankingMode? mode,
     int? offset,
