@@ -157,6 +157,24 @@ class ApiClient extends BaseClient {
     return Illust.fromJson(jsonResponse['illust'] as JsonMap);
   }
 
+  Future<Illusts> fetchIllustRanking({
+    IllustRankingMode? mode,
+    int? offset,
+    DateTime? date,
+  }) async {
+    final body = <String, String?>{
+      'mode': mode?.toSnakeCaseString(),
+      'offset': offset?.toString(),
+      'date': date?.toDateString()
+    }..removeWhere((key, value) => value == null);
+    print(body);
+    final url = Uri.https(apiHostname, '/v1/illust/ranking', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   Future<Illusts> fetchLatestIllustByFollowing(
     FollowingRestrict restrict,
   ) async {
@@ -187,24 +205,6 @@ class ApiClient extends BaseClient {
       'max_illust_id': maxIllustId?.toString()
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/illust/new', body);
-    final header = await getRefreshedHeader();
-    final response = await innerClient.get(url, headers: header);
-    final jsonResponse = parse(response);
-    return Illusts.fromJson(jsonResponse);
-  }
-
-  Future<Illusts> fetchIllustRanking({
-    IllustRankingMode? mode,
-    int? offset,
-    DateTime? date,
-  }) async {
-    final body = <String, String?>{
-      'mode': mode?.toSnakeCaseString(),
-      'offset': offset?.toString(),
-      'date': date?.toDateString()
-    }..removeWhere((key, value) => value == null);
-    print(body);
-    final url = Uri.https(apiHostname, '/v1/illust/ranking', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
