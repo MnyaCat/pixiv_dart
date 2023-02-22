@@ -178,6 +178,21 @@ class ApiClient extends BaseClient {
     return Illusts.fromJson(jsonResponse);
   }
 
+  Future<Illusts> fetchLatestIllusts({
+    IllustContentType contentType = IllustContentType.illust,
+    int? maxIllustId,
+  }) async {
+    final body = <String, String?>{
+      'content_type': contentType.name,
+      'max_illust_id': maxIllustId?.toString()
+    }..removeWhere((key, value) => value == null);
+    final url = Uri.https(apiHostname, 'v1/illust/new', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   Future<Illusts> fetchIllustRanking({
     IllustRankingMode? mode,
     int? offset,
