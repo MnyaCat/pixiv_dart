@@ -167,7 +167,6 @@ class ApiClient extends BaseClient {
       'offset': offset?.toString(),
       'date': date?.toDateString()
     }..removeWhere((key, value) => value == null);
-    print(body);
     final url = Uri.https(apiHostname, '/v1/illust/ranking', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
@@ -205,6 +204,35 @@ class ApiClient extends BaseClient {
       'max_illust_id': maxIllustId?.toString()
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/illust/new', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
+  Future<Illusts> fetchRecommendedIllusts({
+    int? offset,
+    int? minBookmarkIdForRecentIllust,
+    int? maxBookmarkIdForRecommend,
+    List<int>? viewed,
+  }) async {
+    final body = <String, String?>{
+      'include_ranking_illusts': false.toString(),
+      'include_privacy_policy': false.toString(),
+      'offset': offset?.toString(),
+      'min_bookmark_id_for_recent_illust':
+          minBookmarkIdForRecentIllust?.toString(),
+      'max_bookmark_id_for_recommend': maxBookmarkIdForRecommend?.toString()
+    }..removeWhere((key, value) => value == null);
+    if (viewed != null) {
+      body.addAll(
+        _listToQuery(
+          viewed.map<String>((e) => e.toString()).toList(),
+          'viewed',
+        ),
+      );
+    }
+    final url = Uri.https(apiHostname, 'v1/illust/recommended', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
