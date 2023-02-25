@@ -167,7 +167,6 @@ class ApiClient extends BaseClient {
       'offset': offset?.toString(),
       'date': date?.toDateString()
     }..removeWhere((key, value) => value == null);
-    print(body);
     final url = Uri.https(apiHostname, '/v1/illust/ranking', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
