@@ -322,6 +322,21 @@ class ApiClient extends BaseClient {
     return Novel.fromJson(jsonResponse['novel'] as JsonMap);
   }
 
+  Future<Novels> fetchLatestNovelsByFollowing({
+    FollowingRestrict restrict = FollowingRestrict.all,
+    int? offset,
+  }) async {
+    final body = <String, String?>{
+      'restrict': restrict.name,
+      'offset': offset?.toString()
+    }..removeWhere((key, value) => value == null);
+    final url = Uri.https(apiHostname, 'v1/novel/follow', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Novels.fromJson(jsonResponse);
+  }
+
   // search
   // spotlight
   // trending-tags
