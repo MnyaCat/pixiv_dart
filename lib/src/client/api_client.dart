@@ -337,6 +337,16 @@ class ApiClient extends BaseClient {
     return Novels.fromJson(jsonResponse);
   }
 
+  Future<Novels> fetchLatestNovelsByMyPixiv({int? offset}) async {
+    final body = <String, String?>{'offset': offset?.toString()}
+      ..removeWhere((key, value) => value == null);
+    final url = Uri.https(apiHostname, 'v1/novel/mypixiv', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Novels.fromJson(jsonResponse);
+  }
+
   // search
   // spotlight
   // trending-tags
