@@ -394,6 +394,16 @@ class ApiClient extends BaseClient {
     final jsonResponse = parse(response);
     return Novels.fromJson(jsonResponse);
   }
+
+  Future<Novels> fetchRelatedNovels(int novelId) async {
+    final body = <String, String>{'novel_id': novelId.toString()};
+    final url = Uri.https(apiHostname, 'v1/novel/related', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Novels.fromJson(jsonResponse);
+  }
+
   // search
   // spotlight
   // trending-tags
