@@ -357,14 +357,38 @@ class ApiClient extends BaseClient {
     return Novels.fromJson(jsonResponse);
   }
 
-  Future<Novels> fetchNovelRanking(
-      {NovelRankingMode? mode, int? offset, DateTime? date}) async {
+  Future<Novels> fetchNovelRanking({
+    NovelRankingMode? mode,
+    int? offset,
+    DateTime? date,
+  }) async {
     final body = <String, String?>{
       'mode': mode?.toSnakeCaseString(),
       'offset': offset?.toString(),
       'date': date?.toDateString()
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/novel/ranking', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Novels.fromJson(jsonResponse);
+  }
+
+  Future<Novels> fetchRecommendedNovels({
+    int? offset,
+    int? maxBookmarIdForRecommended,
+    List<int>? alreadyRecommended,
+  }) async {
+    final body = <String, String?>{
+      'include_ranking_novels': 'false',
+      'include_privacy_policy': 'false',
+      'offset': offset?.toString(),
+      'max_bookmark_id_for_recommended': maxBookmarIdForRecommended?.toString()
+    }..removeWhere((key, value) => value == null);
+    if (alreadyRecommended != null && alreadyRecommended.isNotEmpty) {
+      body['already_recommended'] = alreadyRecommended.join(',');
+    }
+    final url = Uri.https(apiHostname, 'v1/novel/recommended', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
     final jsonResponse = parse(response);
