@@ -347,7 +347,7 @@ class ApiClient extends BaseClient {
     return Novels.fromJson(jsonResponse);
   }
 
-  Future<Novels> fetchLatesNovels({int? maxNovelId}) async {
+  Future<Novels> fetchLatestNovels({int? maxNovelId}) async {
     final body = <String, String?>{'max_novel_id': maxNovelId?.toString()}
       ..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/novel/new', body);
