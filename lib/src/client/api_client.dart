@@ -433,6 +433,14 @@ class ApiClient extends BaseClient {
     parse(response);
   }
 
+  Future<void> deleteFollow(int id) async {
+    final url = Uri.https(apiHostname, '/v1/user/follow/delete');
+    final body = <String, String>{'user_id': id.toString()};
+    final header = await getRefreshedHeader();
+    final response = await innerClient.post(url, headers: header, body: body);
+    parse(response);
+  }
+
   Future<UserDetail> fetchUserDetail(int userId) async {
     final body = <String, String>{
       'filter': 'for_ios',
