@@ -484,6 +484,22 @@ class ApiClient extends BaseClient {
     return UserPreviews.fromJson(jsonResponse);
   }
 
+  Future<Illusts> fetchUserIllusts(
+    int userId, {
+    IllustContentType type = IllustContentType.illust,
+  }) async {
+    final body = <String, String>{
+      'filter': 'for_ios',
+      'user_id': userId.toString(),
+      'type': type.name
+    };
+    final url = Uri.https(apiHostname, '/v1/user/illusts', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   Future<Illusts> fetchUserIllustBookmarks(
     int userId,
     Restrict restrict, [
