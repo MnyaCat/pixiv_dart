@@ -3,24 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../constants.dart';
 import 'enums.dart';
 import 'profile_image_urls.dart';
+import 'user_info.dart';
 
 part 'user_detail.freezed.dart';
 part 'user_detail.g.dart';
-
-@freezed
-class UserInfo with _$UserInfo {
-  factory UserInfo({
-    required int id,
-    required String name,
-    required String account,
-    required ProfileImageUrls profileImageUrls,
-    required String comment,
-    required bool isFollowed,
-    required bool isAccessBlockingUser,
-  }) = _UserInfo;
-
-  factory UserInfo.fromJson(JsonMap json) => _$UserInfoFromJson(json);
-}
 
 @freezed
 class Profile with _$Profile {

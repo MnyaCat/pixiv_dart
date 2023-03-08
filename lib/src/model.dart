@@ -15,3 +15,4 @@ export 'model/ugoira_metadata.dart';
 export 'model/user.dart';
 export 'model/user_account.dart';
 export 'model/user_detail.dart';
+export 'model/user_preview.dart';

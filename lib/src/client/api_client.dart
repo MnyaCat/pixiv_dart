@@ -441,6 +441,21 @@ class ApiClient extends BaseClient {
     parse(response);
   }
 
+  Future<List<UserPreview>> fetchRelatedUsers(int seedUserId) async {
+    final body = <String, String>{
+      'seed_user_id': seedUserId.toString(),
+      'filter': 'for_ios'
+    };
+    final url = Uri.https(apiHostname, 'v1/user/related', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response)['user_previews'] as List;
+    return jsonResponse
+        .cast<JsonMap>()
+        .map<UserPreview>(UserPreview.fromJson)
+        .toList();
+  }
+
   Future<UserDetail> fetchUserDetail(int userId) async {
     final body = <String, String>{
       'filter': 'for_ios',
