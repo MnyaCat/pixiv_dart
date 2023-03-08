@@ -468,6 +468,22 @@ class ApiClient extends BaseClient {
     return UserDetail.fromJson(jsonResponse);
   }
 
+  Future<UserPreviews> fetchUserFollowing(
+    int userId, {
+    Restrict restrict = Restrict.public,
+  }) async {
+    final body = <String, String>{
+      'filter': 'for_ios',
+      'user_id': userId.toString(),
+      'restrict': restrict.name
+    };
+    final url = Uri.https(apiHostname, '/v1/user/following', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return UserPreviews.fromJson(jsonResponse);
+  }
+
   Future<Illusts> fetchUserIllustBookmarks(
     int userId,
     Restrict restrict, [
