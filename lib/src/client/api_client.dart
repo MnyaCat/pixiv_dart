@@ -527,6 +527,15 @@ class ApiClient extends BaseClient {
     return Illusts.fromJson(jsonResponse);
   }
 
+  Future<Novels> fetchUserNovels(int userId) async {
+    final body = <String, String>{'user_id': userId.toString()};
+    final url = Uri.https(apiHostname, '/v1/user/novels', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Novels.fromJson(jsonResponse);
+  }
+
   Future<Novels> fetchUserNovelBookmarks(
     int userId,
     Restrict restrict, [
