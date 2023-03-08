@@ -426,7 +426,7 @@ class ApiClient extends BaseClient {
     final url = Uri.https(apiHostname, '/v1/user/follow/add');
     final body = <String, String>{
       'user_id': id.toString(),
-      'estrict': restrict.name
+      'restrict': restrict.name
     };
     final header = await getRefreshedHeader();
     final response = await innerClient.post(url, headers: header, body: body);
