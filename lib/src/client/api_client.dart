@@ -270,6 +270,31 @@ class ApiClient extends BaseClient {
 
   // live
   // manga
+  Future<Illusts> fetchRecommendedManga({
+    List<int>? bookmarkIllustIds,
+    int? maxBookmarkId,
+    List<int>? viewed,
+  }) async {
+    final body = <String, String?>{'max_bookmark_id': maxBookmarkId?.toString()}
+      ..removeWhere((key, value) => value == null);
+    if (viewed != null) {
+      body.addAll(
+        _listToQuery(
+          viewed.map<String>((e) => e.toString()).toList(),
+          'viewed',
+        ),
+      );
+    }
+    if (bookmarkIllustIds != null && bookmarkIllustIds.isNotEmpty) {
+      body['bookmark_illust_ids'] = bookmarkIllustIds.join(',');
+    }
+    final url = Uri.https(apiHostname, 'v1/manga/recommended', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Illusts.fromJson(jsonResponse);
+  }
+
   // novel
   Future<void> addNovelBookmark(
     int novelId, {
