@@ -422,6 +422,17 @@ class ApiClient extends BaseClient {
 
   // user
 
+  Future<void> addFollow(int id, {Restrict restrict = Restrict.public}) async {
+    final url = Uri.https(apiHostname, '/v1/user/follow/add');
+    final body = <String, String>{
+      'user_id': id.toString(),
+      'estrict': restrict.name
+    };
+    final header = await getRefreshedHeader();
+    final response = await innerClient.post(url, headers: header, body: body);
+    parse(response);
+  }
+
   Future<UserDetail> fetchUserDetail(int userId) async {
     final body = <String, String>{
       'filter': 'for_ios',
