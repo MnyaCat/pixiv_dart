@@ -63,6 +63,24 @@ enum NovelRankingMode {
   String toSnakeCaseString() => _camelCasetoSnakeCase(name);
 }
 
+enum IllustSearchTarget {
+  partialMatchForTags,
+  exactMatchForTags,
+  titleAndCaption;
+
+  String toSnakeCaseString() => _camelCasetoSnakeCase(name);
+}
+
+enum SearchResultSortType {
+  dateDesc,
+  dateAsc,
+  popularDesc,
+  popularMaleDesc,
+  popularFemaleDesc;
+
+  String toSnakeCaseString() => _camelCasetoSnakeCase(name);
+}
+
 enum Privacy { public, mypixiv, private }
 
 enum Restrict { public, private }
