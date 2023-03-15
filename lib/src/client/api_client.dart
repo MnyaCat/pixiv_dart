@@ -490,6 +490,19 @@ class ApiClient extends BaseClient {
     return Novels.fromJson(jsonResponse);
   }
 
+  Future<UserPreviews> searchUser(String word, {int? offset}) async {
+    final body = <String, String?>{
+      'word': word,
+      'offset': offset?.toString(),
+      'filter': 'for_ios'
+    }..removeWhere((key, value) => value == null);
+    final url = Uri.https(apiHostname, 'v1/search/user', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return UserPreviews.fromJson(jsonResponse);
+  }
+
   // spotlight
   // trending-tags
 
