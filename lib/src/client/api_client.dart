@@ -460,6 +460,36 @@ class ApiClient extends BaseClient {
     return Illusts.fromJson(jsonResponse);
   }
 
+  Future<Novels> searchNovel(
+    String word, {
+    NovelSearchTarget searchTarget = NovelSearchTarget.partialMatchForTags,
+    SearchResultSortType sortType = SearchResultSortType.dateDesc,
+    int? bookmarkMin,
+    int? bookmarkMax,
+    DateTime? startDate,
+    DateTime? endDate,
+    int? offset,
+  }) async {
+    final body = <String, String?>{
+      'word': word,
+      'search_target': searchTarget.toSnakeCaseString(),
+      'sort': sortType.toSnakeCaseString(),
+      'bookmark_num_min': bookmarkMin?.toString(),
+      'bookmark_num_max': bookmarkMax?.toString(),
+      'start_date': startDate?.toDateString(),
+      'end_date': endDate?.toDateString(),
+      'offset': offset?.toString(),
+      'include_translated_tags_results': 'true',
+      'merge_plain_keyword_results': 'true',
+      'filter': 'for_ios',
+    }..removeWhere((key, value) => value == null);
+    final url = Uri.https(apiHostname, 'v1/search/novel', body);
+    final header = await getRefreshedHeader();
+    final response = await innerClient.get(url, headers: header);
+    final jsonResponse = parse(response);
+    return Novels.fromJson(jsonResponse);
+  }
+
   // spotlight
   // trending-tags
 

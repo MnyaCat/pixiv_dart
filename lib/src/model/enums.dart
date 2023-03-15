@@ -71,6 +71,15 @@ enum IllustSearchTarget {
   String toSnakeCaseString() => _camelCasetoSnakeCase(name);
 }
 
+enum NovelSearchTarget {
+  partialMatchForTags,
+  exactMatchForTags,
+  text,
+  keyword;
+
+  String toSnakeCaseString() => _camelCasetoSnakeCase(name);
+}
+
 enum SearchResultSortType {
   dateDesc,
   dateAsc,
