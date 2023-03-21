@@ -3,13 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:http/http.dart' as http;
-import 'package:pixiv_dart/src/client/api_client.dart';
-import 'package:pixiv_dart/src/model/bookmark_detail.dart';
-import 'package:pixiv_dart/src/model/enums.dart';
-import 'package:pixiv_dart/src/model/illust.dart';
-import 'package:pixiv_dart/src/model/novel.dart';
-import 'package:pixiv_dart/src/model/user_account.dart';
-import 'package:pixiv_dart/src/model/user_detail.dart';
+import 'package:pixiv_dart/pixiv_dart.dart';
 import 'package:test/test.dart';
 
 typedef JsonMap = Map<String, dynamic>;
@@ -101,6 +95,25 @@ void main() async {
       expect(illust.id, matcherIllust.id);
       expect(illust.title, matcherIllust.title);
       expect(illust.createDate, matcherIllust.createDate);
+    });
+
+    group('fetchIllustRanking test', () {
+      test('fetch daily ranking test', () async {
+        await apiClient!.fetchIllustRanking();
+      });
+      test('fetch daily ranking #31~60', () async {
+        await apiClient!.fetchIllustRanking(offset: 30);
+      });
+      test('fetch daily ranking on 01/01/2023 test', () async {
+        final illusts =
+            await apiClient!.fetchIllustRanking(date: DateTime(2023));
+        final json = await jsonFileDecode(
+          'test/response/fetch_illust_ranking_2023_01_01.json',
+        );
+        final matcherIllusts = Illusts.fromJson(json);
+        expect(illusts.illusts[0].id, matcherIllusts.illusts[0].id);
+        expect(illusts.illusts[0].title, matcherIllusts.illusts[0].title);
+      });
     });
   });
 
