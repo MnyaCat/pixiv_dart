@@ -158,12 +158,12 @@ class ApiClient extends BaseClient {
   }
 
   Future<Illusts> fetchIllustRanking({
-    IllustRankingMode? mode,
+    IllustRankingMode mode = IllustRankingMode.day,
     int? offset,
     DateTime? date,
   }) async {
     final body = <String, String?>{
-      'mode': mode?.toSnakeCaseString(),
+      'mode': mode.toSnakeCaseString(),
       'offset': offset?.toString(),
       'date': date?.toDateString()
     }..removeWhere((key, value) => value == null);
