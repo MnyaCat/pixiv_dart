@@ -132,6 +132,15 @@ void main() async {
         await apiClient!.fetchLatestIllustByFollowing(offset: 30);
       });
     });
+
+    group('fetchLatestIllustByMyPixiv test', () {
+      test('fetch latest illust mypixiv', () async {
+        await apiClient!.fetchLatestIllustByMyPixiv();
+      });
+      test('fetch latest illust mypixiv 31~60', () async {
+        await apiClient!.fetchLatestIllustByMyPixiv(offset: 30);
+      });
+    });
   });
 
   group('Novel api', () {
