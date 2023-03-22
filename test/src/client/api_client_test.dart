@@ -115,6 +115,23 @@ void main() async {
         expect(illusts.illusts[0].title, matcherIllusts.illusts[0].title);
       });
     });
+
+    group('fetchLatestIllustByFollowing test', () {
+      test('fetch all follow', () async {
+        await apiClient!.fetchLatestIllustByFollowing();
+      });
+      test('fetch public follow', () async {
+        await apiClient!
+            .fetchLatestIllustByFollowing(restrict: FollowingRestrict.public);
+      });
+      test('fetch private follow', () async {
+        await apiClient!
+            .fetchLatestIllustByFollowing(restrict: FollowingRestrict.private);
+      });
+      test('fetch all follow 31~60', () async {
+        await apiClient!.fetchLatestIllustByFollowing(offset: 30);
+      });
+    });
   });
 
   group('Novel api', () {
