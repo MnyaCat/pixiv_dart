@@ -174,9 +174,9 @@ class ApiClient extends BaseClient {
     return Illusts.fromJson(jsonResponse);
   }
 
-  Future<Illusts> fetchLatestIllustByFollowing(
-    FollowingRestrict restrict,
-  ) async {
+  Future<Illusts> fetchLatestIllustByFollowing({
+    FollowingRestrict restrict = FollowingRestrict.all,
+  }) async {
     final body = <String, String>{'restrict': restrict.name};
     final url = Uri.https(apiHostname, '/v2/illust/follow', body);
     final header = await getRefreshedHeader();
