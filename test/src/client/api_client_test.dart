@@ -144,6 +144,30 @@ void main() async {
       });
     });
 
+    group('fetchRecommendedIllusts test', () {
+      test('fetch recommended illust', () async {
+        await apiClient!.fetchRecommendedIllusts();
+      });
+      test('fetch recommended illust 30~60', () async {
+        final illusts = await apiClient!.fetchRecommendedIllusts();
+        final queries = Uri.parse(illusts.nextUrl!).queryParameters;
+        final viewed = <int>[];
+        queries.forEach((key, value) {
+          if (key.contains('viewed')) {
+            viewed.add(int.parse(value));
+          }
+        });
+        await apiClient!.fetchRecommendedIllusts(
+          offset: int.parse(queries['offset']!),
+          minBookmarkIdForRecentIllust:
+              int.parse(queries['min_bookmark_id_for_recent_illust']!),
+          maxBookmarkIdForRecommend:
+              int.parse(queries['max_bookmark_id_for_recommend']!),
+          viewed: viewed,
+        );
+      });
+    });
+
     group('fetchLatestIllustByMyPixiv test', () {
       test('fetch latest illust mypixiv', () async {
         await apiClient!.fetchLatestIllustByMyPixiv();
