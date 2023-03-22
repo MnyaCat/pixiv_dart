@@ -133,6 +133,17 @@ void main() async {
       });
     });
 
+    group('fetchLatestIllusts test', () {
+      test('fetch latest illust', () async {
+        await apiClient!.fetchLatestIllusts();
+      });
+      test('fetch latest illust 31~60', () async {
+        final illusts = await apiClient!.fetchLatestIllusts();
+        final maxIllustId = illusts.illusts[29].id;
+        await apiClient!.fetchLatestIllusts(maxIllustId: maxIllustId);
+      });
+    });
+
     group('fetchLatestIllustByMyPixiv test', () {
       test('fetch latest illust mypixiv', () async {
         await apiClient!.fetchLatestIllustByMyPixiv();
