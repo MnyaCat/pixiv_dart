@@ -176,6 +176,27 @@ void main() async {
         );
       });
     });
+
+    group('fetchRelatedIllust', () {
+      test('fetch related illust', () async {
+        await apiClient!.fetchRelatedIllust(illustId);
+      });
+      test('fetch related illust 31~60', () async {
+        final illusts = await apiClient!.fetchRelatedIllust(illustId);
+        final queries = Uri.parse(illusts.nextUrl!).queryParameters;
+        final viewed = <int>[];
+        queries.forEach((key, value) {
+          if (key.contains('viewed')) {
+            viewed.add(int.parse(value));
+          }
+        });
+        await apiClient!.fetchRelatedIllust(
+          illustId,
+          seedIllustId: [int.parse(queries['seed_illust_ids[0]']!)],
+          viewed: viewed,
+        );
+      });
+    });
   });
 
   group('Novel api', () {
