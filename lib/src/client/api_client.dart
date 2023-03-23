@@ -253,7 +253,7 @@ class ApiClient extends BaseClient {
       body.addAll(
         _listToQuery(
           seedIllustId.map<String>((e) => e.toString()).toList(),
-          'seed_illust_id',
+          'seed_illust_ids',
         ),
       );
     }
