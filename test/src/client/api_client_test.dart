@@ -133,6 +133,15 @@ void main() async {
       });
     });
 
+    group('fetchLatestIllustByMyPixiv test', () {
+      test('fetch latest illust mypixiv', () async {
+        await apiClient!.fetchLatestIllustByMyPixiv();
+      });
+      test('fetch latest illust mypixiv 31~60', () async {
+        await apiClient!.fetchLatestIllustByMyPixiv(offset: 30);
+      });
+    });
+
     group('fetchLatestIllusts test', () {
       test('fetch latest illust', () async {
         await apiClient!.fetchLatestIllusts();
@@ -165,15 +174,6 @@ void main() async {
               int.parse(queries['max_bookmark_id_for_recommend']!),
           viewed: viewed,
         );
-      });
-    });
-
-    group('fetchLatestIllustByMyPixiv test', () {
-      test('fetch latest illust mypixiv', () async {
-        await apiClient!.fetchLatestIllustByMyPixiv();
-      });
-      test('fetch latest illust mypixiv 31~60', () async {
-        await apiClient!.fetchLatestIllustByMyPixiv(offset: 30);
       });
     });
   });
