@@ -424,8 +424,28 @@ class ApiClient extends BaseClient {
     return Novels.fromJson(jsonResponse);
   }
 
-  Future<Novels> fetchRelatedNovels(int novelId) async {
+  Future<Novels> fetchRelatedNovels(
+    int novelId, {
+    List<int>? seedNovelIds,
+    List<int>? viewed,
+  }) async {
     final body = <String, String>{'novel_id': novelId.toString()};
+    if (seedNovelIds != null) {
+      body.addAll(
+        _listToQuery(
+          seedNovelIds.map<String>((e) => e.toString()).toList(),
+          'seed_novel_ids',
+        ),
+      );
+    }
+    if (viewed != null) {
+      body.addAll(
+        _listToQuery(
+          viewed.map<String>((e) => e.toString()).toList(),
+          'viewed',
+        ),
+      );
+    }
     final url = Uri.https(apiHostname, 'v1/novel/related', body);
     final header = await getRefreshedHeader();
     final response = await innerClient.get(url, headers: header);
