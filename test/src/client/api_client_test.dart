@@ -148,7 +148,8 @@ void main() async {
       });
       test('fetch latest illust 31~60', () async {
         final illusts = await apiClient!.fetchLatestIllusts();
-        final maxIllustId = illusts.illusts[29].id;
+        final lastIndex = illusts.illusts.length;
+        final maxIllustId = illusts.illusts[lastIndex - 1].id;
         await apiClient!.fetchLatestIllusts(maxIllustId: maxIllustId);
       });
     });
@@ -200,7 +201,7 @@ void main() async {
   });
 
   group('Novel api', () {
-    const novelId = 17299080;
+    const novelId = 11674134;
     group('addNovelBookmark test', () {
       test('add public test', () async {
         final randomTag = Random().nextInt(10000).toString();
@@ -266,6 +267,97 @@ void main() async {
       expect(novel.id, matcherNovel.id);
       expect(novel.title, matcherNovel.title);
       expect(novel.createDate, matcherNovel.createDate);
+    });
+    group('fetchLatestNovels test', () {
+      test('fetch latest illust', () async {
+        await apiClient!.fetchLatestNovels();
+      });
+      test('fetch latest illust 31~60', () async {
+        final novels = await apiClient!.fetchLatestNovels();
+        final lastIndex = novels.novels.length;
+        final maxNovelId = novels.novels[lastIndex - 1].id;
+        await apiClient!.fetchLatestNovels(maxNovelId: maxNovelId);
+      });
+    });
+    group('fetchLatestNovelsByFollowing test', () {
+      test('fetch all follow', () async {
+        await apiClient!.fetchLatestNovelsByFollowing();
+      });
+      test('fetch public follow', () async {
+        await apiClient!
+            .fetchLatestNovelsByFollowing(restrict: FollowingRestrict.public);
+      });
+      test('fetch private follow', () async {
+        await apiClient!
+            .fetchLatestNovelsByFollowing(restrict: FollowingRestrict.private);
+      });
+      test('fetch all follow 31~60', () async {
+        await apiClient!.fetchLatestNovelsByFollowing(offset: 30);
+      });
+    });
+    group('fetchLatestNovelsByMyPixiv test', () {
+      test('fetch latest novel mypixiv', () async {
+        await apiClient!.fetchLatestNovelsByMyPixiv();
+      });
+      test('fetch latest novel mypixiv 31~60', () async {
+        await apiClient!.fetchLatestNovelsByMyPixiv(offset: 30);
+      });
+    });
+    group('fetchNovelRanking test', () {
+      test('fetch daily ranking test', () async {
+        await apiClient!.fetchNovelRanking();
+      });
+      test('fetch daily ranking #31~60', () async {
+        await apiClient!.fetchNovelRanking(offset: 30);
+      });
+      test('fetch daily ranking on 01/01/2023 test', () async {
+        final novels = await apiClient!.fetchNovelRanking(date: DateTime(2023));
+        final json = await jsonFileDecode(
+          'test/response/fetch_novel_ranking_2023_01_01.json',
+        );
+        final matcherNovels = Novels.fromJson(json);
+        expect(novels.novels[0].id, matcherNovels.novels[0].id);
+        expect(novels.novels[0].title, matcherNovels.novels[0].title);
+      });
+    });
+    group('fetchRecommendedNovels test', () {
+      test('fetch recommended novel', () async {
+        await apiClient!.fetchRecommendedNovels();
+      });
+      test('fetch recommended novel 30~60', () async {
+        final novels = await apiClient!.fetchRecommendedNovels();
+        final queries = Uri.parse(novels.nextUrl!).queryParameters;
+        final alreadyRecommended = queries['already_recommended']!
+            .split(',')
+            .map<int>(int.parse)
+            .toList();
+        await apiClient!.fetchRecommendedNovels(
+          offset: int.parse(queries['offset']!),
+          maxBookmarIdForRecommended:
+              int.parse(queries['max_bookmark_id_for_recommend']!),
+          alreadyRecommended: alreadyRecommended,
+        );
+      });
+    });
+    group('fetchRelatedNovels test', () {
+      test('fetch related novel', () async {
+        await apiClient!.fetchRelatedNovels(novelId);
+      });
+      test('fetch related novel 31~60', () async {
+        final novels = await apiClient!.fetchRelatedNovels(novelId);
+        final queries = Uri.parse(novels.nextUrl!).queryParameters;
+        final viewed = <int>[];
+        queries.forEach((key, value) {
+          if (key.contains('viewed')) {
+            viewed.add(int.parse(value));
+          }
+        });
+        await apiClient!.fetchRelatedNovels(
+          novelId,
+          seedNovelIds: [int.parse(queries['seed_novel_ids[0]']!)],
+          viewed: viewed,
+        );
+      });
     });
   });
 
