@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../constants.dart';
 import 'enums.dart';
-import 'profile_image_urls.dart';
 import 'user_info.dart';
 
 part 'user_detail.freezed.dart';

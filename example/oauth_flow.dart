@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:pixiv_dart/pixiv_dart.dart';
 
 void main(List<String> args) async {
-  print(args);
   final authClient = AuthClient();
 
   final authCode = authClient.getAuthCode();

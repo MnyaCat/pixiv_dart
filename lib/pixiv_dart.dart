@@ -1,4 +1,3 @@
-library pixiv_dart;
 
 export 'src/client.dart';
 export 'src/constants.dart';
