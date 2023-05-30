@@ -29,7 +29,7 @@ void main() async {
   });
 
   group('Illust api', () {
-    const illustId = 98612479;
+    const illustId = 92210213;
     group('addIllustBookmark test', () {
       test('add public test', () async {
         final randomTag = Random().nextInt(10000).toString();
@@ -133,6 +133,7 @@ void main() async {
       });
     });
 
+    // mypixivがいないので/v2/illust/followでテスト
     group('fetchLatestIllustByMyPixiv test', () {
       test('fetch latest illust mypixiv', () async {
         await apiClient!.fetchLatestIllustByMyPixiv();
@@ -295,6 +296,7 @@ void main() async {
         await apiClient!.fetchLatestNovelsByFollowing(offset: 30);
       });
     });
+    // mypixivがいないのでv1/novel/followでテスト
     group('fetchLatestNovelsByMyPixiv test', () {
       test('fetch latest novel mypixiv', () async {
         await apiClient!.fetchLatestNovelsByMyPixiv();
