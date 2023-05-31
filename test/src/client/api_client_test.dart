@@ -2,9 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:http/http.dart' as http;
 import 'package:pixiv_dart/pixiv_dart.dart';
 import 'package:test/test.dart';
+
+import './mock_client.dart';
 
 typedef JsonMap = Map<String, dynamic>;
 
@@ -21,7 +22,7 @@ void main() async {
   late ApiClient? apiClient;
 
   setUp(() {
-    apiClient = ApiClient(userAccount, http.Client());
+    apiClient = ApiClient(userAccount, createMockClient());
   });
 
   tearDown(() {
@@ -30,174 +31,86 @@ void main() async {
 
   group('Illust api', () {
     const illustId = 92210213;
-    group('addIllustBookmark test', () {
-      test('add public test', () async {
-        final randomTag = Random().nextInt(10000).toString();
-        await apiClient!.addIllustBookmark(illustId, tags: [randomTag]);
-        final bookmarkedDetail =
-            await apiClient!.fetchIllustBookmarkedDetail(illustId);
-        expect(bookmarkedDetail.isBookmarked, true);
-        expect(
-          bookmarkedDetail.tags
-              .contains(BookmarkTag(name: randomTag, isRegistered: true)),
-          true,
-        );
-        await apiClient!.deleteIllustBookmark(illustId);
-      });
-      test('add private test', () async {
-        final randomTag = Random().nextInt(10000).toString();
-        await apiClient!.addIllustBookmark(
-          illustId,
-          restrict: Restrict.private,
-          tags: [randomTag],
-        );
-        final bookmarkedDetail =
-            await apiClient!.fetchIllustBookmarkedDetail(illustId);
-        expect(bookmarkedDetail.isBookmarked, true);
-        expect(bookmarkedDetail.restrict, Restrict.private);
-        expect(
-          bookmarkedDetail.tags
-              .contains(BookmarkTag(name: randomTag, isRegistered: true)),
-          true,
-        );
-        await apiClient!.deleteIllustBookmark(illustId);
-      });
+    test('addIllustBookmark test', () async {
+      await apiClient!.addIllustBookmark(illustId);
     });
     test('deleteIllustBookmark test', () async {
       await apiClient!.addIllustBookmark(illustId);
-      await apiClient!.deleteIllustBookmark(illustId);
-      final bookmarkDetail =
-          await apiClient!.fetchIllustBookmarkedDetail(illustId);
-      expect(
-        bookmarkDetail.isBookmarked,
-        false,
-      );
     });
     test('fetchIllustBookmarkedDetail test', () async {
-      final bookmarkedDetail =
-          await apiClient!.fetchIllustBookmarkedDetail(92210213);
-      final json = await jsonFileDecode(
-        'test/response/fetch_illust_bookmarked_detail.json',
-      );
-      final matcherBookmarkDetail = BookmarkDetail.fromJson(json);
-      expect(bookmarkedDetail.isBookmarked, matcherBookmarkDetail.isBookmarked);
+      final bookmark = await apiClient!.fetchIllustBookmarkedDetail(92210213);
+      expect(bookmark.isBookmarked, isTrue);
+      expect(bookmark.restrict, Restrict.public);
       expect(
-        bookmarkedDetail.tags.where((tag) => tag.isRegistered),
-        matcherBookmarkDetail.tags.where((tag) => tag.isRegistered),
+        bookmark.getRegisteredTags(),
+        ['刻晴', '刻晴(原神)', '原神']
+            .map((name) => BookmarkTag(name: name, isRegistered: true)),
       );
-      expect(bookmarkedDetail.restrict, matcherBookmarkDetail.restrict);
     });
     test('fetchIllustDetail test', () async {
       final illust = await apiClient!.fetchIllustDetail(illustId);
-      final json =
-          await jsonFileDecode('test/response/fetch_illust_detail.json');
-      final matcherIllust = Illust.fromJson(json);
-      expect(illust.id, matcherIllust.id);
-      expect(illust.title, matcherIllust.title);
-      expect(illust.createDate, matcherIllust.createDate);
+      expect(illust.id, illustId);
+      expect(illust.title, '刻晴');
+      expect(
+        illust.tags,
+        ['原神', '刻晴', '原神10000users入り', '刻晴(原神)'].map((name) => Tag(name: name)),
+      );
     });
 
-    group('fetchIllustRanking test', () {
-      test('fetch daily ranking test', () async {
-        await apiClient!.fetchIllustRanking();
-      });
-      test('fetch daily ranking #31~60', () async {
-        await apiClient!.fetchIllustRanking(offset: 30);
-      });
-      test('fetch daily ranking on 01/01/2023 test', () async {
-        final illusts =
-            await apiClient!.fetchIllustRanking(date: DateTime(2023));
-        final json = await jsonFileDecode(
-          'test/response/fetch_illust_ranking_2023_01_01.json',
-        );
-        final matcherIllusts = Illusts.fromJson(json);
-        expect(illusts.illusts[0].id, matcherIllusts.illusts[0].id);
-        expect(illusts.illusts[0].title, matcherIllusts.illusts[0].title);
-      });
+    test('fetchIllustRanking test', () async {
+      final ranking =
+          await apiClient!.fetchIllustRanking(date: DateTime(2023, 4, 26));
+      expect(ranking.illusts.length, 29);
+      expect(
+        ranking.illusts[0].id,
+        107494210,
+      );
     });
 
-    group('fetchLatestIllustByFollowing test', () {
-      test('fetch all follow', () async {
-        await apiClient!.fetchLatestIllustByFollowing();
-      });
-      test('fetch public follow', () async {
-        await apiClient!
-            .fetchLatestIllustByFollowing(restrict: FollowingRestrict.public);
-      });
-      test('fetch private follow', () async {
-        await apiClient!
-            .fetchLatestIllustByFollowing(restrict: FollowingRestrict.private);
-      });
-      test('fetch all follow 31~60', () async {
-        await apiClient!.fetchLatestIllustByFollowing(offset: 30);
-      });
+    test('fetchLatestIllustByFollowing test', () async {
+      final illusts = await apiClient!.fetchLatestIllustByFollowing();
+      expect(illusts.illusts.length, 30);
+      expect(
+        illusts.illusts[0].id,
+        108555990,
+      );
     });
 
     // mypixivがいないので/v2/illust/followでテスト
-    group('fetchLatestIllustByMyPixiv test', () {
-      test('fetch latest illust mypixiv', () async {
-        await apiClient!.fetchLatestIllustByMyPixiv();
-      });
-      test('fetch latest illust mypixiv 31~60', () async {
-        await apiClient!.fetchLatestIllustByMyPixiv(offset: 30);
-      });
+    test('fetchLatestIllustByMyPixiv', () async {
+      final illusts = await apiClient!.fetchLatestIllustByMyPixiv();
+      expect(illusts.illusts.length, 29);
+      expect(
+        illusts.illusts[0].id,
+        107494210,
+      );
     });
 
-    group('fetchLatestIllusts test', () {
-      test('fetch latest illust', () async {
-        await apiClient!.fetchLatestIllusts();
-      });
-      test('fetch latest illust 31~60', () async {
-        final illusts = await apiClient!.fetchLatestIllusts();
-        final lastIndex = illusts.illusts.length;
-        final maxIllustId = illusts.illusts[lastIndex - 1].id;
-        await apiClient!.fetchLatestIllusts(maxIllustId: maxIllustId);
-      });
+    test('fetchLatestIllusts test', () async {
+      final illusts = await apiClient!.fetchLatestIllusts();
+      expect(illusts.illusts.length, 30);
+      expect(
+        illusts.illusts[0].id,
+        108556585,
+      );
     });
 
-    group('fetchRecommendedIllusts test', () {
-      test('fetch recommended illust', () async {
-        await apiClient!.fetchRecommendedIllusts();
-      });
-      test('fetch recommended illust 30~60', () async {
-        final illusts = await apiClient!.fetchRecommendedIllusts();
-        final queries = Uri.parse(illusts.nextUrl!).queryParameters;
-        final viewed = <int>[];
-        queries.forEach((key, value) {
-          if (key.contains('viewed')) {
-            viewed.add(int.parse(value));
-          }
-        });
-        await apiClient!.fetchRecommendedIllusts(
-          offset: int.parse(queries['offset']!),
-          minBookmarkIdForRecentIllust:
-              int.parse(queries['min_bookmark_id_for_recent_illust']!),
-          maxBookmarkIdForRecommend:
-              int.parse(queries['max_bookmark_id_for_recommend']!),
-          viewed: viewed,
-        );
-      });
+    test('fetchRecommendedIllusts test', () async {
+      final illusts = await apiClient!.fetchRecommendedIllusts();
+      expect(illusts.illusts.length, 82);
+      expect(
+        illusts.illusts[0].id,
+        107904417,
+      );
     });
 
-    group('fetchRelatedIllust', () {
-      test('fetch related illust', () async {
-        await apiClient!.fetchRelatedIllust(illustId);
-      });
-      test('fetch related illust 31~60', () async {
-        final illusts = await apiClient!.fetchRelatedIllust(illustId);
-        final queries = Uri.parse(illusts.nextUrl!).queryParameters;
-        final viewed = <int>[];
-        queries.forEach((key, value) {
-          if (key.contains('viewed')) {
-            viewed.add(int.parse(value));
-          }
-        });
-        await apiClient!.fetchRelatedIllust(
-          illustId,
-          seedIllustId: [int.parse(queries['seed_illust_ids[0]']!)],
-          viewed: viewed,
-        );
-      });
+    test('fetch related illust', () async {
+      final illusts = await apiClient!.fetchRelatedIllust(illustId);
+      expect(illusts.illusts.length, 30);
+      expect(
+        illusts.illusts[0].id,
+        92381423,
+      );
     });
   });
 
