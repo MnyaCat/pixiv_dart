@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
@@ -73,7 +72,6 @@ class ApiClient extends BaseClient {
     final statusCode = response.statusCode;
 
     if (statusCode == 200) {
-      File('test/response/response.txt').writeAsStringSync(response.body);
       return json;
     }
 
