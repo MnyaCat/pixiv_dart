@@ -179,6 +179,47 @@ void main() async {
       expect(novels.novels[0].id, 18938078);
     });
   });
+  group('Ugoira API', () {
+    const illustId = 103647493;
+    test('fetchUgoiraMetadata test', () async {
+      final metadata = await apiClient!.fetchUgoiraMetadata(illustId);
+      expect(metadata.frames, <Frame>[
+        Frame(file: '000000.jpg', delay: 100),
+        Frame(file: '000001.jpg', delay: 100),
+        Frame(file: '000002.jpg', delay: 100),
+        Frame(file: '000003.jpg', delay: 100),
+        Frame(file: '000004.jpg', delay: 100),
+        Frame(file: '000005.jpg', delay: 100),
+        Frame(file: '000006.jpg', delay: 100),
+        Frame(file: '000007.jpg', delay: 100),
+        Frame(file: '000008.jpg', delay: 100),
+        Frame(file: '000009.jpg', delay: 100),
+        Frame(file: '000010.jpg', delay: 100),
+        Frame(file: '000011.jpg', delay: 100),
+        Frame(file: '000012.jpg', delay: 100),
+        Frame(file: '000013.jpg', delay: 100),
+        Frame(file: '000014.jpg', delay: 100),
+        Frame(file: '000015.jpg', delay: 100),
+        Frame(file: '000016.jpg', delay: 100),
+        Frame(file: '000017.jpg', delay: 100),
+        Frame(file: '000018.jpg', delay: 100),
+        Frame(file: '000019.jpg', delay: 100),
+        Frame(file: '000020.jpg', delay: 100),
+        Frame(file: '000021.jpg', delay: 100),
+        Frame(file: '000022.jpg', delay: 100),
+        Frame(file: '000023.jpg', delay: 100),
+        Frame(file: '000024.jpg', delay: 100),
+        Frame(file: '000025.jpg', delay: 100),
+        Frame(file: '000026.jpg', delay: 100),
+        Frame(file: '000027.jpg', delay: 100),
+      ]);
+      expect(
+          metadata.zipUrls,
+          ZipUrls(
+              medium:
+                  'https://i.pximg.net/img-zip-ugoira/img/2022/12/16/17/15/49/103647493_ugoira600x600.zip'));
+    });
+  });
 
   group('User api', () {
     test('fetchUserDetail test', () async {
