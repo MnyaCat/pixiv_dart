@@ -12,7 +12,7 @@ import 'base_client.dart';
 
 class AuthClient extends BaseClient {
   static const defaultHeader = <String, String>{
-    'User-Agent': 'PixivAndroidApp/5.0.234 (Android 11; Pixel 5)'
+    'User-Agent': 'PixivAndroidApp/5.0.234 (Android 11; Pixel 5)',
   };
 
   @override
@@ -51,7 +51,7 @@ class AuthClient extends BaseClient {
     final body = {
       'code_challenge': codeChallenge,
       'code_challenge_method': 'S256',
-      'client': 'pixiv-android'
+      'client': 'pixiv-android',
     };
 
     return AuthCode(
@@ -71,7 +71,7 @@ class AuthClient extends BaseClient {
       'code_verifier': authCode.codeVerifier,
       'grant_type': 'authorization_code',
       'include_policy': true.toString(),
-      'redirect_uri': 'https://$apiHostname/web/v1/users/auth/pixiv/callback'
+      'redirect_uri': 'https://$apiHostname/web/v1/users/auth/pixiv/callback',
     };
     final response = await http.post(url, headers: defaultHeader, body: body);
     final jsonResponse = parse(response);
@@ -85,7 +85,7 @@ class AuthClient extends BaseClient {
       'client_secret': clientSecret,
       'include_policy': true.toString(),
       'grant_type': 'refresh_token',
-      'refresh_token': refreshToken
+      'refresh_token': refreshToken,
     };
     final response = await http.post(url, headers: defaultHeader, body: body);
     final jsonResponse = parse(response);

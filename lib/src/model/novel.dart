@@ -37,7 +37,7 @@ class Novel with _$Novel {
     required bool isXRestricted,
     @JsonKey(name: 'novel_ai_type')
     @AITypeConverter()
-        required AIType novelAIType,
+    required AIType novelAIType,
     int? commentAccessControl,
   }) = _Novel;
 

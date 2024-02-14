@@ -51,7 +51,7 @@ class ApiClient extends BaseClient {
         'app-os': 'ios',
         'app-os-version': '16.1',
         'User-Agent': 'PixivIOSApp/7.16.3 (iOS 16.1; iPad11,3)',
-        'Authorization': 'Bearer ${userAccount.accessToken}'
+        'Authorization': 'Bearer ${userAccount.accessToken}',
       };
 
   Future<void> refreshAccount() async {
@@ -111,7 +111,7 @@ class ApiClient extends BaseClient {
     final url = Uri.https(apiHostname, '/v2/illust/bookmark/add');
     final body = <String, String>{
       'illust_id': illustId.toString(),
-      'restrict': restrict.name
+      'restrict': restrict.name,
     };
     if (tags != null) {
       body.addAll(
@@ -148,7 +148,7 @@ class ApiClient extends BaseClient {
   Future<Illust> fetchIllustDetail(int illustId) async {
     final body = <String, String>{
       'filter': 'for_ios',
-      'illust_id': illustId.toString()
+      'illust_id': illustId.toString(),
     };
     final url = Uri.https(apiHostname, '/v1/illust/detail', body);
     final header = await getRefreshedHeader();
@@ -165,7 +165,7 @@ class ApiClient extends BaseClient {
     final body = <String, String?>{
       'mode': mode.toSnakeCaseString(),
       'offset': offset?.toString(),
-      'date': date?.toDateString()
+      'date': date?.toDateString(),
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, '/v1/illust/ranking', body);
     final header = await getRefreshedHeader();
@@ -180,7 +180,7 @@ class ApiClient extends BaseClient {
   }) async {
     final body = <String, String?>{
       'restrict': restrict.name,
-      'offset': offset?.toString()
+      'offset': offset?.toString(),
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, '/v2/illust/follow', body);
     final header = await getRefreshedHeader();
@@ -205,7 +205,7 @@ class ApiClient extends BaseClient {
   }) async {
     final body = <String, String?>{
       'content_type': contentType.name,
-      'max_illust_id': maxIllustId?.toString()
+      'max_illust_id': maxIllustId?.toString(),
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/illust/new', body);
     final header = await getRefreshedHeader();
@@ -226,7 +226,7 @@ class ApiClient extends BaseClient {
       'offset': offset?.toString(),
       'min_bookmark_id_for_recent_illust':
           minBookmarkIdForRecentIllust?.toString(),
-      'max_bookmark_id_for_recommend': maxBookmarkIdForRecommend?.toString()
+      'max_bookmark_id_for_recommend': maxBookmarkIdForRecommend?.toString(),
     }..removeWhere((key, value) => value == null);
     if (viewed != null) {
       body.addAll(
@@ -308,7 +308,7 @@ class ApiClient extends BaseClient {
     final url = Uri.https(apiHostname, 'v2/novel/bookmark/add');
     final body = <String, String>{
       'novel_id': novelId.toString(),
-      'restrict': restrict.name
+      'restrict': restrict.name,
     };
     if (tags != null) {
       body.addAll(
@@ -367,7 +367,7 @@ class ApiClient extends BaseClient {
   }) async {
     final body = <String, String?>{
       'restrict': restrict.name,
-      'offset': offset?.toString()
+      'offset': offset?.toString(),
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/novel/follow', body);
     final header = await getRefreshedHeader();
@@ -394,7 +394,7 @@ class ApiClient extends BaseClient {
     final body = <String, String?>{
       'mode': mode?.toSnakeCaseString(),
       'offset': offset?.toString(),
-      'date': date?.toDateString()
+      'date': date?.toDateString(),
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/novel/ranking', body);
     final header = await getRefreshedHeader();
@@ -412,7 +412,7 @@ class ApiClient extends BaseClient {
       'include_ranking_novels': 'false',
       'include_privacy_policy': 'false',
       'offset': offset?.toString(),
-      'max_bookmark_id_for_recommended': maxBookmarIdForRecommended?.toString()
+      'max_bookmark_id_for_recommended': maxBookmarIdForRecommended?.toString(),
     }..removeWhere((key, value) => value == null);
     if (alreadyRecommended != null && alreadyRecommended.isNotEmpty) {
       body['already_recommended'] = alreadyRecommended.join(',');
@@ -518,7 +518,7 @@ class ApiClient extends BaseClient {
     final body = <String, String?>{
       'word': word,
       'offset': offset?.toString(),
-      'filter': 'for_ios'
+      'filter': 'for_ios',
     }..removeWhere((key, value) => value == null);
     final url = Uri.https(apiHostname, 'v1/search/user', body);
     final header = await getRefreshedHeader();
@@ -548,7 +548,7 @@ class ApiClient extends BaseClient {
     final url = Uri.https(apiHostname, '/v1/user/follow/add');
     final body = <String, String>{
       'user_id': id.toString(),
-      'restrict': restrict.name
+      'restrict': restrict.name,
     };
     final header = await getRefreshedHeader();
     final response = await innerClient.post(url, headers: header, body: body);
@@ -576,7 +576,7 @@ class ApiClient extends BaseClient {
   Future<List<UserPreview>> fetchRelatedUsers(int seedUserId) async {
     final body = <String, String>{
       'seed_user_id': seedUserId.toString(),
-      'filter': 'for_ios'
+      'filter': 'for_ios',
     };
     final url = Uri.https(apiHostname, 'v1/user/related', body);
     final header = await getRefreshedHeader();
@@ -591,7 +591,7 @@ class ApiClient extends BaseClient {
   Future<UserDetail> fetchUserDetail(int userId) async {
     final body = <String, String>{
       'filter': 'for_ios',
-      'user_id': userId.toString()
+      'user_id': userId.toString(),
     };
     final url = Uri.https(apiHostname, '/v1/user/detail', body);
     final header = await getRefreshedHeader();
@@ -607,7 +607,7 @@ class ApiClient extends BaseClient {
     final body = <String, String>{
       'filter': 'for_ios',
       'user_id': userId.toString(),
-      'restrict': restrict.name
+      'restrict': restrict.name,
     };
     final url = Uri.https(apiHostname, '/v1/user/following', body);
     final header = await getRefreshedHeader();
@@ -623,7 +623,7 @@ class ApiClient extends BaseClient {
     final body = <String, String>{
       'filter': 'for_ios',
       'user_id': userId.toString(),
-      'type': type.name
+      'type': type.name,
     };
     final url = Uri.https(apiHostname, '/v1/user/illusts', body);
     final header = await getRefreshedHeader();

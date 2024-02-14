@@ -836,18 +836,15 @@ class _$_Illust implements _Illust {
       required this.user,
       required final List<Tag> tags,
       required final List<String> tools,
-      @LocalDateTimeConverter()
-          required this.createDate,
+      @LocalDateTimeConverter() required this.createDate,
       required this.pageCount,
       required this.width,
       required this.height,
       required this.sanityLevel,
       required this.xRestrict,
       this.series,
-      @MetaSinglePageConveter()
-          this.metaSinglePage,
-      @MetaPagesConverter()
-          required final List<IllustImageUrls> metaPages,
+      @MetaSinglePageConveter() this.metaSinglePage,
+      @MetaPagesConverter() required final List<IllustImageUrls> metaPages,
       required this.totalView,
       required this.totalBookmarks,
       required this.isBookmarked,
@@ -856,7 +853,7 @@ class _$_Illust implements _Illust {
       this.totalComments,
       @JsonKey(name: 'illust_ai_type')
       @AITypeConverter()
-          required this.illustAIType,
+      required this.illustAIType,
       required this.illustBookStyle,
       this.commentAccessControl})
       : _tags = tags,
@@ -1056,18 +1053,15 @@ abstract class _Illust implements Illust {
       required final User user,
       required final List<Tag> tags,
       required final List<String> tools,
-      @LocalDateTimeConverter()
-          required final DateTime createDate,
+      @LocalDateTimeConverter() required final DateTime createDate,
       required final int pageCount,
       required final int width,
       required final int height,
       required final int sanityLevel,
       required final int xRestrict,
       final Series? series,
-      @MetaSinglePageConveter()
-          final MetaSinglePage? metaSinglePage,
-      @MetaPagesConverter()
-          required final List<IllustImageUrls> metaPages,
+      @MetaSinglePageConveter() final MetaSinglePage? metaSinglePage,
+      @MetaPagesConverter() required final List<IllustImageUrls> metaPages,
       required final int totalView,
       required final int totalBookmarks,
       required final bool isBookmarked,
@@ -1076,7 +1070,7 @@ abstract class _Illust implements Illust {
       final int? totalComments,
       @JsonKey(name: 'illust_ai_type')
       @AITypeConverter()
-          required final AIType illustAIType,
+      required final AIType illustAIType,
       required final int illustBookStyle,
       final int? commentAccessControl}) = _$_Illust;
 

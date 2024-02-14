@@ -115,7 +115,7 @@ class Illust with _$Illust {
     int? totalComments,
     @JsonKey(name: 'illust_ai_type')
     @AITypeConverter()
-        required AIType illustAIType,
+    required AIType illustAIType,
     required int illustBookStyle,
     int? commentAccessControl,
   }) = _Illust;

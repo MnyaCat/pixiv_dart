@@ -143,7 +143,7 @@ void main() async {
           '100点でも足りない',
           '百合小説50users入り',
           '百合小説100users入り',
-          '百合文芸4'
+          '百合文芸4',
         ],
       );
     });
@@ -214,10 +214,12 @@ void main() async {
         Frame(file: '000027.jpg', delay: 100),
       ]);
       expect(
-          metadata.zipUrls,
-          ZipUrls(
-              medium:
-                  'https://i.pximg.net/img-zip-ugoira/img/2022/12/16/17/15/49/103647493_ugoira600x600.zip'));
+        metadata.zipUrls,
+        ZipUrls(
+          medium:
+              'https://i.pximg.net/img-zip-ugoira/img/2022/12/16/17/15/49/103647493_ugoira600x600.zip',
+        ),
+      );
     });
   });
 

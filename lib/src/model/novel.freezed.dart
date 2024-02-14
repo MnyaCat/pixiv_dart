@@ -430,14 +430,12 @@ class _$_Novel implements _Novel {
       required this.xRestrict,
       required this.isOriginal,
       required this.imageUrls,
-      @LocalDateTimeConverter()
-          required this.createDate,
+      @LocalDateTimeConverter() required this.createDate,
       required final List<Tag> tags,
       required this.pageCount,
       required this.textLength,
       required this.user,
-      @NovelSeriesConverter()
-          this.series,
+      @NovelSeriesConverter() this.series,
       required this.isBookmarked,
       required this.totalBookmarks,
       required this.totalView,
@@ -448,7 +446,7 @@ class _$_Novel implements _Novel {
       required this.isXRestricted,
       @JsonKey(name: 'novel_ai_type')
       @AITypeConverter()
-          required this.novelAIType,
+      required this.novelAIType,
       this.commentAccessControl})
       : _tags = tags;
 
@@ -614,14 +612,12 @@ abstract class _Novel implements Novel {
       required final int xRestrict,
       required final bool isOriginal,
       required final ImageUrls imageUrls,
-      @LocalDateTimeConverter()
-          required final DateTime createDate,
+      @LocalDateTimeConverter() required final DateTime createDate,
       required final List<Tag> tags,
       required final int pageCount,
       required final int textLength,
       required final User user,
-      @NovelSeriesConverter()
-          final Series? series,
+      @NovelSeriesConverter() final Series? series,
       required final bool isBookmarked,
       required final int totalBookmarks,
       required final int totalView,
@@ -632,7 +628,7 @@ abstract class _Novel implements Novel {
       required final bool isXRestricted,
       @JsonKey(name: 'novel_ai_type')
       @AITypeConverter()
-          required final AIType novelAIType,
+      required final AIType novelAIType,
       final int? commentAccessControl}) = _$_Novel;
 
   factory _Novel.fromJson(Map<String, dynamic> json) = _$_Novel.fromJson;

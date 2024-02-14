@@ -37,20 +37,20 @@ class PixivHttpException implements PixivException {
 
 // 403
 class Forbidden extends PixivHttpException {
-  const Forbidden(super.response, super.status, super.message);
+  const Forbidden(super.message, super.response, super.status);
 }
 
 // 404
 class NotFound extends PixivHttpException {
-  const NotFound(super.response, super.status, super.message);
+  const NotFound(super.message, super.response, super.status);
 }
 
 // 429
 class RateLimited extends PixivHttpException {
-  const RateLimited(super.response, super.status, super.message);
+  const RateLimited(super.message, super.response, super.status);
 }
 
 // 5xx
 class PixivServerError extends PixivHttpException {
-  const PixivServerError(super.response, super.status, super.message);
+  const PixivServerError(super.message, super.response, super.status);
 }
