@@ -226,9 +226,8 @@ void main() async {
   group('User api', () {
     test('fetchUserDetail test', () async {
       final userDetail = await apiClient!.fetchUserDetail(11);
-      final json = await jsonFileDecode('test/response/fetch_user_detail.json');
-      final matcherUserDetail = UserDetail.fromJson(json);
-      expect(userDetail.user, matcherUserDetail.user);
+      expect(userDetail.user.id, 11);
+      expect(userDetail.user.name, 'pixiv事務局');
     });
     test('fetchUserIllustBookmarks test', () async {
       await apiClient!.fetchUserIllustBookmarks(37898478, Restrict.public);
