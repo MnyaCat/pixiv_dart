@@ -230,8 +230,10 @@ void main() async {
       expect(userDetail.user.name, 'pixiv事務局');
     });
     test('fetchUserIllustBookmarks test', () async {
-      await apiClient!.fetchUserIllustBookmarks(37898478, Restrict.public);
-      await apiClient!.fetchUserIllustBookmarks(37898478, Restrict.private);
+      final bookmarks =
+          await apiClient!.fetchUserIllustBookmarks(37898478, Restrict.public);
+      expect(bookmarks.illusts.length, 30);
+      expect(bookmarks.illusts[0].id, 100174375);
     });
     test('fetchUserIllustBookmarksByNextUrl', () async {
       final bookmarks =
