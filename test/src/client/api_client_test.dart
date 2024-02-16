@@ -235,10 +235,15 @@ void main() async {
       expect(bookmarks.illusts.length, 30);
       expect(bookmarks.illusts[0].id, 100174375);
     });
-    test('fetchUserIllustBookmarksByNextUrl', () async {
+    test('fetchUserIllustBookmarksByNextUrl test', () async {
       final bookmarks =
           await apiClient!.fetchUserIllustBookmarks(37898478, Restrict.public);
-      await apiClient!.fetchUserIllustBookmarksByNextUrl(bookmarks.nextUrl!);
+      // nextUrlの場合だけ別のレスポンスにする方法が思いつかないので流用
+      // 中身はtest/response/v1_user_bookmarks_illust.txt
+      final nextBookmarks = await apiClient!
+          .fetchUserIllustBookmarksByNextUrl(bookmarks.nextUrl!);
+      expect(nextBookmarks.illusts.length, 30);
+      expect(nextBookmarks.illusts[0].id, 100174375);
     });
     test('fetchUserNovelBookmarks test', () async {
       await apiClient!.fetchUserNovelBookmarks(37898478, Restrict.public);
