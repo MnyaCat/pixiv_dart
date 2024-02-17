@@ -246,8 +246,10 @@ void main() async {
       expect(nextBookmarks.illusts[0].id, 100174375);
     });
     test('fetchUserNovelBookmarks test', () async {
-      await apiClient!.fetchUserNovelBookmarks(37898478, Restrict.public);
-      await apiClient!.fetchUserNovelBookmarks(37898478, Restrict.private);
+      final bookmarks =
+          await apiClient!.fetchUserNovelBookmarks(37898478, Restrict.public);
+      expect(bookmarks.novels.length, 30);
+      expect(bookmarks.novels[0].id, 18649633);
     });
     test('fetchUserNovelBookmarksByNextUrl', () async {
       final bookmarks =
