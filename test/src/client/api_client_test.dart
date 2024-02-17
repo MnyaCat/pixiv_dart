@@ -251,10 +251,15 @@ void main() async {
       expect(bookmarks.novels.length, 30);
       expect(bookmarks.novels[0].id, 18649633);
     });
-    test('fetchUserNovelBookmarksByNextUrl', () async {
+    test('fetchUserNovelBookmarksByNextUrl test', () async {
       final bookmarks =
           await apiClient!.fetchUserNovelBookmarks(37898478, Restrict.public);
-      await apiClient!.fetchUserNovelBookmarksByNextUrl(bookmarks.nextUrl!);
+      // nextUrlの場合だけ別のレスポンスにする方法が思いつかないので流用
+      // 中身はtest/response/v1_user_bookmarks_novel.txt
+      final nextBookmarks =
+          await apiClient!.fetchUserNovelBookmarksByNextUrl(bookmarks.nextUrl!);
+      expect(nextBookmarks.novels.length, 30);
+      expect(nextBookmarks.novels[0].id, 18649633);
     });
   });
 }
