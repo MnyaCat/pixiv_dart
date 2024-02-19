@@ -229,6 +229,11 @@ void main() async {
       expect(userDetail.user.id, 11);
       expect(userDetail.user.name, 'pixiv事務局');
     });
+    test('fetchUserFollowing test', () async {
+      final userFollowing = await apiClient!.fetchUserFollowing(12848282);
+      expect(userFollowing.userPreviews.length, 5);
+      expect(userFollowing.userPreviews[0].user.id, 2118757);
+    });
     test('fetchUserIllusts test', () async {
       final userIllusts = await apiClient!.fetchUserIllusts(11);
       expect(userIllusts.illusts.length, 30);
