@@ -224,6 +224,9 @@ void main() async {
   });
 
   group('User api', () {
+    test('addFollow test', () async {
+      await apiClient!.addFollow(11);
+    });
     test('fetchUserDetail test', () async {
       final userDetail = await apiClient!.fetchUserDetail(11);
       expect(userDetail.user.id, 11);
