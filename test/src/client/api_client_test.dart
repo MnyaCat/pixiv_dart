@@ -230,6 +230,12 @@ void main() async {
     test('deleteFollow test', () async {
       await apiClient!.deleteFollow(11);
     });
+    test('fetchRecommendedUsers test', () async {
+      final recommendedUsers =
+          await apiClient!.fetchRecommendedUsers(offset: 30);
+      expect(recommendedUsers.userPreviews.length, 30);
+      expect(recommendedUsers.userPreviews[0].user.id, 91940297);
+    });
     test('fetchUserDetail test', () async {
       final userDetail = await apiClient!.fetchUserDetail(11);
       expect(userDetail.user.id, 11);
