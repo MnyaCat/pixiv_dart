@@ -236,6 +236,11 @@ void main() async {
       expect(recommendedUsers.userPreviews.length, 30);
       expect(recommendedUsers.userPreviews[0].user.id, 91940297);
     });
+    test('fetchRelatedUsers test', () async {
+      final relatedUsers = await apiClient!.fetchRelatedUsers(11);
+      expect(relatedUsers.length, 30);
+      expect(relatedUsers[0].user.id, 2188232);
+    });
     test('fetchUserDetail test', () async {
       final userDetail = await apiClient!.fetchUserDetail(11);
       expect(userDetail.user.id, 11);
