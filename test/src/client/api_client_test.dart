@@ -179,6 +179,15 @@ void main() async {
       expect(novels.novels[0].id, 18938078);
     });
   });
+
+  group('Search API', () {
+    test('searchIllust test', () async {
+      final result = await apiClient!.searchIllust('原神');
+      expect(result.illusts.length, 30);
+      expect(result.illusts[0].id, 116346676);
+    });
+  });
+
   group('Ugoira API', () {
     const illustId = 103647493;
     test('fetchUgoiraMetadata test', () async {
