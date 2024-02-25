@@ -186,6 +186,11 @@ void main() async {
       expect(result.illusts.length, 30);
       expect(result.illusts[0].id, 116346676);
     });
+    test('searchNovel test', () async {
+      final result = await apiClient!.searchNovel('原神');
+      expect(result.novels.length, 30);
+      expect(result.novels[0].id, 21655063);
+    });
   });
 
   group('Ugoira API', () {
