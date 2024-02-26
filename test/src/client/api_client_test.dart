@@ -191,6 +191,11 @@ void main() async {
       expect(result.novels.length, 30);
       expect(result.novels[0].id, 21655063);
     });
+    test('searchUser test', () async {
+      final result = await apiClient!.searchUser('pixiv');
+      expect(result.userPreviews.length, 9);
+      expect(result.userPreviews[0].user.id, 11);
+    });
   });
 
   group('Ugoira API', () {
