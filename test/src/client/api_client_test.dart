@@ -112,6 +112,14 @@ void main() async {
     });
   });
 
+  group('Manga api', () {
+    test('fetchRecommendedManga test', () async {
+      final recommendedManga = await apiClient!.fetchRecommendedManga();
+      expect(recommendedManga.illusts.length, 30);
+      expect(recommendedManga.illusts[0].id, 115919036);
+    });
+  });
+
   group('Novel api', () {
     const novelId = 11674134;
     test('addNovelBookmark test', () async {
