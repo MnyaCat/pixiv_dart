@@ -9,11 +9,25 @@ String _toFileName(String urlPath) {
 
 MockClient createMockClient() {
   return MockClient((request) async {
-    final urlPath = request.url.path;
-    final filePath = _toFileName(urlPath);
-    final file = File('test/response/$filePath.txt');
+    final pximgMode = request.url.host == 'i.pximg.net';
+    final String fileName;
+
+    // i.pximg.netがホストの場合は拡張子がURLに含まれている
+    if (pximgMode) {
+      final urlPath = request.url.path;
+      fileName = _toFileName(urlPath);
+    } else {
+      final urlPath = request.url.path;
+      fileName = _toFileName('$urlPath.txt');
+    }
+
+    final file = File('test/response/$fileName');
 
     if (file.existsSync()) {
+      if (pximgMode) {
+        final body = await file.readAsBytes();
+        return Response.bytes(body, 200);
+      }
       final body = await file.readAsString();
       return Response(body, 200);
     }
