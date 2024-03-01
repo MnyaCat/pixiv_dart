@@ -321,4 +321,14 @@ void main() async {
       expect(nextBookmarks.novels[0].id, 18649633);
     });
   });
+
+  group('download illust', () {
+    test('downloadIllustData', () async {
+      // 実際のURLは`https://i.pximg.net/img-original/img/2021/08/23/21/08/06/92210213_p0.png`のような形式
+      final illustData = await apiClient!.downloadIllustData(
+        'https://i.pximg.net/test_image.png',
+      );
+      expect(illustData.length, 36148);
+    });
+  });
 }
