@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:pixiv_dart/src/client.dart';
 
 import '../constants.dart';
 import 'enums.dart';
@@ -119,6 +122,34 @@ class Illust with _$Illust {
     required int illustBookStyle,
     int? commentAccessControl,
   }) = _Illust;
+  const Illust._();
 
   factory Illust.fromJson(JsonMap json) => _$IllustFromJson(json);
+
+  Future<List<Uint8List>> downloadIllust(
+    ApiClient apiClient, {
+    IllustSize downloadSize = IllustSize.large,
+  }) async {
+    final illusts = <Uint8List>[];
+    for (final metaPage in metaPages) {
+      final String url;
+      switch (downloadSize) {
+        case IllustSize.squareMedium:
+          url = metaPage.squareMedium;
+          break;
+        case IllustSize.medium:
+          url = metaPage.medium;
+          break;
+        case IllustSize.large:
+          url = metaPage.large;
+          break;
+        case IllustSize.original:
+          url = metaPage.original;
+          break;
+      }
+      final data = await apiClient.downloadIllustData(url);
+      illusts.add(data);
+    }
+    return illusts;
+  }
 }
