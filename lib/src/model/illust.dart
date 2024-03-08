@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image/image.dart';
 import 'package:pixiv_dart/src/client.dart';
 
 import '../constants.dart';
@@ -151,5 +152,30 @@ class Illust with _$Illust {
       illusts.add(data);
     }
     return illusts;
+  }
+
+  Future<List<Image>> downloadIllustImage(
+    ApiClient apiClient, {
+    IllustSize downloadSize = IllustSize.large,
+    bool executeThread = false,
+  }) async {
+    final illusts = await downloadIllust(apiClient, downloadSize: downloadSize);
+    final command = Command();
+    final images = <Image>[];
+    final Future<Image?> Function() getImage;
+    if (executeThread) {
+      getImage = command.getImageThread;
+    } else {
+      getImage = command.getImage;
+    }
+
+    for (final illust in illusts) {
+      command.decodePng(illust);
+      final image = await getImage();
+      if (image != null) {
+        images.add(image);
+      }
+    }
+    return images;
   }
 }
