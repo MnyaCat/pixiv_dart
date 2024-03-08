@@ -8,12 +8,13 @@ part of 'profile_image_urls.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProfileImageUrls _$$_ProfileImageUrlsFromJson(Map json) =>
-    _$_ProfileImageUrls(
+_$ProfileImageUrlsImpl _$$ProfileImageUrlsImplFromJson(Map json) =>
+    _$ProfileImageUrlsImpl(
       medium: json['medium'] as String,
     );
 
-Map<String, dynamic> _$$_ProfileImageUrlsToJson(_$_ProfileImageUrls instance) =>
+Map<String, dynamic> _$$ProfileImageUrlsImplToJson(
+        _$ProfileImageUrlsImpl instance) =>
     <String, dynamic>{
       'medium': instance.medium,
     };

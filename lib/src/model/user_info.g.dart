@@ -8,7 +8,7 @@ part of 'user_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserInfo _$$_UserInfoFromJson(Map json) => _$_UserInfo(
+_$UserInfoImpl _$$UserInfoImplFromJson(Map json) => _$UserInfoImpl(
       id: json['id'] as int,
       name: json['name'] as String,
       account: json['account'] as String,
@@ -19,7 +19,7 @@ _$_UserInfo _$$_UserInfoFromJson(Map json) => _$_UserInfo(
       isAccessBlockingUser: json['is_access_blocking_user'] as bool?,
     );
 
-Map<String, dynamic> _$$_UserInfoToJson(_$_UserInfo instance) =>
+Map<String, dynamic> _$$UserInfoImplToJson(_$UserInfoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

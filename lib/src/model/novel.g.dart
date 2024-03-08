@@ -8,7 +8,7 @@ part of 'novel.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Novel _$$_NovelFromJson(Map json) => _$_Novel(
+_$NovelImpl _$$NovelImplFromJson(Map json) => _$NovelImpl(
       id: json['id'] as int,
       title: json['title'] as String,
       caption: json['caption'] as String,
@@ -39,7 +39,8 @@ _$_Novel _$$_NovelFromJson(Map json) => _$_Novel(
       commentAccessControl: json['comment_access_control'] as int?,
     );
 
-Map<String, dynamic> _$$_NovelToJson(_$_Novel instance) => <String, dynamic>{
+Map<String, dynamic> _$$NovelImplToJson(_$NovelImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'caption': instance.caption,

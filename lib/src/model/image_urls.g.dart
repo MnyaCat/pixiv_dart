@@ -8,13 +8,13 @@ part of 'image_urls.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ImageUrls _$$_ImageUrlsFromJson(Map json) => _$_ImageUrls(
+_$ImageUrlsImpl _$$ImageUrlsImplFromJson(Map json) => _$ImageUrlsImpl(
       squareMedium: json['square_medium'] as String,
       medium: json['medium'] as String,
       large: json['large'] as String,
     );
 
-Map<String, dynamic> _$$_ImageUrlsToJson(_$_ImageUrls instance) =>
+Map<String, dynamic> _$$ImageUrlsImplToJson(_$ImageUrlsImpl instance) =>
     <String, dynamic>{
       'square_medium': instance.squareMedium,
       'medium': instance.medium,

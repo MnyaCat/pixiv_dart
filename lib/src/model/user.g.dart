@@ -8,7 +8,7 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_User _$$_UserFromJson(Map json) => _$_User(
+_$UserImpl _$$UserImplFromJson(Map json) => _$UserImpl(
       id: json['id'] as int,
       name: json['name'] as String,
       account: json['account'] as String,
@@ -17,7 +17,8 @@ _$_User _$$_UserFromJson(Map json) => _$_User(
       isFollowed: json['is_followed'] as bool?,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'account': instance.account,

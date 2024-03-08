@@ -8,23 +8,23 @@ part of 'client_user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_CllientUserProfileImageUrls _$$_CllientUserProfileImageUrlsFromJson(
+_$CllientUserProfileImageUrlsImpl _$$CllientUserProfileImageUrlsImplFromJson(
         Map json) =>
-    _$_CllientUserProfileImageUrls(
+    _$CllientUserProfileImageUrlsImpl(
       px16x16: json['px_16x16'] as String,
       px50x50: json['px_50x50'] as String,
       px170x170: json['px_170x170'] as String,
     );
 
-Map<String, dynamic> _$$_CllientUserProfileImageUrlsToJson(
-        _$_CllientUserProfileImageUrls instance) =>
+Map<String, dynamic> _$$CllientUserProfileImageUrlsImplToJson(
+        _$CllientUserProfileImageUrlsImpl instance) =>
     <String, dynamic>{
       'px_16x16': instance.px16x16,
       'px_50x50': instance.px50x50,
       'px_170x170': instance.px170x170,
     };
 
-_$_ClientUser _$$_ClientUserFromJson(Map json) => _$_ClientUser(
+_$ClientUserImpl _$$ClientUserImplFromJson(Map json) => _$ClientUserImpl(
       profileImageUrls: CllientUserProfileImageUrls.fromJson(
           Map<String, dynamic>.from(json['profile_image_urls'] as Map)),
       id: const IdConverter().fromJson(json['id'] as String),
@@ -37,7 +37,7 @@ _$_ClientUser _$$_ClientUserFromJson(Map json) => _$_ClientUser(
       requirePolicyAgreement: json['require_policy_agreement'] as bool,
     );
 
-Map<String, dynamic> _$$_ClientUserToJson(_$_ClientUser instance) =>
+Map<String, dynamic> _$$ClientUserImplToJson(_$ClientUserImpl instance) =>
     <String, dynamic>{
       'profile_image_urls': instance.profileImageUrls.toJson(),
       'id': const IdConverter().toJson(instance.id),

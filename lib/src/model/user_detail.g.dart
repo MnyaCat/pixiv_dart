@@ -8,7 +8,7 @@ part of 'user_detail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Profile _$$_ProfileFromJson(Map json) => _$_Profile(
+_$ProfileImpl _$$ProfileImplFromJson(Map json) => _$ProfileImpl(
       webpage: json['webpage'] as String?,
       gender: json['gender'] as String,
       birth: json['birth'] as String,
@@ -35,7 +35,7 @@ _$_Profile _$$_ProfileFromJson(Map json) => _$_Profile(
       isUsingCustomProfileImage: json['is_using_custom_profile_image'] as bool,
     );
 
-Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
+Map<String, dynamic> _$$ProfileImplToJson(_$ProfileImpl instance) =>
     <String, dynamic>{
       'webpage': instance.webpage,
       'gender': instance.gender,
@@ -63,8 +63,8 @@ Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
       'is_using_custom_profile_image': instance.isUsingCustomProfileImage,
     };
 
-_$_ProfilePublicity _$$_ProfilePublicityFromJson(Map json) =>
-    _$_ProfilePublicity(
+_$ProfilePublicityImpl _$$ProfilePublicityImplFromJson(Map json) =>
+    _$ProfilePublicityImpl(
       gender: $enumDecode(_$PrivacyEnumMap, json['gender']),
       region: $enumDecode(_$PrivacyEnumMap, json['region']),
       birthDay: $enumDecode(_$PrivacyEnumMap, json['birth_day']),
@@ -73,7 +73,8 @@ _$_ProfilePublicity _$$_ProfilePublicityFromJson(Map json) =>
       pawoo: json['pawoo'] as bool,
     );
 
-Map<String, dynamic> _$$_ProfilePublicityToJson(_$_ProfilePublicity instance) =>
+Map<String, dynamic> _$$ProfilePublicityImplToJson(
+        _$ProfilePublicityImpl instance) =>
     <String, dynamic>{
       'gender': _$PrivacyEnumMap[instance.gender]!,
       'region': _$PrivacyEnumMap[instance.region]!,
@@ -89,7 +90,7 @@ const _$PrivacyEnumMap = {
   Privacy.private: 'private',
 };
 
-_$_Workspace _$$_WorkspaceFromJson(Map json) => _$_Workspace(
+_$WorkspaceImpl _$$WorkspaceImplFromJson(Map json) => _$WorkspaceImpl(
       pc: json['pc'] as String,
       monitor: json['monitor'] as String,
       tool: json['tool'] as String,
@@ -105,7 +106,7 @@ _$_Workspace _$$_WorkspaceFromJson(Map json) => _$_Workspace(
       workspaceImageUrl: json['workspace_image_url'] as String?,
     );
 
-Map<String, dynamic> _$$_WorkspaceToJson(_$_Workspace instance) =>
+Map<String, dynamic> _$$WorkspaceImplToJson(_$WorkspaceImpl instance) =>
     <String, dynamic>{
       'pc': instance.pc,
       'monitor': instance.monitor,
@@ -122,7 +123,7 @@ Map<String, dynamic> _$$_WorkspaceToJson(_$_Workspace instance) =>
       'workspace_image_url': instance.workspaceImageUrl,
     };
 
-_$_UserDetail _$$_UserDetailFromJson(Map json) => _$_UserDetail(
+_$UserDetailImpl _$$UserDetailImplFromJson(Map json) => _$UserDetailImpl(
       user: UserInfo.fromJson(Map<String, dynamic>.from(json['user'] as Map)),
       profile:
           Profile.fromJson(Map<String, dynamic>.from(json['profile'] as Map)),
@@ -132,7 +133,7 @@ _$_UserDetail _$$_UserDetailFromJson(Map json) => _$_UserDetail(
           Map<String, dynamic>.from(json['workspace'] as Map)),
     );
 
-Map<String, dynamic> _$$_UserDetailToJson(_$_UserDetail instance) =>
+Map<String, dynamic> _$$UserDetailImplToJson(_$UserDetailImpl instance) =>
     <String, dynamic>{
       'user': instance.user.toJson(),
       'profile': instance.profile.toJson(),

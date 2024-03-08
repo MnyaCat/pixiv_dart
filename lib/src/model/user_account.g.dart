@@ -8,7 +8,7 @@ part of 'user_account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserAccount _$$_UserAccountFromJson(Map json) => _$_UserAccount(
+_$UserAccountImpl _$$UserAccountImplFromJson(Map json) => _$UserAccountImpl(
       accessToken: json['access_token'] as String,
       expiresIn: json['expires_in'] as int,
       tokenType: json['token_type'] as String,
@@ -18,7 +18,7 @@ _$_UserAccount _$$_UserAccountFromJson(Map json) => _$_UserAccount(
       acquisitionTime: DateTime.parse(json['acquisition_time'] as String),
     );
 
-Map<String, dynamic> _$$_UserAccountToJson(_$_UserAccount instance) =>
+Map<String, dynamic> _$$UserAccountImplToJson(_$UserAccountImpl instance) =>
     <String, dynamic>{
       'access_token': instance.accessToken,
       'expires_in': instance.expiresIn,

@@ -12,7 +12,7 @@ part of 'image_urls.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ImageUrls _$ImageUrlsFromJson(Map<String, dynamic> json) {
   return _ImageUrls.fromJson(json);
@@ -73,21 +73,22 @@ class _$ImageUrlsCopyWithImpl<$Res, $Val extends ImageUrls>
 }
 
 /// @nodoc
-abstract class _$$_ImageUrlsCopyWith<$Res> implements $ImageUrlsCopyWith<$Res> {
-  factory _$$_ImageUrlsCopyWith(
-          _$_ImageUrls value, $Res Function(_$_ImageUrls) then) =
-      __$$_ImageUrlsCopyWithImpl<$Res>;
+abstract class _$$ImageUrlsImplCopyWith<$Res>
+    implements $ImageUrlsCopyWith<$Res> {
+  factory _$$ImageUrlsImplCopyWith(
+          _$ImageUrlsImpl value, $Res Function(_$ImageUrlsImpl) then) =
+      __$$ImageUrlsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String squareMedium, String medium, String large});
 }
 
 /// @nodoc
-class __$$_ImageUrlsCopyWithImpl<$Res>
-    extends _$ImageUrlsCopyWithImpl<$Res, _$_ImageUrls>
-    implements _$$_ImageUrlsCopyWith<$Res> {
-  __$$_ImageUrlsCopyWithImpl(
-      _$_ImageUrls _value, $Res Function(_$_ImageUrls) _then)
+class __$$ImageUrlsImplCopyWithImpl<$Res>
+    extends _$ImageUrlsCopyWithImpl<$Res, _$ImageUrlsImpl>
+    implements _$$ImageUrlsImplCopyWith<$Res> {
+  __$$ImageUrlsImplCopyWithImpl(
+      _$ImageUrlsImpl _value, $Res Function(_$ImageUrlsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +98,7 @@ class __$$_ImageUrlsCopyWithImpl<$Res>
     Object? medium = null,
     Object? large = null,
   }) {
-    return _then(_$_ImageUrls(
+    return _then(_$ImageUrlsImpl(
       squareMedium: null == squareMedium
           ? _value.squareMedium
           : squareMedium // ignore: cast_nullable_to_non_nullable
@@ -116,12 +117,12 @@ class __$$_ImageUrlsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ImageUrls implements _ImageUrls {
-  _$_ImageUrls(
+class _$ImageUrlsImpl implements _ImageUrls {
+  _$ImageUrlsImpl(
       {required this.squareMedium, required this.medium, required this.large});
 
-  factory _$_ImageUrls.fromJson(Map<String, dynamic> json) =>
-      _$$_ImageUrlsFromJson(json);
+  factory _$ImageUrlsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ImageUrlsImplFromJson(json);
 
   @override
   final String squareMedium;
@@ -136,10 +137,10 @@ class _$_ImageUrls implements _ImageUrls {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ImageUrls &&
+            other is _$ImageUrlsImpl &&
             (identical(other.squareMedium, squareMedium) ||
                 other.squareMedium == squareMedium) &&
             (identical(other.medium, medium) || other.medium == medium) &&
@@ -153,12 +154,12 @@ class _$_ImageUrls implements _ImageUrls {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ImageUrlsCopyWith<_$_ImageUrls> get copyWith =>
-      __$$_ImageUrlsCopyWithImpl<_$_ImageUrls>(this, _$identity);
+  _$$ImageUrlsImplCopyWith<_$ImageUrlsImpl> get copyWith =>
+      __$$ImageUrlsImplCopyWithImpl<_$ImageUrlsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ImageUrlsToJson(
+    return _$$ImageUrlsImplToJson(
       this,
     );
   }
@@ -168,10 +169,10 @@ abstract class _ImageUrls implements ImageUrls {
   factory _ImageUrls(
       {required final String squareMedium,
       required final String medium,
-      required final String large}) = _$_ImageUrls;
+      required final String large}) = _$ImageUrlsImpl;
 
   factory _ImageUrls.fromJson(Map<String, dynamic> json) =
-      _$_ImageUrls.fromJson;
+      _$ImageUrlsImpl.fromJson;
 
   @override
   String get squareMedium;
@@ -181,6 +182,6 @@ abstract class _ImageUrls implements ImageUrls {
   String get large;
   @override
   @JsonKey(ignore: true)
-  _$$_ImageUrlsCopyWith<_$_ImageUrls> get copyWith =>
+  _$$ImageUrlsImplCopyWith<_$ImageUrlsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

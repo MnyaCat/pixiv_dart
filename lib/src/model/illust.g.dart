@@ -8,14 +8,16 @@ part of 'illust.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_IllustImageUrls _$$_IllustImageUrlsFromJson(Map json) => _$_IllustImageUrls(
+_$IllustImageUrlsImpl _$$IllustImageUrlsImplFromJson(Map json) =>
+    _$IllustImageUrlsImpl(
       squareMedium: json['square_medium'] as String,
       medium: json['medium'] as String,
       large: json['large'] as String,
       original: json['original'] as String,
     );
 
-Map<String, dynamic> _$$_IllustImageUrlsToJson(_$_IllustImageUrls instance) =>
+Map<String, dynamic> _$$IllustImageUrlsImplToJson(
+        _$IllustImageUrlsImpl instance) =>
     <String, dynamic>{
       'square_medium': instance.squareMedium,
       'medium': instance.medium,
@@ -23,16 +25,18 @@ Map<String, dynamic> _$$_IllustImageUrlsToJson(_$_IllustImageUrls instance) =>
       'original': instance.original,
     };
 
-_$_MetaSinglePage _$$_MetaSinglePageFromJson(Map json) => _$_MetaSinglePage(
+_$MetaSinglePageImpl _$$MetaSinglePageImplFromJson(Map json) =>
+    _$MetaSinglePageImpl(
       originalImageUrl: json['original_image_url'] as String,
     );
 
-Map<String, dynamic> _$$_MetaSinglePageToJson(_$_MetaSinglePage instance) =>
+Map<String, dynamic> _$$MetaSinglePageImplToJson(
+        _$MetaSinglePageImpl instance) =>
     <String, dynamic>{
       'original_image_url': instance.originalImageUrl,
     };
 
-_$_Illust _$$_IllustFromJson(Map json) => _$_Illust(
+_$IllustImpl _$$IllustImplFromJson(Map json) => _$IllustImpl(
       id: json['id'] as int,
       title: json['title'] as String,
       type: $enumDecode(_$IllustTypeEnumMap, json['type']),
@@ -71,7 +75,8 @@ _$_Illust _$$_IllustFromJson(Map json) => _$_Illust(
       commentAccessControl: json['comment_access_control'] as int?,
     );
 
-Map<String, dynamic> _$$_IllustToJson(_$_Illust instance) => <String, dynamic>{
+Map<String, dynamic> _$$IllustImplToJson(_$IllustImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'type': _$IllustTypeEnumMap[instance.type]!,

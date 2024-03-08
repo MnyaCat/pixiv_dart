@@ -12,7 +12,7 @@ part of 'user_preview.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserPreview _$UserPreviewFromJson(Map<String, dynamic> json) {
   return _UserPreview.fromJson(json);
@@ -91,11 +91,11 @@ class _$UserPreviewCopyWithImpl<$Res, $Val extends UserPreview>
 }
 
 /// @nodoc
-abstract class _$$_UserPreviewCopyWith<$Res>
+abstract class _$$UserPreviewImplCopyWith<$Res>
     implements $UserPreviewCopyWith<$Res> {
-  factory _$$_UserPreviewCopyWith(
-          _$_UserPreview value, $Res Function(_$_UserPreview) then) =
-      __$$_UserPreviewCopyWithImpl<$Res>;
+  factory _$$UserPreviewImplCopyWith(
+          _$UserPreviewImpl value, $Res Function(_$UserPreviewImpl) then) =
+      __$$UserPreviewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -106,11 +106,11 @@ abstract class _$$_UserPreviewCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserPreviewCopyWithImpl<$Res>
-    extends _$UserPreviewCopyWithImpl<$Res, _$_UserPreview>
-    implements _$$_UserPreviewCopyWith<$Res> {
-  __$$_UserPreviewCopyWithImpl(
-      _$_UserPreview _value, $Res Function(_$_UserPreview) _then)
+class __$$UserPreviewImplCopyWithImpl<$Res>
+    extends _$UserPreviewCopyWithImpl<$Res, _$UserPreviewImpl>
+    implements _$$UserPreviewImplCopyWith<$Res> {
+  __$$UserPreviewImplCopyWithImpl(
+      _$UserPreviewImpl _value, $Res Function(_$UserPreviewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,7 +121,7 @@ class __$$_UserPreviewCopyWithImpl<$Res>
     Object? novels = null,
     Object? isMuted = null,
   }) {
-    return _then(_$_UserPreview(
+    return _then(_$UserPreviewImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -144,8 +144,8 @@ class __$$_UserPreviewCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserPreview implements _UserPreview {
-  _$_UserPreview(
+class _$UserPreviewImpl implements _UserPreview {
+  _$UserPreviewImpl(
       {required this.user,
       required final List<Illust> illusts,
       required final List<Novel> novels,
@@ -153,8 +153,8 @@ class _$_UserPreview implements _UserPreview {
       : _illusts = illusts,
         _novels = novels;
 
-  factory _$_UserPreview.fromJson(Map<String, dynamic> json) =>
-      _$$_UserPreviewFromJson(json);
+  factory _$UserPreviewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserPreviewImplFromJson(json);
 
   @override
   final UserInfo user;
@@ -183,10 +183,10 @@ class _$_UserPreview implements _UserPreview {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserPreview &&
+            other is _$UserPreviewImpl &&
             (identical(other.user, user) || other.user == user) &&
             const DeepCollectionEquality().equals(other._illusts, _illusts) &&
             const DeepCollectionEquality().equals(other._novels, _novels) &&
@@ -205,12 +205,12 @@ class _$_UserPreview implements _UserPreview {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserPreviewCopyWith<_$_UserPreview> get copyWith =>
-      __$$_UserPreviewCopyWithImpl<_$_UserPreview>(this, _$identity);
+  _$$UserPreviewImplCopyWith<_$UserPreviewImpl> get copyWith =>
+      __$$UserPreviewImplCopyWithImpl<_$UserPreviewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserPreviewToJson(
+    return _$$UserPreviewImplToJson(
       this,
     );
   }
@@ -221,10 +221,10 @@ abstract class _UserPreview implements UserPreview {
       {required final UserInfo user,
       required final List<Illust> illusts,
       required final List<Novel> novels,
-      required final bool isMuted}) = _$_UserPreview;
+      required final bool isMuted}) = _$UserPreviewImpl;
 
   factory _UserPreview.fromJson(Map<String, dynamic> json) =
-      _$_UserPreview.fromJson;
+      _$UserPreviewImpl.fromJson;
 
   @override
   UserInfo get user;
@@ -236,6 +236,6 @@ abstract class _UserPreview implements UserPreview {
   bool get isMuted;
   @override
   @JsonKey(ignore: true)
-  _$$_UserPreviewCopyWith<_$_UserPreview> get copyWith =>
+  _$$UserPreviewImplCopyWith<_$UserPreviewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

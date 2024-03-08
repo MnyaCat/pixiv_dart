@@ -12,7 +12,7 @@ part of 'profile_image_urls.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ProfileImageUrls _$ProfileImageUrlsFromJson(Map<String, dynamic> json) {
   return _ProfileImageUrls.fromJson(json);
@@ -62,22 +62,22 @@ class _$ProfileImageUrlsCopyWithImpl<$Res, $Val extends ProfileImageUrls>
 }
 
 /// @nodoc
-abstract class _$$_ProfileImageUrlsCopyWith<$Res>
+abstract class _$$ProfileImageUrlsImplCopyWith<$Res>
     implements $ProfileImageUrlsCopyWith<$Res> {
-  factory _$$_ProfileImageUrlsCopyWith(
-          _$_ProfileImageUrls value, $Res Function(_$_ProfileImageUrls) then) =
-      __$$_ProfileImageUrlsCopyWithImpl<$Res>;
+  factory _$$ProfileImageUrlsImplCopyWith(_$ProfileImageUrlsImpl value,
+          $Res Function(_$ProfileImageUrlsImpl) then) =
+      __$$ProfileImageUrlsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String medium});
 }
 
 /// @nodoc
-class __$$_ProfileImageUrlsCopyWithImpl<$Res>
-    extends _$ProfileImageUrlsCopyWithImpl<$Res, _$_ProfileImageUrls>
-    implements _$$_ProfileImageUrlsCopyWith<$Res> {
-  __$$_ProfileImageUrlsCopyWithImpl(
-      _$_ProfileImageUrls _value, $Res Function(_$_ProfileImageUrls) _then)
+class __$$ProfileImageUrlsImplCopyWithImpl<$Res>
+    extends _$ProfileImageUrlsCopyWithImpl<$Res, _$ProfileImageUrlsImpl>
+    implements _$$ProfileImageUrlsImplCopyWith<$Res> {
+  __$$ProfileImageUrlsImplCopyWithImpl(_$ProfileImageUrlsImpl _value,
+      $Res Function(_$ProfileImageUrlsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_ProfileImageUrlsCopyWithImpl<$Res>
   $Res call({
     Object? medium = null,
   }) {
-    return _then(_$_ProfileImageUrls(
+    return _then(_$ProfileImageUrlsImpl(
       medium: null == medium
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_ProfileImageUrlsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProfileImageUrls implements _ProfileImageUrls {
-  _$_ProfileImageUrls({required this.medium});
+class _$ProfileImageUrlsImpl implements _ProfileImageUrls {
+  _$ProfileImageUrlsImpl({required this.medium});
 
-  factory _$_ProfileImageUrls.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileImageUrlsFromJson(json);
+  factory _$ProfileImageUrlsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileImageUrlsImplFromJson(json);
 
   @override
   final String medium;
@@ -111,10 +111,10 @@ class _$_ProfileImageUrls implements _ProfileImageUrls {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileImageUrls &&
+            other is _$ProfileImageUrlsImpl &&
             (identical(other.medium, medium) || other.medium == medium));
   }
 
@@ -125,12 +125,13 @@ class _$_ProfileImageUrls implements _ProfileImageUrls {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileImageUrlsCopyWith<_$_ProfileImageUrls> get copyWith =>
-      __$$_ProfileImageUrlsCopyWithImpl<_$_ProfileImageUrls>(this, _$identity);
+  _$$ProfileImageUrlsImplCopyWith<_$ProfileImageUrlsImpl> get copyWith =>
+      __$$ProfileImageUrlsImplCopyWithImpl<_$ProfileImageUrlsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfileImageUrlsToJson(
+    return _$$ProfileImageUrlsImplToJson(
       this,
     );
   }
@@ -138,15 +139,15 @@ class _$_ProfileImageUrls implements _ProfileImageUrls {
 
 abstract class _ProfileImageUrls implements ProfileImageUrls {
   factory _ProfileImageUrls({required final String medium}) =
-      _$_ProfileImageUrls;
+      _$ProfileImageUrlsImpl;
 
   factory _ProfileImageUrls.fromJson(Map<String, dynamic> json) =
-      _$_ProfileImageUrls.fromJson;
+      _$ProfileImageUrlsImpl.fromJson;
 
   @override
   String get medium;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileImageUrlsCopyWith<_$_ProfileImageUrls> get copyWith =>
+  _$$ProfileImageUrlsImplCopyWith<_$ProfileImageUrlsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

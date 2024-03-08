@@ -8,14 +8,14 @@ part of 'illusts.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Illusts _$$_IllustsFromJson(Map json) => _$_Illusts(
+_$IllustsImpl _$$IllustsImplFromJson(Map json) => _$IllustsImpl(
       illusts: (json['illusts'] as List<dynamic>)
           .map((e) => Illust.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
       nextUrl: json['next_url'] as String?,
     );
 
-Map<String, dynamic> _$$_IllustsToJson(_$_Illusts instance) =>
+Map<String, dynamic> _$$IllustsImplToJson(_$IllustsImpl instance) =>
     <String, dynamic>{
       'illusts': instance.illusts.map((e) => e.toJson()).toList(),
       'next_url': instance.nextUrl,

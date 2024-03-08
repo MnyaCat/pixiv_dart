@@ -12,7 +12,7 @@ part of 'user_account.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserAccount _$UserAccountFromJson(Map<String, dynamic> json) {
   return _UserAccount.fromJson(json);
@@ -115,11 +115,11 @@ class _$UserAccountCopyWithImpl<$Res, $Val extends UserAccount>
 }
 
 /// @nodoc
-abstract class _$$_UserAccountCopyWith<$Res>
+abstract class _$$UserAccountImplCopyWith<$Res>
     implements $UserAccountCopyWith<$Res> {
-  factory _$$_UserAccountCopyWith(
-          _$_UserAccount value, $Res Function(_$_UserAccount) then) =
-      __$$_UserAccountCopyWithImpl<$Res>;
+  factory _$$UserAccountImplCopyWith(
+          _$UserAccountImpl value, $Res Function(_$UserAccountImpl) then) =
+      __$$UserAccountImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -136,11 +136,11 @@ abstract class _$$_UserAccountCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserAccountCopyWithImpl<$Res>
-    extends _$UserAccountCopyWithImpl<$Res, _$_UserAccount>
-    implements _$$_UserAccountCopyWith<$Res> {
-  __$$_UserAccountCopyWithImpl(
-      _$_UserAccount _value, $Res Function(_$_UserAccount) _then)
+class __$$UserAccountImplCopyWithImpl<$Res>
+    extends _$UserAccountCopyWithImpl<$Res, _$UserAccountImpl>
+    implements _$$UserAccountImplCopyWith<$Res> {
+  __$$UserAccountImplCopyWithImpl(
+      _$UserAccountImpl _value, $Res Function(_$UserAccountImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -154,7 +154,7 @@ class __$$_UserAccountCopyWithImpl<$Res>
     Object? user = null,
     Object? acquisitionTime = null,
   }) {
-    return _then(_$_UserAccount(
+    return _then(_$UserAccountImpl(
       accessToken: null == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
@@ -189,8 +189,8 @@ class __$$_UserAccountCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserAccount extends _UserAccount {
-  _$_UserAccount(
+class _$UserAccountImpl extends _UserAccount {
+  _$UserAccountImpl(
       {required this.accessToken,
       required this.expiresIn,
       required this.tokenType,
@@ -200,8 +200,8 @@ class _$_UserAccount extends _UserAccount {
       required this.acquisitionTime})
       : super._();
 
-  factory _$_UserAccount.fromJson(Map<String, dynamic> json) =>
-      _$$_UserAccountFromJson(json);
+  factory _$UserAccountImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserAccountImplFromJson(json);
 
   @override
   final String accessToken;
@@ -224,10 +224,10 @@ class _$_UserAccount extends _UserAccount {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserAccount &&
+            other is _$UserAccountImpl &&
             (identical(other.accessToken, accessToken) ||
                 other.accessToken == accessToken) &&
             (identical(other.expiresIn, expiresIn) ||
@@ -250,12 +250,12 @@ class _$_UserAccount extends _UserAccount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserAccountCopyWith<_$_UserAccount> get copyWith =>
-      __$$_UserAccountCopyWithImpl<_$_UserAccount>(this, _$identity);
+  _$$UserAccountImplCopyWith<_$UserAccountImpl> get copyWith =>
+      __$$UserAccountImplCopyWithImpl<_$UserAccountImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserAccountToJson(
+    return _$$UserAccountImplToJson(
       this,
     );
   }
@@ -269,11 +269,11 @@ abstract class _UserAccount extends UserAccount {
       required final String scope,
       required final String refreshToken,
       required final ClientUser user,
-      required final DateTime acquisitionTime}) = _$_UserAccount;
+      required final DateTime acquisitionTime}) = _$UserAccountImpl;
   _UserAccount._() : super._();
 
   factory _UserAccount.fromJson(Map<String, dynamic> json) =
-      _$_UserAccount.fromJson;
+      _$UserAccountImpl.fromJson;
 
   @override
   String get accessToken;
@@ -291,6 +291,6 @@ abstract class _UserAccount extends UserAccount {
   DateTime get acquisitionTime;
   @override
   @JsonKey(ignore: true)
-  _$$_UserAccountCopyWith<_$_UserAccount> get copyWith =>
+  _$$UserAccountImplCopyWith<_$UserAccountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

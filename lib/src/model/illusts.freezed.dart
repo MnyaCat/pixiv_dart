@@ -12,7 +12,7 @@ part of 'illusts.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Illusts _$IllustsFromJson(Map<String, dynamic> json) {
   return _Illusts.fromJson(json);
@@ -66,20 +66,21 @@ class _$IllustsCopyWithImpl<$Res, $Val extends Illusts>
 }
 
 /// @nodoc
-abstract class _$$_IllustsCopyWith<$Res> implements $IllustsCopyWith<$Res> {
-  factory _$$_IllustsCopyWith(
-          _$_Illusts value, $Res Function(_$_Illusts) then) =
-      __$$_IllustsCopyWithImpl<$Res>;
+abstract class _$$IllustsImplCopyWith<$Res> implements $IllustsCopyWith<$Res> {
+  factory _$$IllustsImplCopyWith(
+          _$IllustsImpl value, $Res Function(_$IllustsImpl) then) =
+      __$$IllustsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Illust> illusts, String? nextUrl});
 }
 
 /// @nodoc
-class __$$_IllustsCopyWithImpl<$Res>
-    extends _$IllustsCopyWithImpl<$Res, _$_Illusts>
-    implements _$$_IllustsCopyWith<$Res> {
-  __$$_IllustsCopyWithImpl(_$_Illusts _value, $Res Function(_$_Illusts) _then)
+class __$$IllustsImplCopyWithImpl<$Res>
+    extends _$IllustsCopyWithImpl<$Res, _$IllustsImpl>
+    implements _$$IllustsImplCopyWith<$Res> {
+  __$$IllustsImplCopyWithImpl(
+      _$IllustsImpl _value, $Res Function(_$IllustsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +89,7 @@ class __$$_IllustsCopyWithImpl<$Res>
     Object? illusts = null,
     Object? nextUrl = freezed,
   }) {
-    return _then(_$_Illusts(
+    return _then(_$IllustsImpl(
       illusts: null == illusts
           ? _value._illusts
           : illusts // ignore: cast_nullable_to_non_nullable
@@ -103,12 +104,12 @@ class __$$_IllustsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Illusts implements _Illusts {
-  _$_Illusts({required final List<Illust> illusts, required this.nextUrl})
+class _$IllustsImpl implements _Illusts {
+  _$IllustsImpl({required final List<Illust> illusts, required this.nextUrl})
       : _illusts = illusts;
 
-  factory _$_Illusts.fromJson(Map<String, dynamic> json) =>
-      _$$_IllustsFromJson(json);
+  factory _$IllustsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IllustsImplFromJson(json);
 
   final List<Illust> _illusts;
   @override
@@ -127,10 +128,10 @@ class _$_Illusts implements _Illusts {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Illusts &&
+            other is _$IllustsImpl &&
             const DeepCollectionEquality().equals(other._illusts, _illusts) &&
             (identical(other.nextUrl, nextUrl) || other.nextUrl == nextUrl));
   }
@@ -143,12 +144,12 @@ class _$_Illusts implements _Illusts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IllustsCopyWith<_$_Illusts> get copyWith =>
-      __$$_IllustsCopyWithImpl<_$_Illusts>(this, _$identity);
+  _$$IllustsImplCopyWith<_$IllustsImpl> get copyWith =>
+      __$$IllustsImplCopyWithImpl<_$IllustsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IllustsToJson(
+    return _$$IllustsImplToJson(
       this,
     );
   }
@@ -157,9 +158,9 @@ class _$_Illusts implements _Illusts {
 abstract class _Illusts implements Illusts {
   factory _Illusts(
       {required final List<Illust> illusts,
-      required final String? nextUrl}) = _$_Illusts;
+      required final String? nextUrl}) = _$IllustsImpl;
 
-  factory _Illusts.fromJson(Map<String, dynamic> json) = _$_Illusts.fromJson;
+  factory _Illusts.fromJson(Map<String, dynamic> json) = _$IllustsImpl.fromJson;
 
   @override
   List<Illust> get illusts;
@@ -167,6 +168,6 @@ abstract class _Illusts implements Illusts {
   String? get nextUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_IllustsCopyWith<_$_Illusts> get copyWith =>
+  _$$IllustsImplCopyWith<_$IllustsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

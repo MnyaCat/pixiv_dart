@@ -8,7 +8,7 @@ part of 'user_preview.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserPreview _$$_UserPreviewFromJson(Map json) => _$_UserPreview(
+_$UserPreviewImpl _$$UserPreviewImplFromJson(Map json) => _$UserPreviewImpl(
       user: UserInfo.fromJson(Map<String, dynamic>.from(json['user'] as Map)),
       illusts: (json['illusts'] as List<dynamic>)
           .map((e) => Illust.fromJson(Map<String, dynamic>.from(e as Map)))
@@ -19,7 +19,7 @@ _$_UserPreview _$$_UserPreviewFromJson(Map json) => _$_UserPreview(
       isMuted: json['is_muted'] as bool,
     );
 
-Map<String, dynamic> _$$_UserPreviewToJson(_$_UserPreview instance) =>
+Map<String, dynamic> _$$UserPreviewImplToJson(_$UserPreviewImpl instance) =>
     <String, dynamic>{
       'user': instance.user.toJson(),
       'illusts': instance.illusts.map((e) => e.toJson()).toList(),

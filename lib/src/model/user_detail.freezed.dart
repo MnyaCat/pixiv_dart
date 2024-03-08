@@ -12,7 +12,7 @@ part of 'user_detail.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Profile _$ProfileFromJson(Map<String, dynamic> json) {
   return _Profile.fromJson(json);
@@ -222,10 +222,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
 }
 
 /// @nodoc
-abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
-  factory _$$_ProfileCopyWith(
-          _$_Profile value, $Res Function(_$_Profile) then) =
-      __$$_ProfileCopyWithImpl<$Res>;
+abstract class _$$ProfileImplCopyWith<$Res> implements $ProfileCopyWith<$Res> {
+  factory _$$ProfileImplCopyWith(
+          _$ProfileImpl value, $Res Function(_$ProfileImpl) then) =
+      __$$ProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -256,10 +256,11 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProfileCopyWithImpl<$Res>
-    extends _$ProfileCopyWithImpl<$Res, _$_Profile>
-    implements _$$_ProfileCopyWith<$Res> {
-  __$$_ProfileCopyWithImpl(_$_Profile _value, $Res Function(_$_Profile) _then)
+class __$$ProfileImplCopyWithImpl<$Res>
+    extends _$ProfileCopyWithImpl<$Res, _$ProfileImpl>
+    implements _$$ProfileImplCopyWith<$Res> {
+  __$$ProfileImplCopyWithImpl(
+      _$ProfileImpl _value, $Res Function(_$ProfileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -290,7 +291,7 @@ class __$$_ProfileCopyWithImpl<$Res>
     Object? isPremium = null,
     Object? isUsingCustomProfileImage = null,
   }) {
-    return _then(_$_Profile(
+    return _then(_$ProfileImpl(
       webpage: freezed == webpage
           ? _value.webpage
           : webpage // ignore: cast_nullable_to_non_nullable
@@ -393,8 +394,8 @@ class __$$_ProfileCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Profile implements _Profile {
-  _$_Profile(
+class _$ProfileImpl implements _Profile {
+  _$ProfileImpl(
       {required this.webpage,
       required this.gender,
       required this.birth,
@@ -420,8 +421,8 @@ class _$_Profile implements _Profile {
       required this.isPremium,
       required this.isUsingCustomProfileImage});
 
-  factory _$_Profile.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileFromJson(json);
+  factory _$ProfileImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileImplFromJson(json);
 
   @override
   final String? webpage;
@@ -478,10 +479,10 @@ class _$_Profile implements _Profile {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Profile &&
+            other is _$ProfileImpl &&
             (identical(other.webpage, webpage) || other.webpage == webpage) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.birth, birth) || other.birth == birth) &&
@@ -562,12 +563,12 @@ class _$_Profile implements _Profile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileCopyWith<_$_Profile> get copyWith =>
-      __$$_ProfileCopyWithImpl<_$_Profile>(this, _$identity);
+  _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
+      __$$ProfileImplCopyWithImpl<_$ProfileImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfileToJson(
+    return _$$ProfileImplToJson(
       this,
     );
   }
@@ -598,9 +599,9 @@ abstract class _Profile implements Profile {
       required final String? twitterUrl,
       required final String? pawooUrl,
       required final bool isPremium,
-      required final bool isUsingCustomProfileImage}) = _$_Profile;
+      required final bool isUsingCustomProfileImage}) = _$ProfileImpl;
 
-  factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
+  factory _Profile.fromJson(Map<String, dynamic> json) = _$ProfileImpl.fromJson;
 
   @override
   String? get webpage;
@@ -652,7 +653,7 @@ abstract class _Profile implements Profile {
   bool get isUsingCustomProfileImage;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileCopyWith<_$_Profile> get copyWith =>
+  _$$ProfileImplCopyWith<_$ProfileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -740,11 +741,11 @@ class _$ProfilePublicityCopyWithImpl<$Res, $Val extends ProfilePublicity>
 }
 
 /// @nodoc
-abstract class _$$_ProfilePublicityCopyWith<$Res>
+abstract class _$$ProfilePublicityImplCopyWith<$Res>
     implements $ProfilePublicityCopyWith<$Res> {
-  factory _$$_ProfilePublicityCopyWith(
-          _$_ProfilePublicity value, $Res Function(_$_ProfilePublicity) then) =
-      __$$_ProfilePublicityCopyWithImpl<$Res>;
+  factory _$$ProfilePublicityImplCopyWith(_$ProfilePublicityImpl value,
+          $Res Function(_$ProfilePublicityImpl) then) =
+      __$$ProfilePublicityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -757,11 +758,11 @@ abstract class _$$_ProfilePublicityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfilePublicityCopyWithImpl<$Res>
-    extends _$ProfilePublicityCopyWithImpl<$Res, _$_ProfilePublicity>
-    implements _$$_ProfilePublicityCopyWith<$Res> {
-  __$$_ProfilePublicityCopyWithImpl(
-      _$_ProfilePublicity _value, $Res Function(_$_ProfilePublicity) _then)
+class __$$ProfilePublicityImplCopyWithImpl<$Res>
+    extends _$ProfilePublicityCopyWithImpl<$Res, _$ProfilePublicityImpl>
+    implements _$$ProfilePublicityImplCopyWith<$Res> {
+  __$$ProfilePublicityImplCopyWithImpl(_$ProfilePublicityImpl _value,
+      $Res Function(_$ProfilePublicityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -774,7 +775,7 @@ class __$$_ProfilePublicityCopyWithImpl<$Res>
     Object? job = null,
     Object? pawoo = null,
   }) {
-    return _then(_$_ProfilePublicity(
+    return _then(_$ProfilePublicityImpl(
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -805,8 +806,8 @@ class __$$_ProfilePublicityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProfilePublicity implements _ProfilePublicity {
-  _$_ProfilePublicity(
+class _$ProfilePublicityImpl implements _ProfilePublicity {
+  _$ProfilePublicityImpl(
       {required this.gender,
       required this.region,
       required this.birthDay,
@@ -814,8 +815,8 @@ class _$_ProfilePublicity implements _ProfilePublicity {
       required this.job,
       required this.pawoo});
 
-  factory _$_ProfilePublicity.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfilePublicityFromJson(json);
+  factory _$ProfilePublicityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfilePublicityImplFromJson(json);
 
   @override
   final Privacy gender;
@@ -836,10 +837,10 @@ class _$_ProfilePublicity implements _ProfilePublicity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfilePublicity &&
+            other is _$ProfilePublicityImpl &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.region, region) || other.region == region) &&
             (identical(other.birthDay, birthDay) ||
@@ -858,12 +859,13 @@ class _$_ProfilePublicity implements _ProfilePublicity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfilePublicityCopyWith<_$_ProfilePublicity> get copyWith =>
-      __$$_ProfilePublicityCopyWithImpl<_$_ProfilePublicity>(this, _$identity);
+  _$$ProfilePublicityImplCopyWith<_$ProfilePublicityImpl> get copyWith =>
+      __$$ProfilePublicityImplCopyWithImpl<_$ProfilePublicityImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfilePublicityToJson(
+    return _$$ProfilePublicityImplToJson(
       this,
     );
   }
@@ -876,10 +878,10 @@ abstract class _ProfilePublicity implements ProfilePublicity {
       required final Privacy birthDay,
       required final Privacy birthYear,
       required final Privacy job,
-      required final bool pawoo}) = _$_ProfilePublicity;
+      required final bool pawoo}) = _$ProfilePublicityImpl;
 
   factory _ProfilePublicity.fromJson(Map<String, dynamic> json) =
-      _$_ProfilePublicity.fromJson;
+      _$ProfilePublicityImpl.fromJson;
 
   @override
   Privacy get gender;
@@ -895,7 +897,7 @@ abstract class _ProfilePublicity implements ProfilePublicity {
   bool get pawoo;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfilePublicityCopyWith<_$_ProfilePublicity> get copyWith =>
+  _$$ProfilePublicityImplCopyWith<_$ProfilePublicityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1031,10 +1033,11 @@ class _$WorkspaceCopyWithImpl<$Res, $Val extends Workspace>
 }
 
 /// @nodoc
-abstract class _$$_WorkspaceCopyWith<$Res> implements $WorkspaceCopyWith<$Res> {
-  factory _$$_WorkspaceCopyWith(
-          _$_Workspace value, $Res Function(_$_Workspace) then) =
-      __$$_WorkspaceCopyWithImpl<$Res>;
+abstract class _$$WorkspaceImplCopyWith<$Res>
+    implements $WorkspaceCopyWith<$Res> {
+  factory _$$WorkspaceImplCopyWith(
+          _$WorkspaceImpl value, $Res Function(_$WorkspaceImpl) then) =
+      __$$WorkspaceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1054,11 +1057,11 @@ abstract class _$$_WorkspaceCopyWith<$Res> implements $WorkspaceCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WorkspaceCopyWithImpl<$Res>
-    extends _$WorkspaceCopyWithImpl<$Res, _$_Workspace>
-    implements _$$_WorkspaceCopyWith<$Res> {
-  __$$_WorkspaceCopyWithImpl(
-      _$_Workspace _value, $Res Function(_$_Workspace) _then)
+class __$$WorkspaceImplCopyWithImpl<$Res>
+    extends _$WorkspaceCopyWithImpl<$Res, _$WorkspaceImpl>
+    implements _$$WorkspaceImplCopyWith<$Res> {
+  __$$WorkspaceImplCopyWithImpl(
+      _$WorkspaceImpl _value, $Res Function(_$WorkspaceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1078,7 +1081,7 @@ class __$$_WorkspaceCopyWithImpl<$Res>
     Object? comment = null,
     Object? workspaceImageUrl = freezed,
   }) {
-    return _then(_$_Workspace(
+    return _then(_$WorkspaceImpl(
       pc: null == pc
           ? _value.pc
           : pc // ignore: cast_nullable_to_non_nullable
@@ -1137,8 +1140,8 @@ class __$$_WorkspaceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Workspace implements _Workspace {
-  _$_Workspace(
+class _$WorkspaceImpl implements _Workspace {
+  _$WorkspaceImpl(
       {required this.pc,
       required this.monitor,
       required this.tool,
@@ -1153,8 +1156,8 @@ class _$_Workspace implements _Workspace {
       required this.comment,
       required this.workspaceImageUrl});
 
-  factory _$_Workspace.fromJson(Map<String, dynamic> json) =>
-      _$$_WorkspaceFromJson(json);
+  factory _$WorkspaceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WorkspaceImplFromJson(json);
 
   @override
   final String pc;
@@ -1189,10 +1192,10 @@ class _$_Workspace implements _Workspace {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Workspace &&
+            other is _$WorkspaceImpl &&
             (identical(other.pc, pc) || other.pc == pc) &&
             (identical(other.monitor, monitor) || other.monitor == monitor) &&
             (identical(other.tool, tool) || other.tool == tool) &&
@@ -1230,12 +1233,12 @@ class _$_Workspace implements _Workspace {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WorkspaceCopyWith<_$_Workspace> get copyWith =>
-      __$$_WorkspaceCopyWithImpl<_$_Workspace>(this, _$identity);
+  _$$WorkspaceImplCopyWith<_$WorkspaceImpl> get copyWith =>
+      __$$WorkspaceImplCopyWithImpl<_$WorkspaceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WorkspaceToJson(
+    return _$$WorkspaceImplToJson(
       this,
     );
   }
@@ -1255,10 +1258,10 @@ abstract class _Workspace implements Workspace {
       required final String desk,
       required final String chair,
       required final String comment,
-      required final String? workspaceImageUrl}) = _$_Workspace;
+      required final String? workspaceImageUrl}) = _$WorkspaceImpl;
 
   factory _Workspace.fromJson(Map<String, dynamic> json) =
-      _$_Workspace.fromJson;
+      _$WorkspaceImpl.fromJson;
 
   @override
   String get pc;
@@ -1288,7 +1291,7 @@ abstract class _Workspace implements Workspace {
   String? get workspaceImageUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_WorkspaceCopyWith<_$_Workspace> get copyWith =>
+  _$$WorkspaceImplCopyWith<_$WorkspaceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1399,11 +1402,11 @@ class _$UserDetailCopyWithImpl<$Res, $Val extends UserDetail>
 }
 
 /// @nodoc
-abstract class _$$_UserDetailCopyWith<$Res>
+abstract class _$$UserDetailImplCopyWith<$Res>
     implements $UserDetailCopyWith<$Res> {
-  factory _$$_UserDetailCopyWith(
-          _$_UserDetail value, $Res Function(_$_UserDetail) then) =
-      __$$_UserDetailCopyWithImpl<$Res>;
+  factory _$$UserDetailImplCopyWith(
+          _$UserDetailImpl value, $Res Function(_$UserDetailImpl) then) =
+      __$$UserDetailImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1423,11 +1426,11 @@ abstract class _$$_UserDetailCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserDetailCopyWithImpl<$Res>
-    extends _$UserDetailCopyWithImpl<$Res, _$_UserDetail>
-    implements _$$_UserDetailCopyWith<$Res> {
-  __$$_UserDetailCopyWithImpl(
-      _$_UserDetail _value, $Res Function(_$_UserDetail) _then)
+class __$$UserDetailImplCopyWithImpl<$Res>
+    extends _$UserDetailCopyWithImpl<$Res, _$UserDetailImpl>
+    implements _$$UserDetailImplCopyWith<$Res> {
+  __$$UserDetailImplCopyWithImpl(
+      _$UserDetailImpl _value, $Res Function(_$UserDetailImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1438,7 +1441,7 @@ class __$$_UserDetailCopyWithImpl<$Res>
     Object? profilePublicity = null,
     Object? workspace = null,
   }) {
-    return _then(_$_UserDetail(
+    return _then(_$UserDetailImpl(
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -1461,15 +1464,15 @@ class __$$_UserDetailCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserDetail implements _UserDetail {
-  _$_UserDetail(
+class _$UserDetailImpl implements _UserDetail {
+  _$UserDetailImpl(
       {required this.user,
       required this.profile,
       required this.profilePublicity,
       required this.workspace});
 
-  factory _$_UserDetail.fromJson(Map<String, dynamic> json) =>
-      _$$_UserDetailFromJson(json);
+  factory _$UserDetailImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserDetailImplFromJson(json);
 
   @override
   final UserInfo user;
@@ -1486,10 +1489,10 @@ class _$_UserDetail implements _UserDetail {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserDetail &&
+            other is _$UserDetailImpl &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.profilePublicity, profilePublicity) ||
@@ -1506,12 +1509,12 @@ class _$_UserDetail implements _UserDetail {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserDetailCopyWith<_$_UserDetail> get copyWith =>
-      __$$_UserDetailCopyWithImpl<_$_UserDetail>(this, _$identity);
+  _$$UserDetailImplCopyWith<_$UserDetailImpl> get copyWith =>
+      __$$UserDetailImplCopyWithImpl<_$UserDetailImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserDetailToJson(
+    return _$$UserDetailImplToJson(
       this,
     );
   }
@@ -1522,10 +1525,10 @@ abstract class _UserDetail implements UserDetail {
       {required final UserInfo user,
       required final Profile profile,
       required final ProfilePublicity profilePublicity,
-      required final Workspace workspace}) = _$_UserDetail;
+      required final Workspace workspace}) = _$UserDetailImpl;
 
   factory _UserDetail.fromJson(Map<String, dynamic> json) =
-      _$_UserDetail.fromJson;
+      _$UserDetailImpl.fromJson;
 
   @override
   UserInfo get user;
@@ -1537,6 +1540,6 @@ abstract class _UserDetail implements UserDetail {
   Workspace get workspace;
   @override
   @JsonKey(ignore: true)
-  _$$_UserDetailCopyWith<_$_UserDetail> get copyWith =>
+  _$$UserDetailImplCopyWith<_$UserDetailImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

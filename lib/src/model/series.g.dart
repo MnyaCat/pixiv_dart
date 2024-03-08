@@ -8,12 +8,13 @@ part of 'series.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Series _$$_SeriesFromJson(Map json) => _$_Series(
+_$SeriesImpl _$$SeriesImplFromJson(Map json) => _$SeriesImpl(
       id: json['id'] as int,
       title: json['title'] as String,
     );
 
-Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
+Map<String, dynamic> _$$SeriesImplToJson(_$SeriesImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
     };

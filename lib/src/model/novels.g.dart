@@ -8,14 +8,15 @@ part of 'novels.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Novels _$$_NovelsFromJson(Map json) => _$_Novels(
+_$NovelsImpl _$$NovelsImplFromJson(Map json) => _$NovelsImpl(
       novels: (json['novels'] as List<dynamic>)
           .map((e) => Novel.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList(),
       nextUrl: json['next_url'] as String?,
     );
 
-Map<String, dynamic> _$$_NovelsToJson(_$_Novels instance) => <String, dynamic>{
+Map<String, dynamic> _$$NovelsImplToJson(_$NovelsImpl instance) =>
+    <String, dynamic>{
       'novels': instance.novels.map((e) => e.toJson()).toList(),
       'next_url': instance.nextUrl,
     };

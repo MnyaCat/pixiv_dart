@@ -12,7 +12,7 @@ part of 'illust.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 IllustImageUrls _$IllustImageUrlsFromJson(Map<String, dynamic> json) {
   return _IllustImageUrls.fromJson(json);
@@ -81,11 +81,11 @@ class _$IllustImageUrlsCopyWithImpl<$Res, $Val extends IllustImageUrls>
 }
 
 /// @nodoc
-abstract class _$$_IllustImageUrlsCopyWith<$Res>
+abstract class _$$IllustImageUrlsImplCopyWith<$Res>
     implements $IllustImageUrlsCopyWith<$Res> {
-  factory _$$_IllustImageUrlsCopyWith(
-          _$_IllustImageUrls value, $Res Function(_$_IllustImageUrls) then) =
-      __$$_IllustImageUrlsCopyWithImpl<$Res>;
+  factory _$$IllustImageUrlsImplCopyWith(_$IllustImageUrlsImpl value,
+          $Res Function(_$IllustImageUrlsImpl) then) =
+      __$$IllustImageUrlsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -93,11 +93,11 @@ abstract class _$$_IllustImageUrlsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_IllustImageUrlsCopyWithImpl<$Res>
-    extends _$IllustImageUrlsCopyWithImpl<$Res, _$_IllustImageUrls>
-    implements _$$_IllustImageUrlsCopyWith<$Res> {
-  __$$_IllustImageUrlsCopyWithImpl(
-      _$_IllustImageUrls _value, $Res Function(_$_IllustImageUrls) _then)
+class __$$IllustImageUrlsImplCopyWithImpl<$Res>
+    extends _$IllustImageUrlsCopyWithImpl<$Res, _$IllustImageUrlsImpl>
+    implements _$$IllustImageUrlsImplCopyWith<$Res> {
+  __$$IllustImageUrlsImplCopyWithImpl(
+      _$IllustImageUrlsImpl _value, $Res Function(_$IllustImageUrlsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_IllustImageUrlsCopyWithImpl<$Res>
     Object? large = null,
     Object? original = null,
   }) {
-    return _then(_$_IllustImageUrls(
+    return _then(_$IllustImageUrlsImpl(
       squareMedium: null == squareMedium
           ? _value.squareMedium
           : squareMedium // ignore: cast_nullable_to_non_nullable
@@ -131,15 +131,15 @@ class __$$_IllustImageUrlsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IllustImageUrls implements _IllustImageUrls {
-  _$_IllustImageUrls(
+class _$IllustImageUrlsImpl implements _IllustImageUrls {
+  _$IllustImageUrlsImpl(
       {required this.squareMedium,
       required this.medium,
       required this.large,
       required this.original});
 
-  factory _$_IllustImageUrls.fromJson(Map<String, dynamic> json) =>
-      _$$_IllustImageUrlsFromJson(json);
+  factory _$IllustImageUrlsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IllustImageUrlsImplFromJson(json);
 
   @override
   final String squareMedium;
@@ -156,10 +156,10 @@ class _$_IllustImageUrls implements _IllustImageUrls {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IllustImageUrls &&
+            other is _$IllustImageUrlsImpl &&
             (identical(other.squareMedium, squareMedium) ||
                 other.squareMedium == squareMedium) &&
             (identical(other.medium, medium) || other.medium == medium) &&
@@ -176,12 +176,13 @@ class _$_IllustImageUrls implements _IllustImageUrls {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IllustImageUrlsCopyWith<_$_IllustImageUrls> get copyWith =>
-      __$$_IllustImageUrlsCopyWithImpl<_$_IllustImageUrls>(this, _$identity);
+  _$$IllustImageUrlsImplCopyWith<_$IllustImageUrlsImpl> get copyWith =>
+      __$$IllustImageUrlsImplCopyWithImpl<_$IllustImageUrlsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IllustImageUrlsToJson(
+    return _$$IllustImageUrlsImplToJson(
       this,
     );
   }
@@ -192,10 +193,10 @@ abstract class _IllustImageUrls implements IllustImageUrls {
       {required final String squareMedium,
       required final String medium,
       required final String large,
-      required final String original}) = _$_IllustImageUrls;
+      required final String original}) = _$IllustImageUrlsImpl;
 
   factory _IllustImageUrls.fromJson(Map<String, dynamic> json) =
-      _$_IllustImageUrls.fromJson;
+      _$IllustImageUrlsImpl.fromJson;
 
   @override
   String get squareMedium;
@@ -207,7 +208,7 @@ abstract class _IllustImageUrls implements IllustImageUrls {
   String get original;
   @override
   @JsonKey(ignore: true)
-  _$$_IllustImageUrlsCopyWith<_$_IllustImageUrls> get copyWith =>
+  _$$IllustImageUrlsImplCopyWith<_$IllustImageUrlsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -259,22 +260,22 @@ class _$MetaSinglePageCopyWithImpl<$Res, $Val extends MetaSinglePage>
 }
 
 /// @nodoc
-abstract class _$$_MetaSinglePageCopyWith<$Res>
+abstract class _$$MetaSinglePageImplCopyWith<$Res>
     implements $MetaSinglePageCopyWith<$Res> {
-  factory _$$_MetaSinglePageCopyWith(
-          _$_MetaSinglePage value, $Res Function(_$_MetaSinglePage) then) =
-      __$$_MetaSinglePageCopyWithImpl<$Res>;
+  factory _$$MetaSinglePageImplCopyWith(_$MetaSinglePageImpl value,
+          $Res Function(_$MetaSinglePageImpl) then) =
+      __$$MetaSinglePageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String originalImageUrl});
 }
 
 /// @nodoc
-class __$$_MetaSinglePageCopyWithImpl<$Res>
-    extends _$MetaSinglePageCopyWithImpl<$Res, _$_MetaSinglePage>
-    implements _$$_MetaSinglePageCopyWith<$Res> {
-  __$$_MetaSinglePageCopyWithImpl(
-      _$_MetaSinglePage _value, $Res Function(_$_MetaSinglePage) _then)
+class __$$MetaSinglePageImplCopyWithImpl<$Res>
+    extends _$MetaSinglePageCopyWithImpl<$Res, _$MetaSinglePageImpl>
+    implements _$$MetaSinglePageImplCopyWith<$Res> {
+  __$$MetaSinglePageImplCopyWithImpl(
+      _$MetaSinglePageImpl _value, $Res Function(_$MetaSinglePageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -282,7 +283,7 @@ class __$$_MetaSinglePageCopyWithImpl<$Res>
   $Res call({
     Object? originalImageUrl = null,
   }) {
-    return _then(_$_MetaSinglePage(
+    return _then(_$MetaSinglePageImpl(
       originalImageUrl: null == originalImageUrl
           ? _value.originalImageUrl
           : originalImageUrl // ignore: cast_nullable_to_non_nullable
@@ -293,11 +294,11 @@ class __$$_MetaSinglePageCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MetaSinglePage implements _MetaSinglePage {
-  _$_MetaSinglePage({required this.originalImageUrl});
+class _$MetaSinglePageImpl implements _MetaSinglePage {
+  _$MetaSinglePageImpl({required this.originalImageUrl});
 
-  factory _$_MetaSinglePage.fromJson(Map<String, dynamic> json) =>
-      _$$_MetaSinglePageFromJson(json);
+  factory _$MetaSinglePageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MetaSinglePageImplFromJson(json);
 
   @override
   final String originalImageUrl;
@@ -308,10 +309,10 @@ class _$_MetaSinglePage implements _MetaSinglePage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MetaSinglePage &&
+            other is _$MetaSinglePageImpl &&
             (identical(other.originalImageUrl, originalImageUrl) ||
                 other.originalImageUrl == originalImageUrl));
   }
@@ -323,12 +324,13 @@ class _$_MetaSinglePage implements _MetaSinglePage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MetaSinglePageCopyWith<_$_MetaSinglePage> get copyWith =>
-      __$$_MetaSinglePageCopyWithImpl<_$_MetaSinglePage>(this, _$identity);
+  _$$MetaSinglePageImplCopyWith<_$MetaSinglePageImpl> get copyWith =>
+      __$$MetaSinglePageImplCopyWithImpl<_$MetaSinglePageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MetaSinglePageToJson(
+    return _$$MetaSinglePageImplToJson(
       this,
     );
   }
@@ -336,16 +338,16 @@ class _$_MetaSinglePage implements _MetaSinglePage {
 
 abstract class _MetaSinglePage implements MetaSinglePage {
   factory _MetaSinglePage({required final String originalImageUrl}) =
-      _$_MetaSinglePage;
+      _$MetaSinglePageImpl;
 
   factory _MetaSinglePage.fromJson(Map<String, dynamic> json) =
-      _$_MetaSinglePage.fromJson;
+      _$MetaSinglePageImpl.fromJson;
 
   @override
   String get originalImageUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_MetaSinglePageCopyWith<_$_MetaSinglePage> get copyWith =>
+  _$$MetaSinglePageImplCopyWith<_$MetaSinglePageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -628,9 +630,10 @@ class _$IllustCopyWithImpl<$Res, $Val extends Illust>
 }
 
 /// @nodoc
-abstract class _$$_IllustCopyWith<$Res> implements $IllustCopyWith<$Res> {
-  factory _$$_IllustCopyWith(_$_Illust value, $Res Function(_$_Illust) then) =
-      __$$_IllustCopyWithImpl<$Res>;
+abstract class _$$IllustImplCopyWith<$Res> implements $IllustCopyWith<$Res> {
+  factory _$$IllustImplCopyWith(
+          _$IllustImpl value, $Res Function(_$IllustImpl) then) =
+      __$$IllustImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -673,10 +676,11 @@ abstract class _$$_IllustCopyWith<$Res> implements $IllustCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IllustCopyWithImpl<$Res>
-    extends _$IllustCopyWithImpl<$Res, _$_Illust>
-    implements _$$_IllustCopyWith<$Res> {
-  __$$_IllustCopyWithImpl(_$_Illust _value, $Res Function(_$_Illust) _then)
+class __$$IllustImplCopyWithImpl<$Res>
+    extends _$IllustCopyWithImpl<$Res, _$IllustImpl>
+    implements _$$IllustImplCopyWith<$Res> {
+  __$$IllustImplCopyWithImpl(
+      _$IllustImpl _value, $Res Function(_$IllustImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -710,7 +714,7 @@ class __$$_IllustCopyWithImpl<$Res>
     Object? illustBookStyle = null,
     Object? commentAccessControl = freezed,
   }) {
-    return _then(_$_Illust(
+    return _then(_$IllustImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -825,8 +829,8 @@ class __$$_IllustCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Illust implements _Illust {
-  _$_Illust(
+class _$IllustImpl extends _Illust {
+  _$IllustImpl(
       {required this.id,
       required this.title,
       required this.type,
@@ -858,10 +862,11 @@ class _$_Illust implements _Illust {
       this.commentAccessControl})
       : _tags = tags,
         _tools = tools,
-        _metaPages = metaPages;
+        _metaPages = metaPages,
+        super._();
 
-  factory _$_Illust.fromJson(Map<String, dynamic> json) =>
-      _$$_IllustFromJson(json);
+  factory _$IllustImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IllustImplFromJson(json);
 
   @override
   final int id;
@@ -947,10 +952,10 @@ class _$_Illust implements _Illust {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Illust &&
+            other is _$IllustImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.type, type) || other.type == type) &&
@@ -1031,18 +1036,18 @@ class _$_Illust implements _Illust {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IllustCopyWith<_$_Illust> get copyWith =>
-      __$$_IllustCopyWithImpl<_$_Illust>(this, _$identity);
+  _$$IllustImplCopyWith<_$IllustImpl> get copyWith =>
+      __$$IllustImplCopyWithImpl<_$IllustImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IllustToJson(
+    return _$$IllustImplToJson(
       this,
     );
   }
 }
 
-abstract class _Illust implements Illust {
+abstract class _Illust extends Illust {
   factory _Illust(
       {required final int id,
       required final String title,
@@ -1072,9 +1077,10 @@ abstract class _Illust implements Illust {
       @AITypeConverter()
       required final AIType illustAIType,
       required final int illustBookStyle,
-      final int? commentAccessControl}) = _$_Illust;
+      final int? commentAccessControl}) = _$IllustImpl;
+  _Illust._() : super._();
 
-  factory _Illust.fromJson(Map<String, dynamic> json) = _$_Illust.fromJson;
+  factory _Illust.fromJson(Map<String, dynamic> json) = _$IllustImpl.fromJson;
 
   @override
   int get id;
@@ -1137,6 +1143,6 @@ abstract class _Illust implements Illust {
   int? get commentAccessControl;
   @override
   @JsonKey(ignore: true)
-  _$$_IllustCopyWith<_$_Illust> get copyWith =>
+  _$$IllustImplCopyWith<_$IllustImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

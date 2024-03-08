@@ -12,7 +12,7 @@ part of 'ugoira_metadata.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ZipUrls _$ZipUrlsFromJson(Map<String, dynamic> json) {
   return _ZipUrls.fromJson(json);
@@ -60,20 +60,21 @@ class _$ZipUrlsCopyWithImpl<$Res, $Val extends ZipUrls>
 }
 
 /// @nodoc
-abstract class _$$_ZipUrlsCopyWith<$Res> implements $ZipUrlsCopyWith<$Res> {
-  factory _$$_ZipUrlsCopyWith(
-          _$_ZipUrls value, $Res Function(_$_ZipUrls) then) =
-      __$$_ZipUrlsCopyWithImpl<$Res>;
+abstract class _$$ZipUrlsImplCopyWith<$Res> implements $ZipUrlsCopyWith<$Res> {
+  factory _$$ZipUrlsImplCopyWith(
+          _$ZipUrlsImpl value, $Res Function(_$ZipUrlsImpl) then) =
+      __$$ZipUrlsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String medium});
 }
 
 /// @nodoc
-class __$$_ZipUrlsCopyWithImpl<$Res>
-    extends _$ZipUrlsCopyWithImpl<$Res, _$_ZipUrls>
-    implements _$$_ZipUrlsCopyWith<$Res> {
-  __$$_ZipUrlsCopyWithImpl(_$_ZipUrls _value, $Res Function(_$_ZipUrls) _then)
+class __$$ZipUrlsImplCopyWithImpl<$Res>
+    extends _$ZipUrlsCopyWithImpl<$Res, _$ZipUrlsImpl>
+    implements _$$ZipUrlsImplCopyWith<$Res> {
+  __$$ZipUrlsImplCopyWithImpl(
+      _$ZipUrlsImpl _value, $Res Function(_$ZipUrlsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -81,7 +82,7 @@ class __$$_ZipUrlsCopyWithImpl<$Res>
   $Res call({
     Object? medium = null,
   }) {
-    return _then(_$_ZipUrls(
+    return _then(_$ZipUrlsImpl(
       medium: null == medium
           ? _value.medium
           : medium // ignore: cast_nullable_to_non_nullable
@@ -92,11 +93,11 @@ class __$$_ZipUrlsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ZipUrls implements _ZipUrls {
-  _$_ZipUrls({required this.medium});
+class _$ZipUrlsImpl implements _ZipUrls {
+  _$ZipUrlsImpl({required this.medium});
 
-  factory _$_ZipUrls.fromJson(Map<String, dynamic> json) =>
-      _$$_ZipUrlsFromJson(json);
+  factory _$ZipUrlsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ZipUrlsImplFromJson(json);
 
   @override
   final String medium;
@@ -107,10 +108,10 @@ class _$_ZipUrls implements _ZipUrls {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ZipUrls &&
+            other is _$ZipUrlsImpl &&
             (identical(other.medium, medium) || other.medium == medium));
   }
 
@@ -121,27 +122,27 @@ class _$_ZipUrls implements _ZipUrls {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ZipUrlsCopyWith<_$_ZipUrls> get copyWith =>
-      __$$_ZipUrlsCopyWithImpl<_$_ZipUrls>(this, _$identity);
+  _$$ZipUrlsImplCopyWith<_$ZipUrlsImpl> get copyWith =>
+      __$$ZipUrlsImplCopyWithImpl<_$ZipUrlsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ZipUrlsToJson(
+    return _$$ZipUrlsImplToJson(
       this,
     );
   }
 }
 
 abstract class _ZipUrls implements ZipUrls {
-  factory _ZipUrls({required final String medium}) = _$_ZipUrls;
+  factory _ZipUrls({required final String medium}) = _$ZipUrlsImpl;
 
-  factory _ZipUrls.fromJson(Map<String, dynamic> json) = _$_ZipUrls.fromJson;
+  factory _ZipUrls.fromJson(Map<String, dynamic> json) = _$ZipUrlsImpl.fromJson;
 
   @override
   String get medium;
   @override
   @JsonKey(ignore: true)
-  _$$_ZipUrlsCopyWith<_$_ZipUrls> get copyWith =>
+  _$$ZipUrlsImplCopyWith<_$ZipUrlsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -197,18 +198,21 @@ class _$FrameCopyWithImpl<$Res, $Val extends Frame>
 }
 
 /// @nodoc
-abstract class _$$_FrameCopyWith<$Res> implements $FrameCopyWith<$Res> {
-  factory _$$_FrameCopyWith(_$_Frame value, $Res Function(_$_Frame) then) =
-      __$$_FrameCopyWithImpl<$Res>;
+abstract class _$$FrameImplCopyWith<$Res> implements $FrameCopyWith<$Res> {
+  factory _$$FrameImplCopyWith(
+          _$FrameImpl value, $Res Function(_$FrameImpl) then) =
+      __$$FrameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String file, int delay});
 }
 
 /// @nodoc
-class __$$_FrameCopyWithImpl<$Res> extends _$FrameCopyWithImpl<$Res, _$_Frame>
-    implements _$$_FrameCopyWith<$Res> {
-  __$$_FrameCopyWithImpl(_$_Frame _value, $Res Function(_$_Frame) _then)
+class __$$FrameImplCopyWithImpl<$Res>
+    extends _$FrameCopyWithImpl<$Res, _$FrameImpl>
+    implements _$$FrameImplCopyWith<$Res> {
+  __$$FrameImplCopyWithImpl(
+      _$FrameImpl _value, $Res Function(_$FrameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -217,7 +221,7 @@ class __$$_FrameCopyWithImpl<$Res> extends _$FrameCopyWithImpl<$Res, _$_Frame>
     Object? file = null,
     Object? delay = null,
   }) {
-    return _then(_$_Frame(
+    return _then(_$FrameImpl(
       file: null == file
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
@@ -232,11 +236,11 @@ class __$$_FrameCopyWithImpl<$Res> extends _$FrameCopyWithImpl<$Res, _$_Frame>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Frame implements _Frame {
-  _$_Frame({required this.file, required this.delay});
+class _$FrameImpl implements _Frame {
+  _$FrameImpl({required this.file, required this.delay});
 
-  factory _$_Frame.fromJson(Map<String, dynamic> json) =>
-      _$$_FrameFromJson(json);
+  factory _$FrameImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FrameImplFromJson(json);
 
   @override
   final String file;
@@ -249,10 +253,10 @@ class _$_Frame implements _Frame {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Frame &&
+            other is _$FrameImpl &&
             (identical(other.file, file) || other.file == file) &&
             (identical(other.delay, delay) || other.delay == delay));
   }
@@ -264,12 +268,12 @@ class _$_Frame implements _Frame {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FrameCopyWith<_$_Frame> get copyWith =>
-      __$$_FrameCopyWithImpl<_$_Frame>(this, _$identity);
+  _$$FrameImplCopyWith<_$FrameImpl> get copyWith =>
+      __$$FrameImplCopyWithImpl<_$FrameImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FrameToJson(
+    return _$$FrameImplToJson(
       this,
     );
   }
@@ -277,9 +281,9 @@ class _$_Frame implements _Frame {
 
 abstract class _Frame implements Frame {
   factory _Frame({required final String file, required final int delay}) =
-      _$_Frame;
+      _$FrameImpl;
 
-  factory _Frame.fromJson(Map<String, dynamic> json) = _$_Frame.fromJson;
+  factory _Frame.fromJson(Map<String, dynamic> json) = _$FrameImpl.fromJson;
 
   @override
   String get file;
@@ -287,7 +291,7 @@ abstract class _Frame implements Frame {
   int get delay;
   @override
   @JsonKey(ignore: true)
-  _$$_FrameCopyWith<_$_Frame> get copyWith =>
+  _$$FrameImplCopyWith<_$FrameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -355,11 +359,11 @@ class _$UgoiraMetadataCopyWithImpl<$Res, $Val extends UgoiraMetadata>
 }
 
 /// @nodoc
-abstract class _$$_UgoiraMetadataCopyWith<$Res>
+abstract class _$$UgoiraMetadataImplCopyWith<$Res>
     implements $UgoiraMetadataCopyWith<$Res> {
-  factory _$$_UgoiraMetadataCopyWith(
-          _$_UgoiraMetadata value, $Res Function(_$_UgoiraMetadata) then) =
-      __$$_UgoiraMetadataCopyWithImpl<$Res>;
+  factory _$$UgoiraMetadataImplCopyWith(_$UgoiraMetadataImpl value,
+          $Res Function(_$UgoiraMetadataImpl) then) =
+      __$$UgoiraMetadataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ZipUrls zipUrls, List<Frame> frames});
@@ -369,11 +373,11 @@ abstract class _$$_UgoiraMetadataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UgoiraMetadataCopyWithImpl<$Res>
-    extends _$UgoiraMetadataCopyWithImpl<$Res, _$_UgoiraMetadata>
-    implements _$$_UgoiraMetadataCopyWith<$Res> {
-  __$$_UgoiraMetadataCopyWithImpl(
-      _$_UgoiraMetadata _value, $Res Function(_$_UgoiraMetadata) _then)
+class __$$UgoiraMetadataImplCopyWithImpl<$Res>
+    extends _$UgoiraMetadataCopyWithImpl<$Res, _$UgoiraMetadataImpl>
+    implements _$$UgoiraMetadataImplCopyWith<$Res> {
+  __$$UgoiraMetadataImplCopyWithImpl(
+      _$UgoiraMetadataImpl _value, $Res Function(_$UgoiraMetadataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -382,7 +386,7 @@ class __$$_UgoiraMetadataCopyWithImpl<$Res>
     Object? zipUrls = null,
     Object? frames = null,
   }) {
-    return _then(_$_UgoiraMetadata(
+    return _then(_$UgoiraMetadataImpl(
       zipUrls: null == zipUrls
           ? _value.zipUrls
           : zipUrls // ignore: cast_nullable_to_non_nullable
@@ -397,12 +401,13 @@ class __$$_UgoiraMetadataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UgoiraMetadata implements _UgoiraMetadata {
-  _$_UgoiraMetadata({required this.zipUrls, required final List<Frame> frames})
+class _$UgoiraMetadataImpl implements _UgoiraMetadata {
+  _$UgoiraMetadataImpl(
+      {required this.zipUrls, required final List<Frame> frames})
       : _frames = frames;
 
-  factory _$_UgoiraMetadata.fromJson(Map<String, dynamic> json) =>
-      _$$_UgoiraMetadataFromJson(json);
+  factory _$UgoiraMetadataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UgoiraMetadataImplFromJson(json);
 
   @override
   final ZipUrls zipUrls;
@@ -420,10 +425,10 @@ class _$_UgoiraMetadata implements _UgoiraMetadata {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UgoiraMetadata &&
+            other is _$UgoiraMetadataImpl &&
             (identical(other.zipUrls, zipUrls) || other.zipUrls == zipUrls) &&
             const DeepCollectionEquality().equals(other._frames, _frames));
   }
@@ -436,12 +441,13 @@ class _$_UgoiraMetadata implements _UgoiraMetadata {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UgoiraMetadataCopyWith<_$_UgoiraMetadata> get copyWith =>
-      __$$_UgoiraMetadataCopyWithImpl<_$_UgoiraMetadata>(this, _$identity);
+  _$$UgoiraMetadataImplCopyWith<_$UgoiraMetadataImpl> get copyWith =>
+      __$$UgoiraMetadataImplCopyWithImpl<_$UgoiraMetadataImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UgoiraMetadataToJson(
+    return _$$UgoiraMetadataImplToJson(
       this,
     );
   }
@@ -450,10 +456,10 @@ class _$_UgoiraMetadata implements _UgoiraMetadata {
 abstract class _UgoiraMetadata implements UgoiraMetadata {
   factory _UgoiraMetadata(
       {required final ZipUrls zipUrls,
-      required final List<Frame> frames}) = _$_UgoiraMetadata;
+      required final List<Frame> frames}) = _$UgoiraMetadataImpl;
 
   factory _UgoiraMetadata.fromJson(Map<String, dynamic> json) =
-      _$_UgoiraMetadata.fromJson;
+      _$UgoiraMetadataImpl.fromJson;
 
   @override
   ZipUrls get zipUrls;
@@ -461,6 +467,6 @@ abstract class _UgoiraMetadata implements UgoiraMetadata {
   List<Frame> get frames;
   @override
   @JsonKey(ignore: true)
-  _$$_UgoiraMetadataCopyWith<_$_UgoiraMetadata> get copyWith =>
+  _$$UgoiraMetadataImplCopyWith<_$UgoiraMetadataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,26 +8,28 @@ part of 'ugoira_metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ZipUrls _$$_ZipUrlsFromJson(Map json) => _$_ZipUrls(
+_$ZipUrlsImpl _$$ZipUrlsImplFromJson(Map json) => _$ZipUrlsImpl(
       medium: json['medium'] as String,
     );
 
-Map<String, dynamic> _$$_ZipUrlsToJson(_$_ZipUrls instance) =>
+Map<String, dynamic> _$$ZipUrlsImplToJson(_$ZipUrlsImpl instance) =>
     <String, dynamic>{
       'medium': instance.medium,
     };
 
-_$_Frame _$$_FrameFromJson(Map json) => _$_Frame(
+_$FrameImpl _$$FrameImplFromJson(Map json) => _$FrameImpl(
       file: json['file'] as String,
       delay: json['delay'] as int,
     );
 
-Map<String, dynamic> _$$_FrameToJson(_$_Frame instance) => <String, dynamic>{
+Map<String, dynamic> _$$FrameImplToJson(_$FrameImpl instance) =>
+    <String, dynamic>{
       'file': instance.file,
       'delay': instance.delay,
     };
 
-_$_UgoiraMetadata _$$_UgoiraMetadataFromJson(Map json) => _$_UgoiraMetadata(
+_$UgoiraMetadataImpl _$$UgoiraMetadataImplFromJson(Map json) =>
+    _$UgoiraMetadataImpl(
       zipUrls:
           ZipUrls.fromJson(Map<String, dynamic>.from(json['zip_urls'] as Map)),
       frames: (json['frames'] as List<dynamic>)
@@ -35,7 +37,8 @@ _$_UgoiraMetadata _$$_UgoiraMetadataFromJson(Map json) => _$_UgoiraMetadata(
           .toList(),
     );
 
-Map<String, dynamic> _$$_UgoiraMetadataToJson(_$_UgoiraMetadata instance) =>
+Map<String, dynamic> _$$UgoiraMetadataImplToJson(
+        _$UgoiraMetadataImpl instance) =>
     <String, dynamic>{
       'zip_urls': instance.zipUrls.toJson(),
       'frames': instance.frames.map((e) => e.toJson()).toList(),

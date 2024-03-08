@@ -12,7 +12,7 @@ part of 'novels.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Novels _$NovelsFromJson(Map<String, dynamic> json) {
   return _Novels.fromJson(json);
@@ -66,19 +66,21 @@ class _$NovelsCopyWithImpl<$Res, $Val extends Novels>
 }
 
 /// @nodoc
-abstract class _$$_NovelsCopyWith<$Res> implements $NovelsCopyWith<$Res> {
-  factory _$$_NovelsCopyWith(_$_Novels value, $Res Function(_$_Novels) then) =
-      __$$_NovelsCopyWithImpl<$Res>;
+abstract class _$$NovelsImplCopyWith<$Res> implements $NovelsCopyWith<$Res> {
+  factory _$$NovelsImplCopyWith(
+          _$NovelsImpl value, $Res Function(_$NovelsImpl) then) =
+      __$$NovelsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Novel> novels, String? nextUrl});
 }
 
 /// @nodoc
-class __$$_NovelsCopyWithImpl<$Res>
-    extends _$NovelsCopyWithImpl<$Res, _$_Novels>
-    implements _$$_NovelsCopyWith<$Res> {
-  __$$_NovelsCopyWithImpl(_$_Novels _value, $Res Function(_$_Novels) _then)
+class __$$NovelsImplCopyWithImpl<$Res>
+    extends _$NovelsCopyWithImpl<$Res, _$NovelsImpl>
+    implements _$$NovelsImplCopyWith<$Res> {
+  __$$NovelsImplCopyWithImpl(
+      _$NovelsImpl _value, $Res Function(_$NovelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +89,7 @@ class __$$_NovelsCopyWithImpl<$Res>
     Object? novels = null,
     Object? nextUrl = freezed,
   }) {
-    return _then(_$_Novels(
+    return _then(_$NovelsImpl(
       novels: null == novels
           ? _value._novels
           : novels // ignore: cast_nullable_to_non_nullable
@@ -102,12 +104,12 @@ class __$$_NovelsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Novels implements _Novels {
-  _$_Novels({required final List<Novel> novels, required this.nextUrl})
+class _$NovelsImpl implements _Novels {
+  _$NovelsImpl({required final List<Novel> novels, required this.nextUrl})
       : _novels = novels;
 
-  factory _$_Novels.fromJson(Map<String, dynamic> json) =>
-      _$$_NovelsFromJson(json);
+  factory _$NovelsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NovelsImplFromJson(json);
 
   final List<Novel> _novels;
   @override
@@ -126,10 +128,10 @@ class _$_Novels implements _Novels {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Novels &&
+            other is _$NovelsImpl &&
             const DeepCollectionEquality().equals(other._novels, _novels) &&
             (identical(other.nextUrl, nextUrl) || other.nextUrl == nextUrl));
   }
@@ -142,12 +144,12 @@ class _$_Novels implements _Novels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NovelsCopyWith<_$_Novels> get copyWith =>
-      __$$_NovelsCopyWithImpl<_$_Novels>(this, _$identity);
+  _$$NovelsImplCopyWith<_$NovelsImpl> get copyWith =>
+      __$$NovelsImplCopyWithImpl<_$NovelsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NovelsToJson(
+    return _$$NovelsImplToJson(
       this,
     );
   }
@@ -156,9 +158,9 @@ class _$_Novels implements _Novels {
 abstract class _Novels implements Novels {
   factory _Novels(
       {required final List<Novel> novels,
-      required final String? nextUrl}) = _$_Novels;
+      required final String? nextUrl}) = _$NovelsImpl;
 
-  factory _Novels.fromJson(Map<String, dynamic> json) = _$_Novels.fromJson;
+  factory _Novels.fromJson(Map<String, dynamic> json) = _$NovelsImpl.fromJson;
 
   @override
   List<Novel> get novels;
@@ -166,6 +168,6 @@ abstract class _Novels implements Novels {
   String? get nextUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_NovelsCopyWith<_$_Novels> get copyWith =>
+  _$$NovelsImplCopyWith<_$NovelsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

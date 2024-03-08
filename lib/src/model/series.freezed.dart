@@ -12,7 +12,7 @@ part of 'series.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Series _$SeriesFromJson(Map<String, dynamic> json) {
   return _Series.fromJson(json);
@@ -66,19 +66,21 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
 }
 
 /// @nodoc
-abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
-  factory _$$_SeriesCopyWith(_$_Series value, $Res Function(_$_Series) then) =
-      __$$_SeriesCopyWithImpl<$Res>;
+abstract class _$$SeriesImplCopyWith<$Res> implements $SeriesCopyWith<$Res> {
+  factory _$$SeriesImplCopyWith(
+          _$SeriesImpl value, $Res Function(_$SeriesImpl) then) =
+      __$$SeriesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int id, String title});
 }
 
 /// @nodoc
-class __$$_SeriesCopyWithImpl<$Res>
-    extends _$SeriesCopyWithImpl<$Res, _$_Series>
-    implements _$$_SeriesCopyWith<$Res> {
-  __$$_SeriesCopyWithImpl(_$_Series _value, $Res Function(_$_Series) _then)
+class __$$SeriesImplCopyWithImpl<$Res>
+    extends _$SeriesCopyWithImpl<$Res, _$SeriesImpl>
+    implements _$$SeriesImplCopyWith<$Res> {
+  __$$SeriesImplCopyWithImpl(
+      _$SeriesImpl _value, $Res Function(_$SeriesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +89,7 @@ class __$$_SeriesCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
   }) {
-    return _then(_$_Series(
+    return _then(_$SeriesImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -102,11 +104,11 @@ class __$$_SeriesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Series implements _Series {
-  _$_Series({required this.id, required this.title});
+class _$SeriesImpl implements _Series {
+  _$SeriesImpl({required this.id, required this.title});
 
-  factory _$_Series.fromJson(Map<String, dynamic> json) =>
-      _$$_SeriesFromJson(json);
+  factory _$SeriesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SeriesImplFromJson(json);
 
   @override
   final int id;
@@ -119,10 +121,10 @@ class _$_Series implements _Series {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Series &&
+            other is _$SeriesImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title));
   }
@@ -134,12 +136,12 @@ class _$_Series implements _Series {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SeriesCopyWith<_$_Series> get copyWith =>
-      __$$_SeriesCopyWithImpl<_$_Series>(this, _$identity);
+  _$$SeriesImplCopyWith<_$SeriesImpl> get copyWith =>
+      __$$SeriesImplCopyWithImpl<_$SeriesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SeriesToJson(
+    return _$$SeriesImplToJson(
       this,
     );
   }
@@ -147,9 +149,9 @@ class _$_Series implements _Series {
 
 abstract class _Series implements Series {
   factory _Series({required final int id, required final String title}) =
-      _$_Series;
+      _$SeriesImpl;
 
-  factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
+  factory _Series.fromJson(Map<String, dynamic> json) = _$SeriesImpl.fromJson;
 
   @override
   int get id;
@@ -157,6 +159,6 @@ abstract class _Series implements Series {
   String get title;
   @override
   @JsonKey(ignore: true)
-  _$$_SeriesCopyWith<_$_Series> get copyWith =>
+  _$$SeriesImplCopyWith<_$SeriesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

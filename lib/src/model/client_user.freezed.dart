@@ -12,7 +12,7 @@ part of 'client_user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 CllientUserProfileImageUrls _$CllientUserProfileImageUrlsFromJson(
     Map<String, dynamic> json) {
@@ -84,12 +84,12 @@ class _$CllientUserProfileImageUrlsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_CllientUserProfileImageUrlsCopyWith<$Res>
+abstract class _$$CllientUserProfileImageUrlsImplCopyWith<$Res>
     implements $CllientUserProfileImageUrlsCopyWith<$Res> {
-  factory _$$_CllientUserProfileImageUrlsCopyWith(
-          _$_CllientUserProfileImageUrls value,
-          $Res Function(_$_CllientUserProfileImageUrls) then) =
-      __$$_CllientUserProfileImageUrlsCopyWithImpl<$Res>;
+  factory _$$CllientUserProfileImageUrlsImplCopyWith(
+          _$CllientUserProfileImageUrlsImpl value,
+          $Res Function(_$CllientUserProfileImageUrlsImpl) then) =
+      __$$CllientUserProfileImageUrlsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,13 +99,13 @@ abstract class _$$_CllientUserProfileImageUrlsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CllientUserProfileImageUrlsCopyWithImpl<$Res>
+class __$$CllientUserProfileImageUrlsImplCopyWithImpl<$Res>
     extends _$CllientUserProfileImageUrlsCopyWithImpl<$Res,
-        _$_CllientUserProfileImageUrls>
-    implements _$$_CllientUserProfileImageUrlsCopyWith<$Res> {
-  __$$_CllientUserProfileImageUrlsCopyWithImpl(
-      _$_CllientUserProfileImageUrls _value,
-      $Res Function(_$_CllientUserProfileImageUrls) _then)
+        _$CllientUserProfileImageUrlsImpl>
+    implements _$$CllientUserProfileImageUrlsImplCopyWith<$Res> {
+  __$$CllientUserProfileImageUrlsImplCopyWithImpl(
+      _$CllientUserProfileImageUrlsImpl _value,
+      $Res Function(_$CllientUserProfileImageUrlsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +115,7 @@ class __$$_CllientUserProfileImageUrlsCopyWithImpl<$Res>
     Object? px50x50 = null,
     Object? px170x170 = null,
   }) {
-    return _then(_$_CllientUserProfileImageUrls(
+    return _then(_$CllientUserProfileImageUrlsImpl(
       px16x16: null == px16x16
           ? _value.px16x16
           : px16x16 // ignore: cast_nullable_to_non_nullable
@@ -134,14 +134,16 @@ class __$$_CllientUserProfileImageUrlsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CllientUserProfileImageUrls implements _CllientUserProfileImageUrls {
-  _$_CllientUserProfileImageUrls(
+class _$CllientUserProfileImageUrlsImpl
+    implements _CllientUserProfileImageUrls {
+  _$CllientUserProfileImageUrlsImpl(
       {@JsonKey(name: 'px_16x16') required this.px16x16,
       @JsonKey(name: 'px_50x50') required this.px50x50,
       @JsonKey(name: 'px_170x170') required this.px170x170});
 
-  factory _$_CllientUserProfileImageUrls.fromJson(Map<String, dynamic> json) =>
-      _$$_CllientUserProfileImageUrlsFromJson(json);
+  factory _$CllientUserProfileImageUrlsImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$CllientUserProfileImageUrlsImplFromJson(json);
 
   @override
   @JsonKey(name: 'px_16x16')
@@ -159,10 +161,10 @@ class _$_CllientUserProfileImageUrls implements _CllientUserProfileImageUrls {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CllientUserProfileImageUrls &&
+            other is _$CllientUserProfileImageUrlsImpl &&
             (identical(other.px16x16, px16x16) || other.px16x16 == px16x16) &&
             (identical(other.px50x50, px50x50) || other.px50x50 == px50x50) &&
             (identical(other.px170x170, px170x170) ||
@@ -176,13 +178,13 @@ class _$_CllientUserProfileImageUrls implements _CllientUserProfileImageUrls {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CllientUserProfileImageUrlsCopyWith<_$_CllientUserProfileImageUrls>
-      get copyWith => __$$_CllientUserProfileImageUrlsCopyWithImpl<
-          _$_CllientUserProfileImageUrls>(this, _$identity);
+  _$$CllientUserProfileImageUrlsImplCopyWith<_$CllientUserProfileImageUrlsImpl>
+      get copyWith => __$$CllientUserProfileImageUrlsImplCopyWithImpl<
+          _$CllientUserProfileImageUrlsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CllientUserProfileImageUrlsToJson(
+    return _$$CllientUserProfileImageUrlsImplToJson(
       this,
     );
   }
@@ -194,10 +196,10 @@ abstract class _CllientUserProfileImageUrls
           {@JsonKey(name: 'px_16x16') required final String px16x16,
           @JsonKey(name: 'px_50x50') required final String px50x50,
           @JsonKey(name: 'px_170x170') required final String px170x170}) =
-      _$_CllientUserProfileImageUrls;
+      _$CllientUserProfileImageUrlsImpl;
 
   factory _CllientUserProfileImageUrls.fromJson(Map<String, dynamic> json) =
-      _$_CllientUserProfileImageUrls.fromJson;
+      _$CllientUserProfileImageUrlsImpl.fromJson;
 
   @override
   @JsonKey(name: 'px_16x16')
@@ -210,7 +212,7 @@ abstract class _CllientUserProfileImageUrls
   String get px170x170;
   @override
   @JsonKey(ignore: true)
-  _$$_CllientUserProfileImageUrlsCopyWith<_$_CllientUserProfileImageUrls>
+  _$$CllientUserProfileImageUrlsImplCopyWith<_$CllientUserProfileImageUrlsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -332,11 +334,11 @@ class _$ClientUserCopyWithImpl<$Res, $Val extends ClientUser>
 }
 
 /// @nodoc
-abstract class _$$_ClientUserCopyWith<$Res>
+abstract class _$$ClientUserImplCopyWith<$Res>
     implements $ClientUserCopyWith<$Res> {
-  factory _$$_ClientUserCopyWith(
-          _$_ClientUser value, $Res Function(_$_ClientUser) then) =
-      __$$_ClientUserCopyWithImpl<$Res>;
+  factory _$$ClientUserImplCopyWith(
+          _$ClientUserImpl value, $Res Function(_$ClientUserImpl) then) =
+      __$$ClientUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -355,11 +357,11 @@ abstract class _$$_ClientUserCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ClientUserCopyWithImpl<$Res>
-    extends _$ClientUserCopyWithImpl<$Res, _$_ClientUser>
-    implements _$$_ClientUserCopyWith<$Res> {
-  __$$_ClientUserCopyWithImpl(
-      _$_ClientUser _value, $Res Function(_$_ClientUser) _then)
+class __$$ClientUserImplCopyWithImpl<$Res>
+    extends _$ClientUserCopyWithImpl<$Res, _$ClientUserImpl>
+    implements _$$ClientUserImplCopyWith<$Res> {
+  __$$ClientUserImplCopyWithImpl(
+      _$ClientUserImpl _value, $Res Function(_$ClientUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -375,7 +377,7 @@ class __$$_ClientUserCopyWithImpl<$Res>
     Object? isMailAuthorized = null,
     Object? requirePolicyAgreement = null,
   }) {
-    return _then(_$_ClientUser(
+    return _then(_$ClientUserImpl(
       profileImageUrls: null == profileImageUrls
           ? _value.profileImageUrls
           : profileImageUrls // ignore: cast_nullable_to_non_nullable
@@ -418,8 +420,8 @@ class __$$_ClientUserCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ClientUser implements _ClientUser {
-  _$_ClientUser(
+class _$ClientUserImpl implements _ClientUser {
+  _$ClientUserImpl(
       {required this.profileImageUrls,
       @IdConverter() required this.id,
       required this.name,
@@ -430,8 +432,8 @@ class _$_ClientUser implements _ClientUser {
       required this.isMailAuthorized,
       required this.requirePolicyAgreement});
 
-  factory _$_ClientUser.fromJson(Map<String, dynamic> json) =>
-      _$$_ClientUserFromJson(json);
+  factory _$ClientUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ClientUserImplFromJson(json);
 
   @override
   final CllientUserProfileImageUrls profileImageUrls;
@@ -459,10 +461,10 @@ class _$_ClientUser implements _ClientUser {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ClientUser &&
+            other is _$ClientUserImpl &&
             (identical(other.profileImageUrls, profileImageUrls) ||
                 other.profileImageUrls == profileImageUrls) &&
             (identical(other.id, id) || other.id == id) &&
@@ -497,12 +499,12 @@ class _$_ClientUser implements _ClientUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ClientUserCopyWith<_$_ClientUser> get copyWith =>
-      __$$_ClientUserCopyWithImpl<_$_ClientUser>(this, _$identity);
+  _$$ClientUserImplCopyWith<_$ClientUserImpl> get copyWith =>
+      __$$ClientUserImplCopyWithImpl<_$ClientUserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ClientUserToJson(
+    return _$$ClientUserImplToJson(
       this,
     );
   }
@@ -518,10 +520,10 @@ abstract class _ClientUser implements ClientUser {
       required final bool isPremium,
       required final int xRestrict,
       required final bool isMailAuthorized,
-      required final bool requirePolicyAgreement}) = _$_ClientUser;
+      required final bool requirePolicyAgreement}) = _$ClientUserImpl;
 
   factory _ClientUser.fromJson(Map<String, dynamic> json) =
-      _$_ClientUser.fromJson;
+      _$ClientUserImpl.fromJson;
 
   @override
   CllientUserProfileImageUrls get profileImageUrls;
@@ -544,6 +546,6 @@ abstract class _ClientUser implements ClientUser {
   bool get requirePolicyAgreement;
   @override
   @JsonKey(ignore: true)
-  _$$_ClientUserCopyWith<_$_ClientUser> get copyWith =>
+  _$$ClientUserImplCopyWith<_$ClientUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

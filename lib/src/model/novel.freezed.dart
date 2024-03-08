@@ -12,7 +12,7 @@ part of 'novel.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Novel _$NovelFromJson(Map<String, dynamic> json) {
   return _Novel.fromJson(json);
@@ -251,9 +251,10 @@ class _$NovelCopyWithImpl<$Res, $Val extends Novel>
 }
 
 /// @nodoc
-abstract class _$$_NovelCopyWith<$Res> implements $NovelCopyWith<$Res> {
-  factory _$$_NovelCopyWith(_$_Novel value, $Res Function(_$_Novel) then) =
-      __$$_NovelCopyWithImpl<$Res>;
+abstract class _$$NovelImplCopyWith<$Res> implements $NovelCopyWith<$Res> {
+  factory _$$NovelImplCopyWith(
+          _$NovelImpl value, $Res Function(_$NovelImpl) then) =
+      __$$NovelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -290,9 +291,11 @@ abstract class _$$_NovelCopyWith<$Res> implements $NovelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NovelCopyWithImpl<$Res> extends _$NovelCopyWithImpl<$Res, _$_Novel>
-    implements _$$_NovelCopyWith<$Res> {
-  __$$_NovelCopyWithImpl(_$_Novel _value, $Res Function(_$_Novel) _then)
+class __$$NovelImplCopyWithImpl<$Res>
+    extends _$NovelCopyWithImpl<$Res, _$NovelImpl>
+    implements _$$NovelImplCopyWith<$Res> {
+  __$$NovelImplCopyWithImpl(
+      _$NovelImpl _value, $Res Function(_$NovelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -322,7 +325,7 @@ class __$$_NovelCopyWithImpl<$Res> extends _$NovelCopyWithImpl<$Res, _$_Novel>
     Object? novelAIType = null,
     Object? commentAccessControl = freezed,
   }) {
-    return _then(_$_Novel(
+    return _then(_$NovelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -421,8 +424,8 @@ class __$$_NovelCopyWithImpl<$Res> extends _$NovelCopyWithImpl<$Res, _$_Novel>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Novel implements _Novel {
-  _$_Novel(
+class _$NovelImpl implements _Novel {
+  _$NovelImpl(
       {required this.id,
       required this.title,
       required this.caption,
@@ -450,8 +453,8 @@ class _$_Novel implements _Novel {
       this.commentAccessControl})
       : _tags = tags;
 
-  factory _$_Novel.fromJson(Map<String, dynamic> json) =>
-      _$$_NovelFromJson(json);
+  factory _$NovelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NovelImplFromJson(json);
 
   @override
   final int id;
@@ -516,10 +519,10 @@ class _$_Novel implements _Novel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Novel &&
+            other is _$NovelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.caption, caption) || other.caption == caption) &&
@@ -592,12 +595,12 @@ class _$_Novel implements _Novel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NovelCopyWith<_$_Novel> get copyWith =>
-      __$$_NovelCopyWithImpl<_$_Novel>(this, _$identity);
+  _$$NovelImplCopyWith<_$NovelImpl> get copyWith =>
+      __$$NovelImplCopyWithImpl<_$NovelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NovelToJson(
+    return _$$NovelImplToJson(
       this,
     );
   }
@@ -629,9 +632,9 @@ abstract class _Novel implements Novel {
       @JsonKey(name: 'novel_ai_type')
       @AITypeConverter()
       required final AIType novelAIType,
-      final int? commentAccessControl}) = _$_Novel;
+      final int? commentAccessControl}) = _$NovelImpl;
 
-  factory _Novel.fromJson(Map<String, dynamic> json) = _$_Novel.fromJson;
+  factory _Novel.fromJson(Map<String, dynamic> json) = _$NovelImpl.fromJson;
 
   @override
   int get id;
@@ -685,6 +688,6 @@ abstract class _Novel implements Novel {
   int? get commentAccessControl;
   @override
   @JsonKey(ignore: true)
-  _$$_NovelCopyWith<_$_Novel> get copyWith =>
+  _$$NovelImplCopyWith<_$NovelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
