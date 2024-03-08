@@ -93,3 +93,10 @@ enum SearchResultSortType {
 enum Privacy { public, mypixiv, private }
 
 enum Restrict { public, private }
+
+enum IllustSize {
+  squareMedium,
+  medium,
+  large,
+  original,
+}
