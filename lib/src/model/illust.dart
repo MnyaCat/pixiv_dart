@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image/image.dart';
 import 'package:pixiv_dart/src/client.dart';
+import 'package:pixiv_dart/src/exceptions.dart';
 
 import '../constants.dart';
 import 'enums.dart';
@@ -154,6 +155,19 @@ class Illust with _$Illust {
     return illusts;
   }
 
+  Future<Uint8List> downloadSingleIllust(
+    ApiClient apiClient,
+  ) async {
+    if (metaSinglePage == null) {
+      throw MetaSinglePageIsNull(
+        // ignore: lines_longer_than_80_chars
+        'The MetaSinglePage object is null, which is unexpected when downloading the illustration.',
+        this,
+      );
+    }
+    return apiClient.downloadIllustData(metaSinglePage!.originalImageUrl);
+  }
+
   Future<List<Image>> downloadIllustImages(
     ApiClient apiClient, {
     IllustSize downloadSize = IllustSize.large,
@@ -178,5 +192,22 @@ class Illust with _$Illust {
       }
     }
     return images;
+  }
+
+  Future<Image?> downloadSingleIllustImage(
+    ApiClient apiClient, {
+    bool executeThread = false,
+  }) async {
+    final illust = await downloadSingleIllust(apiClient);
+
+    final command = Command();
+    final Future<Image?> Function() getImage;
+    if (executeThread) {
+      getImage = command.getImageThread;
+    } else {
+      getImage = command.getImage;
+    }
+    command.decodePng(illust);
+    return getImage();
   }
 }
