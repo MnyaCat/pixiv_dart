@@ -1,4 +1,5 @@
 import 'package:http/http.dart' show Response;
+import 'package:pixiv_dart/src/model/illust.dart';
 
 class PixivException implements Exception {}
 
@@ -53,4 +54,14 @@ class RateLimited extends PixivHttpException {
 // 5xx
 class PixivServerError extends PixivHttpException {
   const PixivServerError(super.message, super.response, super.status);
+}
+
+class MetaSinglePageIsNull implements PixivException {
+  const MetaSinglePageIsNull(this.message, this.illust);
+
+  final String message;
+  final Illust illust;
+
+  @override
+  String toString() => 'MetaSinglePageIsNull: $message, illust = $illust';
 }
