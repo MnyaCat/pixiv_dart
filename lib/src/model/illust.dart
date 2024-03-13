@@ -127,7 +127,7 @@ class Illust with _$Illust {
 
   factory Illust.fromJson(JsonMap json) => _$IllustFromJson(json);
 
-  Future<List<Uint8List>> downloadIllust(
+  Future<List<Uint8List>> downloadIllusts(
     ApiClient apiClient, {
     IllustSize downloadSize = IllustSize.large,
   }) async {
@@ -154,12 +154,13 @@ class Illust with _$Illust {
     return illusts;
   }
 
-  Future<List<Image>> downloadIllustImage(
+  Future<List<Image>> downloadIllustImages(
     ApiClient apiClient, {
     IllustSize downloadSize = IllustSize.large,
     bool executeThread = false,
   }) async {
-    final illusts = await downloadIllust(apiClient, downloadSize: downloadSize);
+    final illusts =
+        await downloadIllusts(apiClient, downloadSize: downloadSize);
     final command = Command();
     final images = <Image>[];
     final Future<Image?> Function() getImage;
