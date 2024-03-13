@@ -705,4 +705,15 @@ class ApiClient extends BaseClient {
         .get(uri, headers: {'Referer': 'https://$apiHostname'});
     return response.bodyBytes;
   }
+
+  Future<http.StreamedResponse> downloadIllustDataAsStreamedResponse(
+    String url,
+  ) async {
+    final uri = Uri.parse(url);
+    final request = http.Request(
+      'GET',
+      uri,
+    )..headers.addAll({'Referer': 'https://$apiHostname'});
+    return innerClient.send(request);
+  }
 }
