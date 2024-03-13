@@ -168,7 +168,7 @@ class Illust with _$Illust {
     return apiClient.downloadIllustData(metaSinglePage!.originalImageUrl);
   }
 
-  Future<List<Image>> downloadIllustImages(
+  Future<List<Image?>> downloadIllustImages(
     ApiClient apiClient, {
     IllustSize downloadSize = IllustSize.large,
     bool executeThread = false,
@@ -176,7 +176,7 @@ class Illust with _$Illust {
     final illusts =
         await downloadIllusts(apiClient, downloadSize: downloadSize);
     final command = Command();
-    final images = <Image>[];
+    final images = <Image?>[];
     final Future<Image?> Function() getImage;
     if (executeThread) {
       getImage = command.getImageThread;
@@ -187,9 +187,7 @@ class Illust with _$Illust {
     for (final illust in illusts) {
       command.decodePng(illust);
       final image = await getImage();
-      if (image != null) {
-        images.add(image);
-      }
+      images.add(image);
     }
     return images;
   }
