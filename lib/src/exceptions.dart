@@ -1,5 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:http/http.dart' show Response;
 import 'package:pixiv_dart/src/model/illust.dart';
+import 'package:pixiv_dart/src/model/ugoira_metadata.dart';
 
 class PixivException implements Exception {}
 
@@ -74,4 +77,15 @@ class MetaSinglePageIsNull implements PixivException {
 
   @override
   String toString() => 'MetaSinglePageIsNull: $message, illust = $illust';
+}
+
+class UgoiraConversionFailed implements PixivException {
+  const UgoiraConversionFailed(this.message, this.ugoiraData, this.metadata);
+
+  final String message;
+  final Uint8List ugoiraData;
+  final UgoiraMetadata metadata;
+
+  @override
+  String toString() => 'UgoiraConversionFailed: $message';
 }
