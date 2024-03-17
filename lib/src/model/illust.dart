@@ -225,4 +225,20 @@ class Illust with _$Illust {
         await apiClient.downloadIllustData(metadata.zipUrls.medium);
     return ugoiraToGifBytes(ugoiraData, metadata, executeThread: executeThread);
   }
+
+  Future<Image> downloadUgoiraImage(
+    ApiClient apiClient, {
+    bool executeThread = false,
+  }) async {
+    if (type != IllustType.ugoira) {
+      throw NotUgoiraException(
+        "The specified illustration is not an 'ugoira'",
+        this,
+      );
+    }
+    final metadata = await apiClient.fetchUgoiraMetadata(id);
+    final ugoiraData =
+        await apiClient.downloadIllustData(metadata.zipUrls.medium);
+    return ugoiraToGifImage(ugoiraData, metadata, executeThread: executeThread);
+  }
 }
