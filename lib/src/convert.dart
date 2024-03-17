@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:archive/archive_io.dart';
 import 'package:image/image.dart';
+import 'package:pixiv_dart/src/exceptions.dart';
 
 import 'model/ugoira_metadata.dart';
 
@@ -36,36 +37,44 @@ Future<Command> ugoiraToGifCommand(
     ..encodeGif();
 }
 
-Future<Image?> ugoiraToGifImage(
+Future<Image> ugoiraToGifImage(
   Uint8List ugoiraData,
-  UgoiraMetadata metadata,
-) async {
-  final command = await ugoiraToGifCommand(ugoiraData, metadata);
-  return command.getImage();
+  UgoiraMetadata metadata, {
+  bool executeThread = false,
+}) async {
+  final command = await ugoiraToGifCommand(
+    ugoiraData,
+    metadata,
+    executeThread: executeThread,
+  );
+  final ugoiraImage = await command.getImage();
+  if (ugoiraImage == null) {
+    throw UgoiraConversionFailed(
+      'Failed to convert ugoira to Image. Could not retrieve image data.',
+      ugoiraData,
+      metadata,
+    );
+  }
+  return ugoiraImage;
 }
 
-Future<Image?> ugoiraToGifImageThread(
+Future<Uint8List> ugoiraToGifBytes(
   Uint8List ugoiraData,
-  UgoiraMetadata metadata,
-) async {
-  final command =
-      await ugoiraToGifCommand(ugoiraData, metadata, executeThread: true);
-  return command.getImageThread();
-}
-
-Future<Uint8List?> ugoiraToGifBytes(
-  Uint8List ugoiraData,
-  UgoiraMetadata metadata,
-) async {
-  final command = await ugoiraToGifCommand(ugoiraData, metadata);
-  return command.getBytes();
-}
-
-Future<Uint8List?> ugoiraToGifBytesThread(
-  Uint8List ugoiraData,
-  UgoiraMetadata metadata,
-) async {
-  final command =
-      await ugoiraToGifCommand(ugoiraData, metadata, executeThread: true);
-  return command.getBytesThread();
+  UgoiraMetadata metadata, {
+  bool executeThread = false,
+}) async {
+  final command = await ugoiraToGifCommand(
+    ugoiraData,
+    metadata,
+    executeThread: executeThread,
+  );
+  final ugoiraGif = await command.getBytes();
+  if (ugoiraGif == null) {
+    throw UgoiraConversionFailed(
+      'Failed to convert ugoira to GIF. Could not retrieve image data.',
+      ugoiraData,
+      metadata,
+    );
+  }
+  return ugoiraGif;
 }
