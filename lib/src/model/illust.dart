@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image/image.dart';
 import 'package:pixiv_dart/src/client.dart';
+import 'package:pixiv_dart/src/convert.dart';
 import 'package:pixiv_dart/src/exceptions.dart';
 
 import '../constants.dart';
@@ -207,5 +208,21 @@ class Illust with _$Illust {
     }
     command.decodePng(illust);
     return getImage();
+  }
+
+  Future<Uint8List> downloadUgoira(
+    ApiClient apiClient, {
+    bool executeThread = false,
+  }) async {
+    if (type != IllustType.ugoira) {
+      throw NotUgoiraException(
+        "The specified illustration is not an 'ugoira'",
+        this,
+      );
+    }
+    final metadata = await apiClient.fetchUgoiraMetadata(id);
+    final ugoiraData =
+        await apiClient.downloadIllustData(metadata.zipUrls.medium);
+    return ugoiraToGifBytes(ugoiraData, metadata, executeThread: executeThread);
   }
 }
