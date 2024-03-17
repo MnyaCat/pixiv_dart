@@ -56,6 +56,16 @@ class PixivServerError extends PixivHttpException {
   const PixivServerError(super.message, super.response, super.status);
 }
 
+class NotUgoiraException implements PixivException {
+  const NotUgoiraException(this.message, this.illust);
+
+  final String message;
+  final Illust illust;
+
+  @override
+  String toString() => 'NotUgoiraException: $message, illust = $illust';
+}
+
 class MetaSinglePageIsNull implements PixivException {
   const MetaSinglePageIsNull(this.message, this.illust);
 
